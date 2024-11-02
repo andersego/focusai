@@ -94,7 +94,13 @@ export const translations = {
     addFeedback: "Add Feedback",
     showFeedback: "Show Feedback",
     hideFeedback: "Hide Feedback",
-    orContinueWith: "or continue with"
+    orContinueWith: "or continue with",
+    createAccount: "Create your account",
+    name: "Name",
+    signUpWithGoogle: "Sign up with Google",
+    alreadyHaveAccount: "Already have an account?",
+    signUpError: "Error creating account",
+    emailAlreadyRegistered: "Email already registered"
   },
   es: {
     appDescription: "Tu compañero de desarrollo personal potenciado por IA",
@@ -191,7 +197,13 @@ export const translations = {
     addFeedback: "Añadir Feedback",
     showFeedback: "Ver Feedback",
     hideFeedback: "Ocultar Feedback",
-    orContinueWith: "o continuar con"
+    orContinueWith: "o continuar con",
+    createAccount: "Crea tu cuenta",
+    name: "Nombre",
+    signUpWithGoogle: "Registrarse con Google",
+    alreadyHaveAccount: "¿Ya tienes una cuenta?",
+    signUpError: "Error al crear la cuenta",
+    emailAlreadyRegistered: "El correo ya está registrado"
   }
 }
 
