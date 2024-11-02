@@ -4,15 +4,25 @@ import { useSession, signOut } from "next-auth/react"
 import { Button } from "@/components/ui/button"
 import { LogOut, User } from "lucide-react"
 import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 
 export function UserMenu() {
   const { data: session, status } = useSession()
   const router = useRouter()
 
-  console.log('Session Status:', status)
-  console.log('Session Data:', session)
+  console.log('UserMenu Render:', { status, session })
 
-  if (!session) return null
+  useEffect(() => {
+    console.log('Session Changed:', { status, session })
+  }, [status, session])
+
+  if (status === 'loading') {
+    return null
+  }
+
+  if (!session?.user) {
+    return null
+  }
 
   return (
     <div className="flex items-center gap-2">
@@ -21,7 +31,7 @@ export function UserMenu() {
         onClick={() => router.push('/')}
       >
         <User className="h-4 w-4" />
-        <span className="text-sm font-medium">{session.user?.name}</span>
+        <span className="text-sm font-medium">{session.user.name}</span>
       </div>
       <Button
         variant="ghost"

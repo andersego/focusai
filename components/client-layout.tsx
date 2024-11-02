@@ -1,6 +1,6 @@
 'use client'
 
-import { SessionProvider } from "@/components/providers/session-provider"
+import { SessionProvider } from "next-auth/react"
 import { LanguageProvider } from "@/lib/language-context"
 import { DevTimeProvider } from "@/lib/dev-time-context"
 import { LanguageSwitcher } from "@/components/language-switcher"

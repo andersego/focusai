@@ -93,7 +93,8 @@ export const translations = {
     viewFeedback: "View Feedback",
     addFeedback: "Add Feedback",
     showFeedback: "Show Feedback",
-    hideFeedback: "Hide Feedback"
+    hideFeedback: "Hide Feedback",
+    orContinueWith: "or continue with"
   },
   es: {
     appDescription: "Tu compañero de desarrollo personal potenciado por IA",
@@ -189,7 +190,8 @@ export const translations = {
     viewFeedback: "Ver Feedback",
     addFeedback: "Añadir Feedback",
     showFeedback: "Ver Feedback",
-    hideFeedback: "Ocultar Feedback"
+    hideFeedback: "Ocultar Feedback",
+    orContinueWith: "o continuar con"
   }
 }
 

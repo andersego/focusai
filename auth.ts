@@ -9,40 +9,37 @@ export const authOptions: NextAuthOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-    }),
+      authorization: {
+        params: {
+          prompt: "select_account"
+        }
+      }
+    })
   ],
-  session: {
-    strategy: "jwt",
-  },
-  debug: true, // Enable debug logs
   callbacks: {
     async signIn({ user, account, profile }) {
-      console.log('Sign In Callback:', { user, account, profile }) // Debug log
+      console.log('Sign In Callback:', { user, account, profile })
       return true
     },
-    async session({ session, token, user }) {
-      console.log('Session Callback:', { session, token, user }) // Debug log
-      if (session?.user) {
-        session.user.id = token.sub!
-      }
-      return session
-    },
-    async jwt({ token, user, account, profile }) {
-      console.log('JWT Callback:', { token, user, account, profile }) // Debug log
+    async jwt({ token, user }) {
       if (user) {
         token.id = user.id
       }
       return token
+    },
+    async session({ session, token }) {
+      if (session.user) {
+        session.user.id = token.id as string
+      }
+      return session
     }
   },
   pages: {
     signIn: '/auth/signin',
   },
-  events: {
-    async signIn(message) { console.log('Sign In Event:', message) },
-    async signOut(message) { console.log('Sign Out Event:', message) },
-    async createUser(message) { console.log('Create User Event:', message) },
-    async linkAccount(message) { console.log('Link Account Event:', message) },
-    async session(message) { console.log('Session Event:', message) }
-  }
+  session: {
+    strategy: "jwt",
+    maxAge: 30 * 24 * 60 * 60, // 30 days
+  },
+  debug: true
 } 
