@@ -3,8 +3,18 @@ import { getToken } from 'next-auth/jwt'
 import { NextRequest } from 'next/server'
 
 export async function middleware(request: NextRequest) {
-  const token = await getToken({ req: request })
+  const token = await getToken({ 
+    req: request,
+    secret: process.env.NEXTAUTH_SECRET 
+  })
+  
   const isAuthPage = request.nextUrl.pathname.startsWith('/auth')
+  const isPublicPath = request.nextUrl.pathname.startsWith('/api/auth')
+
+  // Allow public paths
+  if (isPublicPath) {
+    return NextResponse.next()
+  }
 
   // If not authenticated and not on auth page, redirect to signin
   if (!token && !isAuthPage) {
@@ -25,11 +35,10 @@ export const config = {
   matcher: [
     /*
      * Match all request paths except for the ones starting with:
-     * - api (API routes)
      * - _next/static (static files)
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
      */
-    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+    '/((?!_next/static|_next/image|favicon.ico).*)',
   ],
 } 

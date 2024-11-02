@@ -21,7 +21,7 @@ export const authOptions: NextAuthOptions = {
       console.log('Sign In Callback:', { user, account, profile })
       return true
     },
-    async jwt({ token, user }) {
+    async jwt({ token, user, account }) {
       if (user) {
         token.id = user.id
       }
@@ -32,14 +32,22 @@ export const authOptions: NextAuthOptions = {
         session.user.id = token.id as string
       }
       return session
+    },
+    async redirect({ url, baseUrl }) {
+      console.log('Redirect Callback:', { url, baseUrl })
+      // Allow relative URLs
+      if (url.startsWith("/")) return `${baseUrl}${url}`
+      // Allow URLs from the same origin
+      else if (new URL(url).origin === baseUrl) return url
+      return baseUrl
     }
   },
   pages: {
     signIn: '/auth/signin',
+    error: '/auth/error',
   },
+  debug: true,
   session: {
-    strategy: "jwt",
-    maxAge: 30 * 24 * 60 * 60, // 30 days
-  },
-  debug: true
+    strategy: "jwt"
+  }
 } 
