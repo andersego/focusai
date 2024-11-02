@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ClientLayout } from "@/components/client-layout";
+import { SessionProvider } from '@/providers/session-provider'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: "FocusAI",
@@ -14,10 +18,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-background font-sans antialiased">
-        <ClientLayout>
-          {children}
-        </ClientLayout>
+      <body className={inter.className}>
+        <SessionProvider>
+          <ClientLayout>
+            {children}
+          </ClientLayout>
+        </SessionProvider>
       </body>
     </html>
   )
