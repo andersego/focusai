@@ -48,10 +48,17 @@ function SignInContent() {
     }
   }
 
+  const handleGoogleSignIn = () => {
+    signIn('google', { 
+      callbackUrl,
+      redirect: true
+    })
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-      <Card className="w-full max-w-md mx-4">
-        <CardHeader className="space-y-2">
+      <Card className="w-full max-w-md">
+        <CardHeader>
           <CardTitle className="text-2xl md:text-3xl font-bold text-center text-blue-600">FocusAI</CardTitle>
           <CardDescription className="text-center text-sm md:text-base">{t('signInDescription')}</CardDescription>
         </CardHeader>
@@ -119,11 +126,21 @@ function SignInContent() {
           <Button
             variant="outline"
             className="w-full"
-            onClick={() => signIn('google', { callbackUrl })}
+            onClick={handleGoogleSignIn}
             disabled={isLoading}
           >
             {t('signInWithGoogle')}
           </Button>
+          <p className="text-center text-sm text-gray-600">
+            {t('noAccount')}{' '}
+            <Button 
+              variant="link" 
+              onClick={() => router.push('/auth/signup')}
+              disabled={isLoading}
+            >
+              {t('signUp')}
+            </Button>
+          </p>
         </CardContent>
       </Card>
     </div>

@@ -11,44 +11,27 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
       authorization: {
         params: {
-          prompt: "select_account",
-          access_type: "offline",
-          response_type: "code"
+          prompt: "select_account"
         }
       }
     })
   ],
   callbacks: {
     async signIn({ user, account, profile }) {
-      try {
-        console.log('Sign In Callback:', { user, account, profile })
-        return true
-      } catch (error) {
-        console.error('Sign In Error:', error)
-        return false
-      }
+      console.log('Sign In Callback:', { user, account, profile })
+      return true
     },
     async jwt({ token, user, account }) {
-      try {
-        if (user) {
-          token.id = user.id
-        }
-        return token
-      } catch (error) {
-        console.error('JWT Error:', error)
-        return token
+      if (user) {
+        token.id = user.id
       }
+      return token
     },
     async session({ session, token }) {
-      try {
-        if (session.user) {
-          session.user.id = token.id as string
-        }
-        return session
-      } catch (error) {
-        console.error('Session Error:', error)
-        return session
+      if (session.user) {
+        session.user.id = token.id as string
       }
+      return session
     }
   },
   pages: {
