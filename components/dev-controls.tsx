@@ -1,27 +1,34 @@
 'use client'
 
-import { Button } from "@/components/ui/button"
 import { useDevTime } from "@/lib/dev-time-context"
+import { Button } from "@/components/ui/button"
+import { useLanguage } from "@/lib/language-context"
 
 export function DevControls() {
-  const { currentDay, advanceDay, resetDays } = useDevTime()
+  const { currentDay, setCurrentDay } = useDevTime()
+  const { t } = useLanguage()
+
+  // Only show in development
+  if (process.env.NEXT_PUBLIC_ENV === 'production') {
+    return null
+  }
 
   return (
-    <div className="fixed bottom-4 left-4 flex items-center gap-2 bg-white p-2 rounded-lg shadow">
-      <span className="text-sm font-medium">Day: {currentDay}</span>
+    <div className="fixed bottom-4 right-4 flex items-center gap-2 bg-white p-2 rounded-lg shadow">
+      <span className="text-sm font-medium">{t('currentDay')}: {currentDay + 1}</span>
       <Button
         variant="outline"
         size="sm"
-        onClick={advanceDay}
+        onClick={() => setCurrentDay(currentDay + 1)}
       >
-        Next Day
+        {t('nextDay')}
       </Button>
       <Button
         variant="outline"
         size="sm"
-        onClick={resetDays}
+        onClick={() => setCurrentDay(0)}
       >
-        Reset Days
+        {t('resetDays')}
       </Button>
     </div>
   )
