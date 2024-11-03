@@ -16,30 +16,33 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const { data: session } = useSession()
-  const [language, setLanguage] = useState<Language>(() => {
-    // First try to get from localStorage
-    const savedLanguage = localStorage.getItem('preferredLanguage') as Language
+  const [language, setLanguage] = useState<Language>('es') // Default to Spanish
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+    // Try to get from localStorage only on client side
+    const savedLanguage = typeof window !== 'undefined' 
+      ? localStorage.getItem('preferredLanguage') as Language 
+      : null
+
     if (savedLanguage === 'en' || savedLanguage === 'es') {
-      return savedLanguage
-    }
-    // If no saved preference, default to Spanish
-    return 'es'
-  })
-
-  // Save language preference whenever it changes
-  useEffect(() => {
-    localStorage.setItem('preferredLanguage', language)
-  }, [language])
-
-  // Try to detect language from email domain only if no preference is saved
-  useEffect(() => {
-    if (!localStorage.getItem('preferredLanguage') && session?.user?.email) {
+      setLanguage(savedLanguage)
+    } else if (session?.user?.email) {
+      // If no saved preference, try to detect from email
       const emailDomain = session.user.email.split('@')[1]
       if (emailDomain.endsWith('.com')) {
         setLanguage('en')
       }
     }
   }, [session])
+
+  // Save language preference only on client side
+  useEffect(() => {
+    if (isClient) {
+      localStorage.setItem('preferredLanguage', language)
+    }
+  }, [language, isClient])
 
   const t = (key: keyof typeof translations.en) => {
     return translations[language][key] || key
