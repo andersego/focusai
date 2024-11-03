@@ -4,6 +4,7 @@ import { LanguageProvider } from "@/lib/language-context"
 import { DevTimeProvider } from "@/lib/dev-time-context"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import { UserMenu } from "@/components/user-menu"
+import { Footer } from "@/components/footer"
 
 export function ClientLayout({
   children,
@@ -13,11 +14,16 @@ export function ClientLayout({
   return (
     <LanguageProvider>
       <DevTimeProvider>
-        <div className="fixed top-4 right-4 flex items-center gap-4 z-50">
-          <LanguageSwitcher />
-          <UserMenu />
+        <div className="min-h-screen flex flex-col">
+          <div className="fixed top-4 right-4 flex items-center gap-4 z-50">
+            <LanguageSwitcher />
+            <UserMenu />
+          </div>
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
         </div>
-        {children}
       </DevTimeProvider>
     </LanguageProvider>
   )
