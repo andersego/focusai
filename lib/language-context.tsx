@@ -16,13 +16,25 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const { data: session } = useSession()
-  const [language, setLanguage] = useState<Language>('es') // Default to Spanish
+  const [language, setLanguage] = useState<Language>(() => {
+    // First try to get from localStorage
+    const savedLanguage = localStorage.getItem('preferredLanguage') as Language
+    if (savedLanguage === 'en' || savedLanguage === 'es') {
+      return savedLanguage
+    }
+    // If no saved preference, default to Spanish
+    return 'es'
+  })
 
+  // Save language preference whenever it changes
   useEffect(() => {
-    // Try to detect language from email domain
-    if (session?.user?.email) {
+    localStorage.setItem('preferredLanguage', language)
+  }, [language])
+
+  // Try to detect language from email domain only if no preference is saved
+  useEffect(() => {
+    if (!localStorage.getItem('preferredLanguage') && session?.user?.email) {
       const emailDomain = session.user.email.split('@')[1]
-      // If email domain ends with .com, assume English, otherwise Spanish
       if (emailDomain.endsWith('.com')) {
         setLanguage('en')
       }
