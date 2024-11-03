@@ -6,14 +6,18 @@ declare global {
 
 const prismaClientSingleton = () => {
   return new PrismaClient({
-    datasourceUrl: process.env.DATABASE_URL,
-    // Add these options to handle the prepared statement issue
-    __internal: {
-      engine: {
-        cleanupSessionOnInit: true,
-      },
+    log: ['error'],
+    datasources: {
+      db: {
+        url: process.env.DATABASE_URL
+      }
     }
   })
+}
+
+if (global.prisma) {
+  // Close existing connections before creating new client
+  global.prisma.$disconnect()
 }
 
 const prisma = global.prisma || prismaClientSingleton()
