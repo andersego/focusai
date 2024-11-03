@@ -109,6 +109,16 @@ type TranslationKeys = {
   currentDay: string;
   nextDay: string;
   resetDays: string;
+
+  // Personal Brand translations
+  personalBrandTitle: string;
+  personalBrandDescription: string;
+  personalBrandContent: string;
+
+  // Coming soon translations
+  comingSoon: string;
+  featureComingSoon: string;
+  loading: string;
 }
 
 const en: TranslationKeys = {
@@ -218,7 +228,17 @@ const en: TranslationKeys = {
   // Dev controls
   currentDay: "Current Day",
   nextDay: "Next Day",
-  resetDays: "Reset Days"
+  resetDays: "Reset Days",
+
+  // Personal Brand translations
+  personalBrandTitle: "Personal Brand",
+  personalBrandDescription: "Build and manage your professional image",
+  personalBrandContent: "Create a strong personal brand that reflects your values and helps you stand out in your professional field.",
+
+  // Coming soon translations
+  comingSoon: "Coming Soon",
+  featureComingSoon: "This feature is coming soon! Stay tuned for updates.",
+  loading: "Loading...",
 }
 
 const es: TranslationKeys = {
@@ -328,7 +348,17 @@ const es: TranslationKeys = {
   // Dev controls
   currentDay: "Día Actual",
   nextDay: "Siguiente Día",
-  resetDays: "Reiniciar Días"
+  resetDays: "Reiniciar Días",
+
+  // Personal Brand translations
+  personalBrandTitle: "Marca Personal",
+  personalBrandDescription: "Construye y gestiona tu imagen profesional",
+  personalBrandContent: "Crea una marca personal sólida que refleje tus valores y te ayude a destacar en tu campo profesional.",
+
+  // Coming soon translations
+  comingSoon: "Próximamente",
+  featureComingSoon: "¡Esta función estará disponible pronto! Mantente atento a las actualizaciones.",
+  loading: "Cargando...",
 }
 
 export const translations = { en, es }

@@ -1,22 +1,35 @@
 'use client'
 
-import { createContext, useContext, useState, ReactNode } from 'react'
-import { translations, Language } from './translations'
+import { createContext, useContext, useEffect, useState } from 'react'
+import { useSession } from 'next-auth/react'
+import { translations } from './translations'
 
-type TranslationKey = keyof typeof translations.en;
+export type Language = 'en' | 'es'
 
 type LanguageContextType = {
-  language: Language;
-  setLanguage: (lang: Language) => void;
-  t: (key: TranslationKey) => string;
+  language: Language
+  setLanguage: (lang: Language) => void
+  t: (key: keyof typeof translations.en) => string
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>('en')
+export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  const { data: session } = useSession()
+  const [language, setLanguage] = useState<Language>('es') // Default to Spanish
 
-  const t = (key: TranslationKey) => {
+  useEffect(() => {
+    // Try to detect language from email domain
+    if (session?.user?.email) {
+      const emailDomain = session.user.email.split('@')[1]
+      // If email domain ends with .com, assume English, otherwise Spanish
+      if (emailDomain.endsWith('.com')) {
+        setLanguage('en')
+      }
+    }
+  }, [session])
+
+  const t = (key: keyof typeof translations.en) => {
     return translations[language][key] || key
   }
 
