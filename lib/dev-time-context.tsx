@@ -1,28 +1,19 @@
 'use client'
 
-import { createContext, useContext, useState, ReactNode } from 'react'
+import { createContext, useContext, useState } from 'react'
 
-type DevTimeContextType = {
+export type DevTimeContextType = {
   currentDay: number;
-  advanceDay: () => void;
-  resetDays: () => void;
+  setCurrentDay: (day: number) => void;
 }
 
 const DevTimeContext = createContext<DevTimeContextType | undefined>(undefined)
 
-export function DevTimeProvider({ children }: { children: ReactNode }) {
+export function DevTimeProvider({ children }: { children: React.ReactNode }) {
   const [currentDay, setCurrentDay] = useState(0)
 
-  const advanceDay = () => {
-    setCurrentDay(prev => prev + 1)
-  }
-
-  const resetDays = () => {
-    setCurrentDay(0)
-  }
-
   return (
-    <DevTimeContext.Provider value={{ currentDay, advanceDay, resetDays }}>
+    <DevTimeContext.Provider value={{ currentDay, setCurrentDay }}>
       {children}
     </DevTimeContext.Provider>
   )

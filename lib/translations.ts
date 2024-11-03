@@ -103,6 +103,11 @@ type TranslationKeys = {
   shareExperience: string;
   cancel: string;
   submit: string;
+
+  // Dev controls
+  currentDay: string;
+  nextDay: string;
+  resetDays: string;
 }
 
 const en: TranslationKeys = {
@@ -206,7 +211,12 @@ const en: TranslationKeys = {
   thoughtsOnTasks: "Any thoughts on today's tasks?",
   shareExperience: "Share your experience or suggestions...",
   cancel: "Cancel",
-  submit: "Submit"
+  submit: "Submit",
+
+  // Dev controls
+  currentDay: "Current Day",
+  nextDay: "Next Day",
+  resetDays: "Reset Days"
 }
 
 const es: TranslationKeys = {
@@ -310,7 +320,12 @@ const es: TranslationKeys = {
   thoughtsOnTasks: "¿Qué opinas sobre las tareas de hoy?",
   shareExperience: "Comparte tu experiencia o sugerencias...",
   cancel: "Cancelar",
-  submit: "Enviar"
+  submit: "Enviar",
+
+  // Dev controls
+  currentDay: "Día Actual",
+  nextDay: "Siguiente Día",
+  resetDays: "Reiniciar Días"
 }
 
 export const translations = { en, es }
