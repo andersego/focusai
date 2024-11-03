@@ -4,23 +4,13 @@ declare global {
   var prisma: PrismaClient | undefined
 }
 
-const prismaClientSingleton = () => {
-  return new PrismaClient({
-    log: ['error'],
-    datasources: {
-      db: {
-        url: process.env.DATABASE_URL
-      }
-    }
-  })
-}
+// Prevent multiple instances in development
+const prisma = global.prisma || new PrismaClient()
 
-if (global.prisma) {
-  // Close existing connections before creating new client
-  global.prisma.$disconnect()
-}
-
-const prisma = global.prisma || prismaClientSingleton()
+// Close the connection when the server shuts down
+process.on('beforeExit', async () => {
+  await prisma.$disconnect()
+})
 
 if (process.env.NODE_ENV !== 'production') {
   global.prisma = prisma
