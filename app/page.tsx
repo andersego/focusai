@@ -38,12 +38,6 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <div className="flex-grow bg-gray-50 p-4 pt-20 md:pt-4">
         <div className="max-w-2xl mx-auto space-y-8">
-          {showComingSoon && (
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-blue-800">
-              {t('featureComingSoon')}
-            </div>
-          )}
-
           <div className="text-center space-y-2">
             <h1 className="text-3xl md:text-4xl font-bold text-blue-600">FocusAI</h1>
             <p className="text-base md:text-lg text-gray-500">{t('appDescription')}</p>
@@ -74,7 +68,15 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={handlePersonalBrandClick}>
+            <Card 
+              className="hover:shadow-lg transition-shadow cursor-pointer relative" 
+              onClick={handlePersonalBrandClick}
+            >
+              {showComingSoon && (
+                <div className="absolute inset-0 bg-blue-500 bg-opacity-90 rounded-lg flex items-center justify-center text-white text-lg font-medium z-10 transition-all duration-300">
+                  {t('featureComingSoon')}
+                </div>
+              )}
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-lg md:text-xl">
                   <Users className="h-5 w-5 text-blue-500 flex-shrink-0" />

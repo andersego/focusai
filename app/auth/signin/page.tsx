@@ -58,8 +58,9 @@ function SignInContent() {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <Card className="w-full max-w-md">
-        <CardHeader>
+        <CardHeader className="space-y-3">
           <CardTitle className="text-2xl md:text-3xl font-bold text-center text-blue-600">FocusAI</CardTitle>
+          <p className="text-gray-500 text-center text-sm md:text-base">{t('appDescription')}</p>
           <CardDescription className="text-center text-sm md:text-base">{t('signInDescription')}</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
