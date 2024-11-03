@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useLanguage } from '@/lib/language-context'
 import { Target, Compass, Users } from 'lucide-react'
 import { LoadingSpinner } from '@/components/loading-spinner'
+import Link from 'next/link'
 
 export default function Home() {
   const { data: session, status } = useSession()
@@ -48,6 +49,17 @@ export default function Home() {
         <div className="text-center space-y-2">
           <h1 className="text-4xl font-bold text-blue-600">FocusAI</h1>
           <p className="text-lg text-gray-500">{t('appDescription')}</p>
+          <p className="text-sm text-gray-500">
+            by{' '}
+            <Link 
+              href="https://www.instagram.com/ander.focus.ia/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-blue-600 transition-colors"
+            >
+              Ander Focus
+            </Link>
+          </p>
         </div>
 
         <div className="space-y-4">
