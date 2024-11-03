@@ -11,15 +11,33 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
       authorization: {
         params: {
-          prompt: "select_account"
+          prompt: "select_account",
+          access_type: "offline",
+          response_type: "code"
         }
       }
     })
   ],
   callbacks: {
     async signIn({ user, account, profile }) {
-      console.log('Sign In Callback:', { user, account, profile })
-      return true
+      try {
+        if (account?.provider === "google") {
+          return true
+        }
+        return false
+      } catch (error) {
+        console.error("Sign in error:", error)
+        return false
+      }
+    },
+    async redirect({ url, baseUrl }) {
+      // Handle redirect after sign in
+      if (url.startsWith("/")) {
+        return `${baseUrl}${url}`
+      } else if (new URL(url).origin === baseUrl) {
+        return url
+      }
+      return baseUrl
     },
     async jwt({ token, user, account }) {
       if (user) {
