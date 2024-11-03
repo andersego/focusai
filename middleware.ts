@@ -3,48 +3,49 @@ import { getToken } from 'next-auth/jwt'
 import { NextRequest } from 'next/server'
 
 export async function middleware(request: NextRequest) {
-  // Add debug logs
-  console.log('Middleware Path:', request.nextUrl.pathname)
-  
+  console.log('Middleware executing for path:', request.nextUrl.pathname)
+
   const token = await getToken({ 
     req: request,
     secret: process.env.NEXTAUTH_SECRET 
   })
-  
-  // Add debug logs
-  console.log('Token:', !!token)
-  
-  const isAuthPage = request.nextUrl.pathname.startsWith('/auth')
-  const isPublicPath = request.nextUrl.pathname.startsWith('/api/auth') || 
-                      request.nextUrl.pathname === '/favicon.ico'
 
-  // Add debug logs
-  console.log('Is Auth Page:', isAuthPage)
-  console.log('Is Public Path:', isPublicPath)
+  console.log('Token exists:', !!token)
 
-  // Always redirect root to signin if not authenticated
-  if (request.nextUrl.pathname === '/' && !token) {
-    console.log('Redirecting to signin from root')
-    return NextResponse.redirect(new URL('/auth/signin', request.url))
-  }
+  // Define public paths that don't require authentication
+  const publicPaths = [
+    '/auth/signin',
+    '/auth/signup',
+    '/api/auth/signin',
+    '/api/auth/signup',
+    '/api/auth/session',
+    '/api/auth/callback/google'
+  ]
 
-  // Allow public paths
-  if (isPublicPath) {
-    console.log('Allowing public path')
-    return NextResponse.next()
-  }
+  const isPublicPath = publicPaths.some(path => 
+    request.nextUrl.pathname.startsWith(path)
+  )
 
-  // If not authenticated and not on auth page, redirect to signin
-  if (!token && !isAuthPage) {
-    console.log('Redirecting unauthenticated user to signin')
+  const isApiPath = request.nextUrl.pathname.startsWith('/api')
+  const isAuthPath = request.nextUrl.pathname.startsWith('/auth')
+
+  console.log('Path info:', {
+    isPublicPath,
+    isApiPath,
+    isAuthPath
+  })
+
+  // If the user is not authenticated and trying to access a protected route
+  if (!token && !isPublicPath && !isApiPath) {
+    console.log('Redirecting to signin - no token')
     const signInUrl = new URL('/auth/signin', request.url)
     signInUrl.searchParams.set('callbackUrl', request.url)
     return NextResponse.redirect(signInUrl)
   }
 
-  // If authenticated and on auth page, redirect to home
-  if (token && isAuthPage) {
-    console.log('Redirecting authenticated user to home')
+  // If the user is authenticated and trying to access auth pages
+  if (token && isAuthPath && !isApiPath) {
+    console.log('Redirecting to home - user is authenticated')
     return NextResponse.redirect(new URL('/', request.url))
   }
 
@@ -57,7 +58,8 @@ export const config = {
      * Match all request paths except for the ones starting with:
      * - _next/static (static files)
      * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
      */
-    '/((?!_next/static|_next/image).*)',
+    '/((?!_next/static|_next/image|favicon.ico).*)',
   ],
 } 

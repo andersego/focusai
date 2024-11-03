@@ -56,11 +56,11 @@ export const authOptions: NextAuthOptions = {
       }
     })
   ],
+  pages: {
+    signIn: '/auth/signin',
+    error: '/auth/error',
+  },
   callbacks: {
-    async signIn({ user, account, profile }) {
-      console.log('Sign In Callback:', { user, account, profile })
-      return true
-    },
     async jwt({ token, user, account }) {
       if (user) {
         token.id = user.id
@@ -73,10 +73,6 @@ export const authOptions: NextAuthOptions = {
       }
       return session
     }
-  },
-  pages: {
-    signIn: '/auth/signin',
-    error: '/auth/error',
   },
   debug: process.env.NODE_ENV === 'development',
   session: {
