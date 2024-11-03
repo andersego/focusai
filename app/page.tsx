@@ -16,9 +16,6 @@ export default function Home() {
   const [showComingSoon, setShowComingSoon] = useState(false)
 
   useEffect(() => {
-    console.log('Session status:', status)
-    console.log('Session data:', session)
-
     if (status === 'unauthenticated') {
       router.push('/auth/signin')
     }
@@ -39,7 +36,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <div className="flex-grow bg-gray-50 p-4">
+      <div className="flex-grow bg-gray-50 p-4 pt-20 md:pt-4">
         <div className="max-w-2xl mx-auto space-y-8">
           {showComingSoon && (
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-blue-800">
@@ -48,8 +45,8 @@ export default function Home() {
           )}
 
           <div className="text-center space-y-2">
-            <h1 className="text-4xl font-bold text-blue-600">FocusAI</h1>
-            <p className="text-lg text-gray-500">{t('appDescription')}</p>
+            <h1 className="text-3xl md:text-4xl font-bold text-blue-600">FocusAI</h1>
+            <p className="text-base md:text-lg text-gray-500">{t('appDescription')}</p>
             <p className="text-sm text-gray-500">
               by{' '}
               <Link 
@@ -66,40 +63,40 @@ export default function Home() {
           <div className="space-y-4">
             <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => router.push('/ikigai')}>
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Compass className="h-5 w-5 text-blue-500" />
-                  {t('ikigaiTitle')}
+                <CardTitle className="flex items-center gap-2 text-lg md:text-xl">
+                  <Compass className="h-5 w-5 text-blue-500 flex-shrink-0" />
+                  <span className="break-words">{t('ikigaiTitle')}</span>
                 </CardTitle>
-                <CardDescription>{t('ikigaiDescription')}</CardDescription>
+                <CardDescription className="text-sm md:text-base">{t('ikigaiDescription')}</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-gray-600">{t('ikigaiContent')}</p>
+                <p className="text-xs md:text-sm text-gray-600">{t('ikigaiContent')}</p>
               </CardContent>
             </Card>
 
             <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={handlePersonalBrandClick}>
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Users className="h-5 w-5 text-blue-500" />
-                  {t('personalBrandTitle')}
+                <CardTitle className="flex items-center gap-2 text-lg md:text-xl">
+                  <Users className="h-5 w-5 text-blue-500 flex-shrink-0" />
+                  <span className="break-words">{t('personalBrandTitle')}</span>
                 </CardTitle>
-                <CardDescription>{t('personalBrandDescription')}</CardDescription>
+                <CardDescription className="text-sm md:text-base">{t('personalBrandDescription')}</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-gray-600">{t('personalBrandContent')}</p>
+                <p className="text-xs md:text-sm text-gray-600">{t('personalBrandContent')}</p>
               </CardContent>
             </Card>
 
             <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => router.push('/goals')}>
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Target className="h-5 w-5 text-blue-500" />
-                  {t('goalsTitle')}
+                <CardTitle className="flex items-center gap-2 text-lg md:text-xl">
+                  <Target className="h-5 w-5 text-blue-500 flex-shrink-0" />
+                  <span className="break-words">{t('goalsTitle')}</span>
                 </CardTitle>
-                <CardDescription>{t('goalsDescription')}</CardDescription>
+                <CardDescription className="text-sm md:text-base">{t('goalsDescription')}</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-gray-600">{t('goalsContent')}</p>
+                <p className="text-xs md:text-sm text-gray-600">{t('goalsContent')}</p>
               </CardContent>
             </Card>
           </div>
