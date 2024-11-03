@@ -20,9 +20,13 @@ function SignInContent() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [showPassword, setShowPassword] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsLoading(true)
+    setError('')
+
     try {
       const result = await signIn('credentials', {
         email,
@@ -35,17 +39,32 @@ function SignInContent() {
         setError(t('invalidCredentials'))
       } else {
         router.push(callbackUrl)
+        router.refresh()
       }
     } catch (error) {
       setError(t('signInError'))
+    } finally {
+      setIsLoading(false)
     }
   }
 
-  const handleGoogleSignIn = () => {
-    signIn('google', { 
-      callbackUrl,
-      redirect: true
-    })
+  const handleGoogleSignIn = async () => {
+    setIsLoading(true)
+    try {
+      console.log('Starting Google sign in...')
+      console.log('Callback URL:', callbackUrl)
+      
+      const result = await signIn('google', { 
+        callbackUrl,
+        redirect: true,
+      })
+      
+      console.log('Sign in result:', result)
+    } catch (error) {
+      console.error('Google sign in error:', error)
+      setError(t('signInError'))
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -65,6 +84,7 @@ function SignInContent() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                disabled={isLoading}
               />
             </div>
             <div className="space-y-2">
@@ -76,6 +96,7 @@ function SignInContent() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
+                  disabled={isLoading}
                 />
                 <Button
                   type="button"
@@ -83,6 +104,7 @@ function SignInContent() {
                   size="icon"
                   className="absolute right-2 top-1/2 -translate-y-1/2"
                   onClick={() => setShowPassword(!showPassword)}
+                  disabled={isLoading}
                 >
                   {showPassword ? (
                     <EyeOff className="h-4 w-4 text-gray-500" />
@@ -93,8 +115,12 @@ function SignInContent() {
               </div>
             </div>
             {error && <p className="text-red-600 text-sm">{error}</p>}
-            <Button type="submit" className="w-full">
-              {t('signIn')}
+            <Button 
+              type="submit" 
+              className="w-full"
+              disabled={isLoading}
+            >
+              {isLoading ? t('signingIn') : t('signIn')}
             </Button>
           </form>
           <div className="relative">
@@ -111,12 +137,17 @@ function SignInContent() {
             variant="outline"
             className="w-full"
             onClick={handleGoogleSignIn}
+            disabled={isLoading}
           >
-            {t('signInWithGoogle')}
+            {isLoading ? t('signingIn') : t('signInWithGoogle')}
           </Button>
           <p className="text-center text-sm text-gray-600">
             {t('noAccount')}{' '}
-            <Button variant="link" onClick={() => router.push('/auth/signup')}>
+            <Button 
+              variant="link" 
+              onClick={() => router.push('/auth/signup')}
+              disabled={isLoading}
+            >
               {t('signUp')}
             </Button>
           </p>

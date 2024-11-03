@@ -6,11 +6,29 @@ import { useRouter } from 'next/navigation'
 import { Target, Compass } from 'lucide-react'
 import { useLanguage } from '@/lib/language-context'
 import Link from 'next/link'
+import { useEffect } from 'react'
 
 export default function Home() {
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
   const router = useRouter()
   const { t } = useLanguage()
+
+  useEffect(() => {
+    console.log('Session status:', status)
+    console.log('Session data:', session)
+
+    if (status === 'unauthenticated') {
+      router.push('/auth/signin')
+    }
+  }, [status, session, router])
+
+  if (status === 'loading') {
+    return <div>Loading...</div>
+  }
+
+  if (!session) {
+    return null
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 p-4">

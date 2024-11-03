@@ -16,6 +16,7 @@ type TranslationKeys = {
   signUpError: string;
   emailTaken: string;
   orContinueWith: string;
+  signingIn: string;
 
   // Main page translations
   welcome: string;
@@ -127,6 +128,7 @@ const en: TranslationKeys = {
   signUpError: "Error signing up",
   emailTaken: "Email already registered",
   orContinueWith: "or continue with",
+  signingIn: "Signing in...",
 
   welcome: "Welcome",
   ikigaiTitle: "Find Your Ikigai",
@@ -236,6 +238,7 @@ const es: TranslationKeys = {
   signUpError: "Error al registrarse",
   emailTaken: "El correo ya está registrado",
   orContinueWith: "o continuar con",
+  signingIn: "Iniciando sesión...",
 
   welcome: "Bienvenido",
   ikigaiTitle: "Encuentra Tu Ikigai",
