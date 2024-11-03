@@ -25,19 +25,20 @@ export async function middleware(request: NextRequest) {
       '/terms'
     ]
 
+    // Always redirect root path to signin if no token
+    if (request.nextUrl.pathname === '/') {
+      if (!token) {
+        console.log('🚫 Root path - redirecting to signin')
+        return NextResponse.redirect(new URL('/auth/signin', request.url))
+      }
+    }
+
     const isPublicPath = publicPaths.some(path => 
       request.nextUrl.pathname.startsWith(path)
     )
 
     const isApiPath = request.nextUrl.pathname.startsWith('/api')
     const isAuthPath = request.nextUrl.pathname.startsWith('/auth')
-
-    console.log('📍 Path info:', {
-      path: request.nextUrl.pathname,
-      isPublicPath,
-      isApiPath,
-      isAuthPath
-    })
 
     // If no token and trying to access protected route
     if (!token && !isPublicPath && !isApiPath) {
