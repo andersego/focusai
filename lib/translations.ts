@@ -119,6 +119,30 @@ type TranslationKeys = {
   comingSoon: string;
   featureComingSoon: string;
   loading: string;
+
+  // Footer translations
+  privacyPolicy: string;
+  termsOfService: string;
+  allRightsReserved: string;
+  footerDescription: string;
+
+  // Add to TranslationKeys
+  privacyIntro: string;
+  privacyIntroText: string;
+  dataCollection: string;
+  dataCollectionText: string;
+  dataSecurity: string;
+  dataSecurityText: string;
+  contactInfo: string;
+  contactInfoText: string;
+  termsIntro: string;
+  termsIntroText: string;
+  userObligations: string;
+  userObligationsText: string;
+  intellectualProperty: string;
+  intellectualPropertyText: string;
+  limitations: string;
+  limitationsText: string;
 }
 
 const en: TranslationKeys = {
@@ -239,6 +263,30 @@ const en: TranslationKeys = {
   comingSoon: "Coming Soon",
   featureComingSoon: "This feature is coming soon! Stay tuned for updates.",
   loading: "Loading...",
+
+  // Footer translations
+  privacyPolicy: "Privacy Policy",
+  termsOfService: "Terms of Service",
+  allRightsReserved: "All rights reserved.",
+  footerDescription: "FocusAI helps you discover your purpose and achieve your goals through AI-powered guidance and daily task management.",
+
+  // Add to English translations
+  privacyIntro: "Introduction",
+  privacyIntroText: "At FocusAI, we take your privacy seriously. This policy explains how we collect, use, and protect your personal information.",
+  dataCollection: "Data Collection",
+  dataCollectionText: "We collect information necessary to provide our services, including email, name, and usage data.",
+  dataSecurity: "Data Security",
+  dataSecurityText: "We implement security measures to protect your data and maintain its confidentiality.",
+  contactInfo: "Contact Information",
+  contactInfoText: "For privacy-related questions, please contact us through our social media channels.",
+  termsIntro: "Introduction",
+  termsIntroText: "These terms govern your use of FocusAI services.",
+  userObligations: "User Obligations",
+  userObligationsText: "Users must comply with these terms and use the service responsibly.",
+  intellectualProperty: "Intellectual Property",
+  intellectualPropertyText: "All content and features are protected by intellectual property rights.",
+  limitations: "Limitations",
+  limitationsText: "We provide the service 'as is' and make no warranties about its availability or performance.",
 }
 
 const es: TranslationKeys = {
@@ -359,6 +407,30 @@ const es: TranslationKeys = {
   comingSoon: "Próximamente",
   featureComingSoon: "¡Esta función estará disponible pronto! Mantente atento a las actualizaciones.",
   loading: "Cargando...",
+
+  // Footer translations
+  privacyPolicy: "Política de Privacidad",
+  termsOfService: "Términos de Servicio",
+  allRightsReserved: "Todos los derechos reservados.",
+  footerDescription: "FocusAI te ayuda a descubrir tu propósito y alcanzar tus metas a través de orientación impulsada por IA y gestión diaria de tareas.",
+
+  // Add to Spanish translations
+  privacyIntro: "Introducción",
+  privacyIntroText: "En FocusAI, nos tomamos tu privacidad en serio. Esta política explica cómo recopilamos, usamos y protegemos tu información personal.",
+  dataCollection: "Recopilación de Datos",
+  dataCollectionText: "Recopilamos la información necesaria para proporcionar nuestros servicios, incluyendo correo electrónico, nombre y datos de uso.",
+  dataSecurity: "Seguridad de Datos",
+  dataSecurityText: "Implementamos medidas de seguridad para proteger tus datos y mantener su confidencialidad.",
+  contactInfo: "Información de Contacto",
+  contactInfoText: "Para preguntas relacionadas con la privacidad, contáctanos a través de nuestras redes sociales.",
+  termsIntro: "Introducción",
+  termsIntroText: "Estos términos rigen tu uso de los servicios de FocusAI.",
+  userObligations: "Obligaciones del Usuario",
+  userObligationsText: "Los usuarios deben cumplir con estos términos y usar el servicio de manera responsable.",
+  intellectualProperty: "Propiedad Intelectual",
+  intellectualPropertyText: "Todo el contenido y funciones están protegidos por derechos de propiedad intelectual.",
+  limitations: "Limitaciones",
+  limitationsText: "Proporcionamos el servicio 'tal cual' y no hacemos garantías sobre su disponibilidad o rendimiento.",
 }
 
 export const translations = { en, es }

@@ -3,7 +3,6 @@ import { getToken } from 'next-auth/jwt'
 import { NextRequest } from 'next/server'
 
 export async function middleware(request: NextRequest) {
-  // Log every request
   console.log('⭐️ Middleware executing for:', request.nextUrl.pathname)
 
   try {
@@ -14,14 +13,21 @@ export async function middleware(request: NextRequest) {
 
     console.log('🔑 Token:', token ? 'exists' : 'missing')
 
-    const isPublicPath = [
+    // Define public paths that don't require authentication
+    const publicPaths = [
       '/auth/signin',
       '/auth/signup',
       '/api/auth/signin',
       '/api/auth/signup',
       '/api/auth/session',
-      '/api/auth/callback/google'
-    ].some(path => request.nextUrl.pathname.startsWith(path))
+      '/api/auth/callback/google',
+      '/privacy-policy',
+      '/terms'
+    ]
+
+    const isPublicPath = publicPaths.some(path => 
+      request.nextUrl.pathname.startsWith(path)
+    )
 
     const isApiPath = request.nextUrl.pathname.startsWith('/api')
     const isAuthPath = request.nextUrl.pathname.startsWith('/auth')
