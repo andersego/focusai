@@ -4,6 +4,7 @@ export interface TranslationKeys {
   appDescription: string;
   
   // Auth translations
+  name: string;
   signInDescription: string;
   signUpDescription: string;
   createAccount: string;
@@ -43,6 +44,17 @@ export interface TranslationKeys {
   ikigaiError: string;
   ikigaiErrorDescription: string;
   ikigaiAnalyzing: string;
+  createNewIkigai: string;
+  maxAttemptsReached: string;
+  viewPreviousResults: string;
+  back: string;
+  backToHome: string;
+  tryAgain: string;
+  next: string;
+  finish: string;
+  viewPreviousIkigais: string;
+  loading: string;
+  generatingIkigai: string;
   
   // Goals translations
   setNewGoal: string;
@@ -55,23 +67,11 @@ export interface TranslationKeys {
   confirmDeleteGoal: string;
   goalDeleted: string;
   
-  // Loading states
-  loading: string;
-  generatingIkigai: string;
-  
   // Navigation and common
-  createNewIkigai: string;
-  maxAttemptsReached: string;
-  viewPreviousResults: string;
-  back: string;
-  backToHome: string;
-  tryAgain: string;
-  next: string;
-  finish: string;
-  viewPreviousIkigais: string;
   cancel: string;
   confirm: string;
   delete: string;
+  language: string;
 }
 
 export const translations = {
@@ -81,6 +81,7 @@ export const translations = {
     appDescription: "Your AI-powered goal achievement companion",
     
     // Auth translations
+    name: "Name",
     signInDescription: "Welcome back! Please sign in to continue.",
     signUpDescription: "Create an account to get started.",
     createAccount: "Create Account",
@@ -100,6 +101,7 @@ export const translations = {
     orContinueWith: "Or continue with",
     noAccount: "Don't have an account?",
     haveAccount: "Already have an account?",
+    language: "Language",
     
     // Ikigai translations
     ikigaiStepDescription: "Step",
@@ -120,23 +122,6 @@ export const translations = {
     ikigaiError: "Oops! Something went wrong",
     ikigaiErrorDescription: "We couldn't generate your Ikigai analysis. Please try again.",
     ikigaiAnalyzing: "Analyzing your answers...",
-    
-    // Goals translations
-    setNewGoal: "Set New Goal",
-    defineGoalDescription: "Define your goal and when you want to achieve it",
-    whatsYourGoal: "What's your goal?",
-    goalPlaceholder: "Enter your goal here...",
-    whenAchieve: "When do you want to achieve it?",
-    addNewGoal: "Add New Goal",
-    deleteGoal: "Delete Goal",
-    confirmDeleteGoal: "Are you sure you want to delete this goal?",
-    goalDeleted: "Goal deleted successfully",
-    
-    // Loading states
-    loading: "Loading...",
-    generatingIkigai: "We're analyzing your answers and generating your Ikigai. This might take a minute...",
-    
-    // Navigation and common
     createNewIkigai: "Create New Ikigai",
     maxAttemptsReached: "Maximum attempts reached",
     viewPreviousResults: "View Previous Results",
@@ -146,9 +131,25 @@ export const translations = {
     next: "Next",
     finish: "Finish",
     viewPreviousIkigais: "View Previous Ikigais",
+    loading: "Loading...",
+    generatingIkigai: "We're analyzing your answers and generating your Ikigai. This might take a minute...",
+    
+    // Goals translations
+    setNewGoal: "Set New Goal",
+    defineGoalDescription: "Define your goal",
+    whatsYourGoal: "What's your goal?",
+    goalPlaceholder: "Enter your goal",
+    whenAchieve: "When do you want to achieve this goal?",
+    addNewGoal: "Add New Goal",
+    deleteGoal: "Delete Goal",
+    confirmDeleteGoal: "Are you sure you want to delete this goal?",
+    goalDeleted: "Goal deleted",
+    
+    // Navigation and common
     cancel: "Cancel",
     confirm: "Confirm",
-    delete: "Delete"
+    delete: "Delete",
+    language: "Language",
   },
   es: {
     // App description
@@ -156,6 +157,7 @@ export const translations = {
     appDescription: "Tu compañero de logros impulsado por IA",
     
     // Auth translations
+    name: "Nombre",
     signInDescription: "¡Bienvenido de nuevo! Por favor, inicia sesión para continuar.",
     signUpDescription: "Crea una cuenta para comenzar.",
     createAccount: "Crear Cuenta",
@@ -175,6 +177,7 @@ export const translations = {
     orContinueWith: "O continuar con",
     noAccount: "¿No tienes una cuenta?",
     haveAccount: "¿Ya tienes una cuenta?",
+    language: "Idioma",
     
     // Ikigai translations
     ikigaiStepDescription: "Paso",
@@ -195,23 +198,6 @@ export const translations = {
     ikigaiError: "¡Ups! Algo salió mal",
     ikigaiErrorDescription: "No pudimos generar tu análisis Ikigai. Por favor, inténtalo de nuevo.",
     ikigaiAnalyzing: "Analizando tus respuestas...",
-    
-    // Goals translations
-    setNewGoal: "Establecer Nueva Meta",
-    defineGoalDescription: "Define tu meta y cuándo quieres alcanzarla",
-    whatsYourGoal: "¿Cuál es tu meta?",
-    goalPlaceholder: "Escribe tu meta aquí...",
-    whenAchieve: "¿Cuándo quieres alcanzarla?",
-    addNewGoal: "Añadir Nueva Meta",
-    deleteGoal: "Eliminar Meta",
-    confirmDeleteGoal: "¿Estás seguro de que quieres eliminar esta meta?",
-    goalDeleted: "Meta eliminada con éxito",
-    
-    // Loading states
-    loading: "Cargando...",
-    generatingIkigai: "Estamos analizando tus respuestas y generando tu Ikigai. Esto puede tardar un minuto...",
-    
-    // Navigation and common
     createNewIkigai: "Crear Nuevo Ikigai",
     maxAttemptsReached: "Máximo de intentos alcanzado",
     viewPreviousResults: "Ver Resultados Anteriores",
@@ -221,8 +207,24 @@ export const translations = {
     next: "Siguiente",
     finish: "Finalizar",
     viewPreviousIkigais: "Ver Ikigais Anteriores",
+    loading: "Cargando...",
+    generatingIkigai: "Estamos analizando tus respuestas y generando tu Ikigai. Esto puede tardar un minuto...",
+    
+    // Goals translations
+    setNewGoal: "Establecer Nuevo Objetivo",
+    defineGoalDescription: "Definir tu objetivo",
+    whatsYourGoal: "¿Cuál es tu objetivo?",
+    goalPlaceholder: "Ingresar tu objetivo",
+    whenAchieve: "¿Cuándo quieres lograr este objetivo?",
+    addNewGoal: "Agregar Nuevo Objetivo",
+    deleteGoal: "Eliminar Objetivo",
+    confirmDeleteGoal: "¿Estás seguro de que quieres eliminar este objetivo?",
+    goalDeleted: "Objetivo eliminado",
+    
+    // Navigation and common
     cancel: "Cancelar",
     confirm: "Confirmar",
-    delete: "Eliminar"
+    delete: "Eliminar",
+    language: "Idioma",
   }
 }
