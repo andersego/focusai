@@ -1,4 +1,8 @@
 export interface TranslationKeys {
+  // App description
+  appName: string;
+  appDescription: string;
+  
   // Auth translations
   signInDescription: string;
   invalidCredentials: string;
@@ -30,6 +34,9 @@ export interface TranslationKeys {
   ikigaiSuggestedPath: string;
   ikigaiError: string;
   ikigaiErrorDescription: string;
+  ikigaiAnalyzing: string;
+  loading: string;
+  generatingIkigai: string;
   
   // Navigation and common
   createNewIkigai: string;
@@ -45,6 +52,10 @@ export interface TranslationKeys {
 
 export const translations = {
   en: {
+    // App description
+    appName: "FocusAI",
+    appDescription: "Your AI-powered goal achievement companion",
+    
     // Auth translations
     signInDescription: "Welcome back! Please sign in to continue.",
     invalidCredentials: "Invalid email or password",
@@ -76,6 +87,9 @@ export const translations = {
     ikigaiSuggestedPath: "Suggested Path",
     ikigaiError: "Oops! Something went wrong",
     ikigaiErrorDescription: "We couldn't generate your Ikigai analysis. Please try again.",
+    ikigaiAnalyzing: "Analyzing your answers...",
+    loading: "Loading...",
+    generatingIkigai: "We're analyzing your answers and generating your Ikigai. This might take a minute...",
 
     // Navigation and common
     createNewIkigai: "Create New Ikigai",
@@ -89,6 +103,10 @@ export const translations = {
     viewPreviousIkigais: "View Previous Ikigais"
   },
   es: {
+    // App description
+    appName: "FocusAI",
+    appDescription: "Tu compañero de logros impulsado por IA",
+    
     // Auth translations
     signInDescription: "¡Bienvenido de nuevo! Por favor, inicia sesión para continuar.",
     invalidCredentials: "Email o contraseña inválidos",
@@ -120,6 +138,9 @@ export const translations = {
     ikigaiSuggestedPath: "Camino Sugerido",
     ikigaiError: "¡Ups! Algo salió mal",
     ikigaiErrorDescription: "No pudimos generar tu análisis Ikigai. Por favor, inténtalo de nuevo.",
+    ikigaiAnalyzing: "Analizando tus respuestas...",
+    loading: "Cargando...",
+    generatingIkigai: "Estamos analizando tus respuestas y generando tu Ikigai. Esto puede tardar un minuto...",
 
     // Navigation and common
     createNewIkigai: "Crear Nuevo Ikigai",
