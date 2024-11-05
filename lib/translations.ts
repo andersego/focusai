@@ -78,6 +78,12 @@ export interface TranslationKeys {
   confirm: string;
   delete: string;
   language: string;
+
+  // Status messages
+  featureComingSoon: string;
+  underConstruction: string;
+  stayTuned: string;
+  comingSoon: string;
 }
 
 export const translations = {
@@ -160,7 +166,13 @@ export const translations = {
     cancel: "Cancel",
     confirm: "Confirm",
     delete: "Delete",
-    language: "Language"
+    language: "Language",
+
+    // Status messages
+    featureComingSoon: "Feature Coming Soon",
+    underConstruction: "Under Construction",
+    stayTuned: "Stay tuned!",
+    comingSoon: "Coming Soon"
   },
   es: {
     // App description
@@ -241,6 +253,12 @@ export const translations = {
     cancel: "Cancelar",
     confirm: "Confirmar",
     delete: "Eliminar",
-    language: "Idioma"
+    language: "Idioma",
+
+    // Status messages
+    featureComingSoon: "Función Próximamente",
+    underConstruction: "En Construcción",
+    stayTuned: "¡Mantente atento!",
+    comingSoon: "Próximamente"
   }
 }
