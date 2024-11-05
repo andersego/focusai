@@ -24,6 +24,8 @@ export interface TranslationKeys {
   orContinueWith: string;
   noAccount: string;
   haveAccount: string;
+  alreadyHaveAccount: string;
+  language: string;
   
   // Ikigai translations
   ikigaiStepDescription: string;
@@ -44,17 +46,6 @@ export interface TranslationKeys {
   ikigaiError: string;
   ikigaiErrorDescription: string;
   ikigaiAnalyzing: string;
-  createNewIkigai: string;
-  maxAttemptsReached: string;
-  viewPreviousResults: string;
-  back: string;
-  backToHome: string;
-  tryAgain: string;
-  next: string;
-  finish: string;
-  viewPreviousIkigais: string;
-  loading: string;
-  generatingIkigai: string;
   
   // Goals translations
   setNewGoal: string;
@@ -67,11 +58,23 @@ export interface TranslationKeys {
   confirmDeleteGoal: string;
   goalDeleted: string;
   
+  // Loading states
+  loading: string;
+  generatingIkigai: string;
+  
   // Navigation and common
+  createNewIkigai: string;
+  maxAttemptsReached: string;
+  viewPreviousResults: string;
+  back: string;
+  backToHome: string;
+  tryAgain: string;
+  next: string;
+  finish: string;
+  viewPreviousIkigais: string;
   cancel: string;
   confirm: string;
   delete: string;
-  language: string;
 }
 
 export const translations = {
@@ -101,6 +104,7 @@ export const translations = {
     orContinueWith: "Or continue with",
     noAccount: "Don't have an account?",
     haveAccount: "Already have an account?",
+    alreadyHaveAccount: "Already have an account?",
     language: "Language",
     
     // Ikigai translations
@@ -177,6 +181,7 @@ export const translations = {
     orContinueWith: "O continuar con",
     noAccount: "¿No tienes una cuenta?",
     haveAccount: "¿Ya tienes una cuenta?",
+    alreadyHaveAccount: "¿Ya tienes una cuenta?",
     language: "Idioma",
     
     // Ikigai translations
