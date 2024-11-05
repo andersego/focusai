@@ -6,6 +6,7 @@ export interface TranslationKeys {
   // Auth translations
   signInDescription: string;
   signUpDescription: string;
+  createAccount: string;
   invalidCredentials: string;
   signInError: string;
   signUpError: string;
@@ -42,6 +43,19 @@ export interface TranslationKeys {
   ikigaiError: string;
   ikigaiErrorDescription: string;
   ikigaiAnalyzing: string;
+  
+  // Goals translations
+  setNewGoal: string;
+  defineGoalDescription: string;
+  whatsYourGoal: string;
+  goalPlaceholder: string;
+  whenAchieve: string;
+  addNewGoal: string;
+  deleteGoal: string;
+  confirmDeleteGoal: string;
+  goalDeleted: string;
+  
+  // Loading states
   loading: string;
   generatingIkigai: string;
   
@@ -55,6 +69,9 @@ export interface TranslationKeys {
   next: string;
   finish: string;
   viewPreviousIkigais: string;
+  cancel: string;
+  confirm: string;
+  delete: string;
 }
 
 export const translations = {
@@ -66,6 +83,7 @@ export const translations = {
     // Auth translations
     signInDescription: "Welcome back! Please sign in to continue.",
     signUpDescription: "Create an account to get started.",
+    createAccount: "Create Account",
     invalidCredentials: "Invalid email or password",
     signInError: "An error occurred during sign in",
     signUpError: "An error occurred during sign up",
@@ -102,9 +120,22 @@ export const translations = {
     ikigaiError: "Oops! Something went wrong",
     ikigaiErrorDescription: "We couldn't generate your Ikigai analysis. Please try again.",
     ikigaiAnalyzing: "Analyzing your answers...",
+    
+    // Goals translations
+    setNewGoal: "Set New Goal",
+    defineGoalDescription: "Define your goal and when you want to achieve it",
+    whatsYourGoal: "What's your goal?",
+    goalPlaceholder: "Enter your goal here...",
+    whenAchieve: "When do you want to achieve it?",
+    addNewGoal: "Add New Goal",
+    deleteGoal: "Delete Goal",
+    confirmDeleteGoal: "Are you sure you want to delete this goal?",
+    goalDeleted: "Goal deleted successfully",
+    
+    // Loading states
     loading: "Loading...",
     generatingIkigai: "We're analyzing your answers and generating your Ikigai. This might take a minute...",
-
+    
     // Navigation and common
     createNewIkigai: "Create New Ikigai",
     maxAttemptsReached: "Maximum attempts reached",
@@ -114,7 +145,10 @@ export const translations = {
     tryAgain: "Try Again",
     next: "Next",
     finish: "Finish",
-    viewPreviousIkigais: "View Previous Ikigais"
+    viewPreviousIkigais: "View Previous Ikigais",
+    cancel: "Cancel",
+    confirm: "Confirm",
+    delete: "Delete"
   },
   es: {
     // App description
@@ -124,6 +158,7 @@ export const translations = {
     // Auth translations
     signInDescription: "¡Bienvenido de nuevo! Por favor, inicia sesión para continuar.",
     signUpDescription: "Crea una cuenta para comenzar.",
+    createAccount: "Crear Cuenta",
     invalidCredentials: "Email o contraseña inválidos",
     signInError: "Ocurrió un error durante el inicio de sesión",
     signUpError: "Ocurrió un error durante el registro",
@@ -160,9 +195,22 @@ export const translations = {
     ikigaiError: "¡Ups! Algo salió mal",
     ikigaiErrorDescription: "No pudimos generar tu análisis Ikigai. Por favor, inténtalo de nuevo.",
     ikigaiAnalyzing: "Analizando tus respuestas...",
+    
+    // Goals translations
+    setNewGoal: "Establecer Nueva Meta",
+    defineGoalDescription: "Define tu meta y cuándo quieres alcanzarla",
+    whatsYourGoal: "¿Cuál es tu meta?",
+    goalPlaceholder: "Escribe tu meta aquí...",
+    whenAchieve: "¿Cuándo quieres alcanzarla?",
+    addNewGoal: "Añadir Nueva Meta",
+    deleteGoal: "Eliminar Meta",
+    confirmDeleteGoal: "¿Estás seguro de que quieres eliminar esta meta?",
+    goalDeleted: "Meta eliminada con éxito",
+    
+    // Loading states
     loading: "Cargando...",
     generatingIkigai: "Estamos analizando tus respuestas y generando tu Ikigai. Esto puede tardar un minuto...",
-
+    
     // Navigation and common
     createNewIkigai: "Crear Nuevo Ikigai",
     maxAttemptsReached: "Máximo de intentos alcanzado",
@@ -172,6 +220,9 @@ export const translations = {
     tryAgain: "Intentar de Nuevo",
     next: "Siguiente",
     finish: "Finalizar",
-    viewPreviousIkigais: "Ver Ikigais Anteriores"
+    viewPreviousIkigais: "Ver Ikigais Anteriores",
+    cancel: "Cancelar",
+    confirm: "Confirmar",
+    delete: "Eliminar"
   }
 }
