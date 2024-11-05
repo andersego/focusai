@@ -5,17 +5,24 @@ export interface TranslationKeys {
   
   // Auth translations
   signInDescription: string;
+  signUpDescription: string;
   invalidCredentials: string;
   signInError: string;
+  signUpError: string;
   email: string;
   password: string;
+  confirmPassword: string;
+  passwordsDontMatch: string;
   signIn: string;
+  signUp: string;
   signingIn: string;
+  signingUp: string;
   signInWithGoogle: string;
+  signUpWithGoogle: string;
   orContinueWith: string;
   noAccount: string;
-  signUp: string;
-
+  haveAccount: string;
+  
   // Ikigai translations
   ikigaiStepDescription: string;
   ikigaiAnswerPlaceholder: string;
@@ -58,17 +65,24 @@ export const translations = {
     
     // Auth translations
     signInDescription: "Welcome back! Please sign in to continue.",
+    signUpDescription: "Create an account to get started.",
     invalidCredentials: "Invalid email or password",
     signInError: "An error occurred during sign in",
+    signUpError: "An error occurred during sign up",
     email: "Email",
     password: "Password",
+    confirmPassword: "Confirm Password",
+    passwordsDontMatch: "Passwords don't match",
     signIn: "Sign In",
+    signUp: "Sign Up",
     signingIn: "Signing In...",
+    signingUp: "Signing Up...",
     signInWithGoogle: "Sign in with Google",
+    signUpWithGoogle: "Sign up with Google",
     orContinueWith: "Or continue with",
     noAccount: "Don't have an account?",
-    signUp: "Sign Up",
-
+    haveAccount: "Already have an account?",
+    
     // Ikigai translations
     ikigaiStepDescription: "Step",
     ikigaiAnswerPlaceholder: "Write your answer here...",
@@ -109,17 +123,24 @@ export const translations = {
     
     // Auth translations
     signInDescription: "¡Bienvenido de nuevo! Por favor, inicia sesión para continuar.",
+    signUpDescription: "Crea una cuenta para comenzar.",
     invalidCredentials: "Email o contraseña inválidos",
     signInError: "Ocurrió un error durante el inicio de sesión",
+    signUpError: "Ocurrió un error durante el registro",
     email: "Email",
     password: "Contraseña",
+    confirmPassword: "Confirmar Contraseña",
+    passwordsDontMatch: "Las contraseñas no coinciden",
     signIn: "Iniciar Sesión",
+    signUp: "Registrarse",
     signingIn: "Iniciando Sesión...",
+    signingUp: "Registrando...",
     signInWithGoogle: "Iniciar sesión con Google",
+    signUpWithGoogle: "Registrarse con Google",
     orContinueWith: "O continuar con",
     noAccount: "¿No tienes una cuenta?",
-    signUp: "Registrarse",
-
+    haveAccount: "¿Ya tienes una cuenta?",
+    
     // Ikigai translations
     ikigaiStepDescription: "Paso",
     ikigaiAnswerPlaceholder: "Escribe tu respuesta aquí...",
