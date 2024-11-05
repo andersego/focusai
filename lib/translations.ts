@@ -143,6 +143,9 @@ type TranslationKeys = {
   intellectualPropertyText: string;
   limitations: string;
   limitationsText: string;
+
+  // Ikigai translations
+  ikigaiWhatYouLoveToDo: string;
 }
 
 const en: TranslationKeys = {
@@ -287,6 +290,9 @@ const en: TranslationKeys = {
   intellectualPropertyText: "All content and features are protected by intellectual property rights.",
   limitations: "Limitations",
   limitationsText: "We provide the service 'as is' and make no warranties about its availability or performance.",
+
+  // Ikigai translations
+  ikigaiWhatYouLoveToDo: "What do you love to do?",
 }
 
 const es: TranslationKeys = {
@@ -431,6 +437,9 @@ const es: TranslationKeys = {
   intellectualPropertyText: "Todo el contenido y funciones están protegidos por derechos de propiedad intelectual.",
   limitations: "Limitaciones",
   limitationsText: "Proporcionamos el servicio 'tal cual' y no hacemos garantías sobre su disponibilidad o rendimiento.",
+
+  // Ikigai translations
+  ikigaiWhatYouLoveToDo: "¿Qué te encanta hacer?",
 }
 
 export const translations = { en, es }

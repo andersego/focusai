@@ -1,22 +1,20 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
-import { useSession } from 'next-auth/react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import { CalendarIcon } from 'lucide-react'
 import { useLanguage } from '@/lib/language-context'
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context'
 
 interface GoalSetupProps {
   onAddGoal: (title: string, deadline: string) => void;
+  router: AppRouterInstance;
 }
 
-export function GoalSetup({ onAddGoal }: GoalSetupProps) {
-  const router = useRouter()
-  const { data: session } = useSession()
+export function GoalSetup({ onAddGoal, router }: GoalSetupProps) {
   const [goal, setGoal] = useState('')
   const [deadline, setDeadline] = useState('')
   const { t } = useLanguage()
@@ -24,40 +22,13 @@ export function GoalSetup({ onAddGoal }: GoalSetupProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     
-    if (!goal || !deadline || !session?.user) {
+    if (!goal || !deadline) {
       return
     }
 
-    const goalId = Date.now().toString()
-    
-    // Create new goal object
-    const newGoal = {
-      id: goalId,
-      title: goal,
-      deadline: deadline,
-      progress: 0,
-      userId: session.user.id,
-      createdAt: new Date().toISOString()
-    }
-
-    // Get existing goals
-    const existingGoals = JSON.parse(localStorage.getItem(`goals-${session.user.id}`) || '[]')
-    
-    // Add new goal
-    const updatedGoals = [...existingGoals, newGoal]
-    
-    // Save to localStorage
-    localStorage.setItem(`goals-${session.user.id}`, JSON.stringify(updatedGoals))
-    
-    // Call the parent's handler
     onAddGoal(goal, deadline)
-    
-    // Clear form
     setGoal('')
     setDeadline('')
-    
-    // Navigate to tasks page
-    router.push(`/goals/${goalId}/tasks`)
   }
 
   return (
@@ -106,6 +77,15 @@ export function GoalSetup({ onAddGoal }: GoalSetupProps) {
           </Button>
         </form>
       </CardContent>
+      <CardFooter className="flex justify-start">
+        <Button
+          variant="outline"
+          onClick={() => router.push('/')}
+          className="text-sm"
+        >
+          {t('back')}
+        </Button>
+      </CardFooter>
     </Card>
   )
 }

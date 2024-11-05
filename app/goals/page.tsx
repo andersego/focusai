@@ -7,6 +7,7 @@ import { GoalsList } from '@/components/goals-list'
 import { useLanguage } from '@/lib/language-context'
 import { useDevTime } from '@/lib/dev-time-context'
 import { DevControls } from '@/components/dev-controls'
+import { useRouter } from 'next/navigation'
 
 interface Goal {
   id: string;
@@ -19,6 +20,7 @@ export default function GoalsPage() {
   const { data: session } = useSession()
   const { t } = useLanguage()
   const [goals, setGoals] = useState<Goal[]>([])
+  const router = useRouter()
 
   useEffect(() => {
     if (session?.user) {
@@ -84,7 +86,7 @@ export default function GoalsPage() {
   return (
     <div className="min-h-screen bg-gray-50 p-4">
       <div className="max-w-md mx-auto space-y-8">
-        <GoalSetup onAddGoal={handleAddGoal} />
+        <GoalSetup onAddGoal={handleAddGoal} router={router} />
         <div className="h-px bg-gray-200" />
         <GoalsList goals={goals} onDeleteGoal={handleDeleteGoal} />
       </div>

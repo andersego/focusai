@@ -1,264 +1,208 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { Button } from "@/components/ui/button"
-import { Textarea } from "@/components/ui/textarea"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { useLanguage } from '@/lib/language-context'
-import { Heart, Brain, Globe, DollarSign, Loader2, History } from 'lucide-react'
-import { useSession } from 'next-auth/react'
-
-interface IkigaiAnswers {
-  love: string;
-  good: string;
-  world: string;
-  paid: string;
-}
+import { LoadingSpinner } from '@/components/loading-spinner'
+import { ArrowLeft, Heart, Star, Globe, DollarSign } from 'lucide-react'
 
 interface IkigaiResult {
-  profession: string;
+  suggestedProfession: string;
   connections: {
     passion: string;
     mission: string;
     vocation: string;
     profession: string;
   };
-  path: string;
-  timestamp?: string;
+  steps: string[];
 }
 
-interface StoredIkigai {
-  attempts: number;
-  results: IkigaiResult[];
-}
+type Step = 'love' | 'good' | 'world' | 'paid' | 'result';
 
 export default function IkigaiPage() {
-  const { t } = useLanguage()
-  const { data: session } = useSession()
-  const [step, setStep] = useState(0)
-  const [answers, setAnswers] = useState<IkigaiAnswers>({
-    love: '',
-    good: '',
-    world: '',
-    paid: '',
-  })
+  const router = useRouter()
+  const { t, language } = useLanguage()
+  const [currentStep, setCurrentStep] = useState<Step>('love')
   const [currentAnswer, setCurrentAnswer] = useState('')
-  const [loading, setLoading] = useState(false)
+  const [answers, setAnswers] = useState<Record<string, string>>({})
   const [result, setResult] = useState<IkigaiResult | null>(null)
-  const [storedIkigai, setStoredIkigai] = useState<StoredIkigai | null>(null)
-  const [showHistory, setShowHistory] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
-  useEffect(() => {
-    if (session?.user) {
-      const stored = localStorage.getItem(`ikigai-${session.user.id}`)
-      if (stored) {
-        const parsedStored = JSON.parse(stored) as StoredIkigai
-        setStoredIkigai(parsedStored)
-        if (parsedStored.results.length > 0 && !result) {
-          setResult(parsedStored.results[parsedStored.results.length - 1])
-        }
-      } else {
-        setStoredIkigai({ attempts: 0, results: [] })
-      }
+  const getStepIcon = (step: Step) => {
+    switch (step) {
+      case 'love':
+        return <Heart className="h-12 w-12 text-red-500" />
+      case 'good':
+        return <Star className="h-12 w-12 text-yellow-500" />
+      case 'world':
+        return <Globe className="h-12 w-12 text-blue-500" />
+      case 'paid':
+        return <DollarSign className="h-12 w-12 text-green-500" />
+      default:
+        return null
     }
-  }, [session])
+  }
 
-  const questions = [
-    { key: 'love' as keyof IkigaiAnswers, text: t('ikigaiLoveQuestion'), icon: Heart, color: 'text-red-500' },
-    { key: 'good' as keyof IkigaiAnswers, text: t('ikigaiGoodQuestion'), icon: Brain, color: 'text-blue-500' },
-    { key: 'world' as keyof IkigaiAnswers, text: t('ikigaiWorldQuestion'), icon: Globe, color: 'text-green-500' },
-    { key: 'paid' as keyof IkigaiAnswers, text: t('ikigaiPaidQuestion'), icon: DollarSign, color: 'text-yellow-500' },
-  ]
+  const handleBack = () => {
+    if (currentStep === 'love') {
+      router.push('/')  // Si estamos en la primera pregunta, volver al inicio
+    } else {
+      // Obtener el índice del paso actual
+      const steps: Step[] = ['love', 'good', 'world', 'paid', 'result']
+      const currentIndex = steps.indexOf(currentStep)
+      // Ir al paso anterior
+      setCurrentStep(steps[currentIndex - 1])
+    }
+  }
 
   const handleNext = async () => {
     if (currentAnswer.trim() === '') return;
 
     const updatedAnswers = {
       ...answers,
-      [questions[step].key]: currentAnswer,
+      [currentStep]: currentAnswer,
     }
     setAnswers(updatedAnswers)
     setCurrentAnswer('')
 
-    if (step < questions.length - 1) {
-      setStep(step + 1)
-    } else {
-      if (!session?.user || !storedIkigai || storedIkigai.attempts >= 3) return;
-      
-      setLoading(true)
+    if (currentStep === 'paid') {
+      setIsLoading(true)
       try {
-        const response = await fetch('/api/analyze-ikigai', {
+        const response = await fetch('/api/generate-ikigai', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(updatedAnswers),
+          body: JSON.stringify({
+            love: updatedAnswers.love,
+            good: updatedAnswers.good,
+            world: updatedAnswers.world,
+            paid: updatedAnswers.paid
+          }),
         })
 
         const data = await response.json()
-        const newResult = { ...data, timestamp: new Date().toISOString() }
-        setResult(newResult)
-
-        // Update stored ikigai
-        const updatedIkigai = {
-          attempts: storedIkigai.attempts + 1,
-          results: [...storedIkigai.results, newResult]
+        
+        if (!response.ok) {
+          throw new Error(data.details || 'Failed to generate analysis')
         }
-        setStoredIkigai(updatedIkigai)
-        localStorage.setItem(`ikigai-${session.user.id}`, JSON.stringify(updatedIkigai))
+
+        if (!data.result?.connections?.passion) {
+          throw new Error('Invalid response format')
+        }
+
+        setResult(data.result)
+        setCurrentStep('result')
       } catch (error) {
-        console.error('Error analyzing ikigai:', error)
+        console.error('Error:', error)
       } finally {
-        setLoading(false)
+        setIsLoading(false)
       }
+    } else {
+      const nextSteps: Record<Step, Step> = {
+        love: 'good',
+        good: 'world',
+        world: 'paid',
+        paid: 'result',
+        result: 'result'
+      }
+      setCurrentStep(nextSteps[currentStep])
     }
   }
 
-  const handleBack = () => {
-    if (step > 0) {
-      setStep(step - 1)
-      setCurrentAnswer(answers[questions[step - 1].key])
-    }
-  }
-
-  const handleReset = () => {
-    if (!storedIkigai || storedIkigai.attempts >= 3) return;
-    setStep(0)
-    setAnswers({
-      love: '',
-      good: '',
-      world: '',
-      paid: '',
-    })
-    setCurrentAnswer('')
-    setResult(null)
-  }
-
-  const CurrentIcon = questions[step]?.icon
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-        <Card className="w-full max-w-xl">
-          <CardContent className="pt-6 text-center">
-            <Loader2 className="h-12 w-12 animate-spin mx-auto text-blue-600 mb-4" />
-            <p className="text-gray-600">{t('ikigaiAnalyzing')}</p>
-          </CardContent>
-        </Card>
-      </div>
-    )
-  }
-
-  if (result) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-        <Card className="w-full max-w-2xl">
-          <CardHeader>
-            <CardTitle className="text-2xl font-bold text-center text-blue-600">
-              {t('ikigaiResult')}
-            </CardTitle>
-            <CardDescription className="text-center">
-              {t('ikigaiResultDescription')}
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            <div>
-              <h3 className="font-semibold text-lg mb-2">{t('ikigaiSuggestedProfession')}</h3>
-              <p className="text-gray-700 bg-blue-50 p-4 rounded-lg">{result.profession}</p>
-            </div>
-            
-            <div className="space-y-4">
-              <h3 className="font-semibold text-lg">{t('ikigaiConnections')}</h3>
-              <div className="grid gap-4">
-                <div className="bg-red-50 p-4 rounded-lg">
-                  <h4 className="font-medium text-red-800 mb-1">{t('ikigaiPassion')}</h4>
-                  <p className="text-gray-700">{result.connections.passion}</p>
-                </div>
-                <div className="bg-green-50 p-4 rounded-lg">
-                  <h4 className="font-medium text-green-800 mb-1">{t('ikigaiMission')}</h4>
-                  <p className="text-gray-700">{result.connections.mission}</p>
-                </div>
-                <div className="bg-yellow-50 p-4 rounded-lg">
-                  <h4 className="font-medium text-yellow-800 mb-1">{t('ikigaiVocation')}</h4>
-                  <p className="text-gray-700">{result.connections.vocation}</p>
-                </div>
-                <div className="bg-purple-50 p-4 rounded-lg">
-                  <h4 className="font-medium text-purple-800 mb-1">{t('ikigaiProfession')}</h4>
-                  <p className="text-gray-700">{result.connections.profession}</p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-lg mb-2">{t('ikigaiSuggestedPath')}</h3>
-              <p className="text-gray-700 bg-blue-50 p-4 rounded-lg whitespace-pre-line">{result.path}</p>
-            </div>
-          </CardContent>
-          <CardFooter className="flex justify-between">
-            {storedIkigai && storedIkigai.attempts < 3 ? (
-              <Button
-                onClick={handleReset}
-                className="flex items-center gap-2"
-              >
-                {t('createNewIkigai')}
-              </Button>
-            ) : (
-              <div className="text-sm text-gray-500">
-                {t('maxAttemptsReached')}
-              </div>
-            )}
-            <Button 
-              variant="outline"
-              onClick={() => setShowHistory(true)}
-              className="flex items-center gap-2"
-            >
-              <History className="w-4 h-4" />
-              {t('viewPreviousResults')}
-            </Button>
-          </CardFooter>
-        </Card>
-      </div>
-    )
+  if (isLoading) {
+    return <LoadingSpinner />
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-      <Card className="w-full max-w-xl">
-        <CardHeader>
-          <div className="flex items-center justify-center mb-4">
-            {CurrentIcon && <CurrentIcon className={`h-12 w-12 ${questions[step].color}`} />}
+    <div className="min-h-screen bg-gray-50 p-4">
+      <div className="max-w-2xl mx-auto">
+        {currentStep !== 'result' ? (
+          <Card className="p-6">
+            <div className="space-y-6">
+              <div className="flex flex-col items-center">
+                {getStepIcon(currentStep)}
+                <h2 className="text-2xl font-bold mt-4 text-center">
+                  {t(
+                    currentStep === 'love' ? 'ikigaiWhatYouLoveToDo' :
+                    currentStep === 'good' ? 'ikigaiGoodQuestion' :
+                    currentStep === 'world' ? 'ikigaiWorldQuestion' :
+                    'ikigaiPaidQuestion'
+                  )}
+                </h2>
+              </div>
+              <textarea
+                className="w-full p-4 border rounded-lg min-h-[150px]"
+                value={currentAnswer}
+                onChange={(e) => setCurrentAnswer(e.target.value)}
+                placeholder={t('ikigaiAnswerPlaceholder')}
+              />
+              <div className="flex justify-between gap-4">
+                <Button
+                  variant="outline"
+                  onClick={handleBack}
+                  className="flex-1"
+                >
+                  {t('back')}
+                </Button>
+                <Button 
+                  onClick={handleNext}
+                  className="flex-1"
+                  disabled={currentAnswer.trim() === ''}
+                >
+                  {currentStep === 'paid' ? t('finish') : t('next')}
+                </Button>
+              </div>
+            </div>
+          </Card>
+        ) : result && (
+          <div className="space-y-6">
+            <h2 className="text-2xl font-bold">{t('ikigaiResult')}</h2>
+            <p className="text-gray-600">{t('ikigaiResultDescription')}</p>
+            
+            <div className="bg-white p-6 rounded-lg shadow">
+              <h3 className="text-xl font-semibold mb-4">{t('ikigaiSuggestedProfession')}</h3>
+              <p className="text-lg text-blue-600">{result.suggestedProfession}</p>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold">{t('ikigaiConnections')}</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-red-50 p-4 rounded-lg">
+                  <h4 className="font-medium text-red-800 mb-1">{t('ikigaiPassion')}</h4>
+                  <p className="text-gray-700">{result.connections?.passion}</p>
+                </div>
+                <div className="bg-green-50 p-4 rounded-lg">
+                  <h4 className="font-medium text-green-800 mb-1">{t('ikigaiMission')}</h4>
+                  <p className="text-gray-700">{result.connections?.mission}</p>
+                </div>
+                <div className="bg-blue-50 p-4 rounded-lg">
+                  <h4 className="font-medium text-blue-800 mb-1">{t('ikigaiVocation')}</h4>
+                  <p className="text-gray-700">{result.connections?.vocation}</p>
+                </div>
+                <div className="bg-purple-50 p-4 rounded-lg">
+                  <h4 className="font-medium text-purple-800 mb-1">{t('ikigaiProfession')}</h4>
+                  <p className="text-gray-700">{result.connections?.profession}</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow">
+              <h3 className="text-xl font-semibold mb-4">{t('ikigaiSuggestedPath')}</h3>
+              <div className="space-y-3">
+                {result.steps?.map((step, index) => (
+                  <div key={index} className="flex gap-3">
+                    <span className="font-medium">{t('ikigaiStepDescription')} {index + 1}:</span>
+                    <p>{step}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-          <CardTitle className="text-2xl font-bold text-center">
-            {questions[step].text}
-          </CardTitle>
-          <CardDescription className="text-center">
-            {t('ikigaiStepDescription')} {step + 1}/4
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Textarea
-            value={currentAnswer}
-            onChange={(e) => setCurrentAnswer(e.target.value)}
-            placeholder={t('ikigaiAnswerPlaceholder')}
-            className="min-h-[150px]"
-          />
-        </CardContent>
-        <CardFooter className="flex justify-between">
-          <Button
-            variant="outline"
-            onClick={handleBack}
-            disabled={step === 0}
-          >
-            {t('back')}
-          </Button>
-          <Button
-            onClick={handleNext}
-            disabled={!currentAnswer.trim()}
-          >
-            {step < questions.length - 1 ? t('next') : t('finish')}
-          </Button>
-        </CardFooter>
-      </Card>
+        )}
+      </div>
     </div>
   )
 } 
