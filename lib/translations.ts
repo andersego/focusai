@@ -89,6 +89,10 @@ export interface TranslationKeys {
   personalBrandTitle: string;
   personalBrandDescription: string;
   personalBrandContent: string;
+
+  // Goals
+  goalsTitle: string;
+  goalsDescription: string;
 }
 
 export const translations = {
@@ -184,28 +188,9 @@ export const translations = {
     personalBrandDescription: "Create and grow your professional presence",
     personalBrandContent: "Develop your unique personal brand and stand out in your field",
 
-    // Ikigai translations
-    ikigaiTitle: "Discover Your Ikigai",
-    ikigaiDescription: "Find your purpose and path in life",
-    ikigaiContent: "Answer four simple questions to discover your life's purpose and ideal career path",
-    ikigaiStepDescription: "Step",
-    ikigaiAnswerPlaceholder: "Write your answer here...",
-    ikigaiWhatYouLoveToDo: "What do you love to do?",
-    ikigaiGoodQuestion: "What are you good at?",
-    ikigaiWorldQuestion: "What does the world need?",
-    ikigaiPaidQuestion: "What can you be paid for?",
-    ikigaiResult: "Your Ikigai Analysis",
-    ikigaiResultDescription: "Based on your answers, here's your personalized Ikigai analysis",
-    ikigaiSuggestedProfession: "Suggested Profession",
-    ikigaiConnections: "Your Ikigai Connections",
-    ikigaiPassion: "Your Passion",
-    ikigaiMission: "Your Mission",
-    ikigaiVocation: "Your Vocation",
-    ikigaiProfession: "Your Profession",
-    ikigaiSuggestedPath: "Suggested Path",
-    ikigaiError: "Oops! Something went wrong",
-    ikigaiErrorDescription: "We couldn't generate your Ikigai analysis. Please try again.",
-    ikigaiAnalyzing: "Analyzing your answers...",
+    // Goals
+    goalsTitle: "Set and Track Goals",
+    goalsDescription: "Define and achieve your objectives",
   },
   es: {
     // App description
@@ -321,5 +306,9 @@ export const translations = {
     ikigaiError: "¡Ups! Algo salió mal",
     ikigaiErrorDescription: "No pudimos generar tu análisis Ikigai. Por favor, inténtalo de nuevo.",
     ikigaiAnalyzing: "Analizando tus respuestas...",
+
+    // Goals
+    goalsTitle: "Establece y Sigue Metas",
+    goalsDescription: "Define y alcanza tus objetivos",
   }
 }
