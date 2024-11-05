@@ -94,6 +94,66 @@ export interface TranslationKeys {
   goalsTitle: string;
   goalsDescription: string;
   goalsContent: string;
+
+  // App translations
+  welcome: string;
+  progressDescription: string;
+  tasksComplete: string;
+  daysStreak: string;
+  efficiency: string;
+  suggestion: string;
+  lowEfficiencySuggestion: string;
+  mediumEfficiencySuggestion: string;
+  highEfficiencySuggestion: string;
+  backToTasks: string;
+  addReflection: string;
+  previousDays: string;
+  day: string;
+  moodGreat: string;
+  moodOkay: string;
+  moodChallenging: string;
+  noFeedback: string;
+  taskCompleted: string;
+  taskIncomplete: string;
+
+  // Tasks translations
+  generatingTasks: string;
+  completeTasksMessage: string;
+  tasksCompleted: string;
+  viewProgress: string;
+  provideFeedback: string;
+  hideFeedback: string;
+  showFeedback: string;
+
+  // Feedback translations
+  dailyReflection: string;
+  howTasksAlign: string;
+  howFeelProgress: string;
+  thoughtsOnTasks: string;
+  shareExperience: string;
+  submit: string;
+
+  // Footer translations
+  privacyPolicy: string;
+  termsOfService: string;
+  allRightsReserved: string;
+  footerDescription: string;
+  privacyIntro: string;
+  privacyIntroText: string;
+  dataCollection: string;
+  dataCollectionText: string;
+  dataSecurity: string;
+  dataSecurityText: string;
+  contactInfo: string;
+  contactInfoText: string;
+  termsIntro: string;
+  termsIntroText: string;
+  userObligations: string;
+  userObligationsText: string;
+  intellectualProperty: string;
+  intellectualPropertyText: string;
+  limitations: string;
+  limitationsText: string;
 }
 
 export const translations = {
@@ -193,6 +253,66 @@ export const translations = {
     goalsTitle: "Set and Track Goals",
     goalsDescription: "Define and achieve your objectives",
     goalsContent: "Create, track, and accomplish your personal and professional goals",
+
+    // App translations
+    welcome: "Welcome",
+    progressDescription: "You're making great strides towards your goal!",
+    tasksComplete: "Tasks Completed",
+    daysStreak: "Days Streak",
+    efficiency: "Efficiency",
+    suggestion: "Suggestion",
+    lowEfficiencySuggestion: "Consider breaking down your tasks into smaller, more manageable pieces.",
+    mediumEfficiencySuggestion: "You're doing well! Try to maintain consistency in completing your daily tasks.",
+    highEfficiencySuggestion: "Excellent progress! Consider increasing the challenge of your tasks.",
+    backToTasks: "Back to Tasks",
+    addReflection: "Add Reflection",
+    previousDays: "Previous Days",
+    day: "Day",
+    moodGreat: "Great day",
+    moodOkay: "Okay day",
+    moodChallenging: "Challenging day",
+    noFeedback: "No feedback provided",
+    taskCompleted: "Completed",
+    taskIncomplete: "Not completed",
+
+    // Tasks translations
+    generatingTasks: "Generating your daily tasks...",
+    completeTasksMessage: "Complete these tasks to move closer to your goal",
+    tasksCompleted: "tasks completed",
+    viewProgress: "View Progress",
+    provideFeedback: "Provide Feedback",
+    hideFeedback: "Hide Feedback",
+    showFeedback: "Show Feedback",
+
+    // Feedback translations
+    dailyReflection: "Daily Reflection",
+    howTasksAlign: "How did today's tasks align with your goal?",
+    howFeelProgress: "How do you feel about today's progress?",
+    thoughtsOnTasks: "Any thoughts on today's tasks?",
+    shareExperience: "Share your experience or suggestions...",
+    submit: "Submit",
+
+    // Footer translations
+    privacyPolicy: "Privacy Policy",
+    termsOfService: "Terms of Service",
+    allRightsReserved: "All rights reserved.",
+    footerDescription: "FocusAI helps you discover your purpose and achieve your goals through AI-powered guidance and daily task management.",
+    privacyIntro: "Introduction",
+    privacyIntroText: "At FocusAI, we take your privacy seriously. This policy explains how we collect, use, and protect your personal information.",
+    dataCollection: "Data Collection",
+    dataCollectionText: "We collect information necessary to provide our services, including email, name, and usage data.",
+    dataSecurity: "Data Security",
+    dataSecurityText: "We implement security measures to protect your data and maintain its confidentiality.",
+    contactInfo: "Contact Information",
+    contactInfoText: "For privacy-related questions, please contact us through our social media channels.",
+    termsIntro: "Introduction",
+    termsIntroText: "These terms govern your use of FocusAI services.",
+    userObligations: "User Obligations",
+    userObligationsText: "Users must comply with these terms and use the service responsibly.",
+    intellectualProperty: "Intellectual Property",
+    intellectualPropertyText: "All content and features are protected by intellectual property rights.",
+    limitations: "Limitations",
+    limitationsText: "We provide the service 'as is' and make no warranties about its availability or performance.",
   },
   es: {
     // App description
@@ -290,5 +410,65 @@ export const translations = {
     goalsTitle: "Establece y Sigue Metas",
     goalsDescription: "Define y alcanza tus objetivos",
     goalsContent: "Crea, sigue y logra tus metas personales y profesionales",
+
+    // App translations
+    welcome: "Bienvenido",
+    progressDescription: "¡Estás avanzando muy bien hacia tu meta!",
+    tasksComplete: "Tareas Completadas",
+    daysStreak: "Días Consecutivos",
+    efficiency: "Eficiencia",
+    suggestion: "Sugerencia",
+    lowEfficiencySuggestion: "Considera dividir tus tareas en partes más pequeñas y manejables.",
+    mediumEfficiencySuggestion: "¡Lo estás haciendo bien! Trata de mantener la consistencia en completar tus tareas diarias.",
+    highEfficiencySuggestion: "¡Excelente progreso! Considera aumentar el desafío de tus tareas.",
+    backToTasks: "Volver a Tareas",
+    addReflection: "Añadir Reflexión",
+    previousDays: "Días Anteriores",
+    day: "Día",
+    moodGreat: "Buen día",
+    moodOkay: "Día regular",
+    moodChallenging: "Día difícil",
+    noFeedback: "Sin feedback",
+    taskCompleted: "Completada",
+    taskIncomplete: "No completada",
+
+    // Tasks translations
+    generatingTasks: "Generando tus tareas diarias...",
+    completeTasksMessage: "Completa estas tareas para acercarte a tu meta",
+    tasksCompleted: "tareas completadas",
+    viewProgress: "Ver Progreso",
+    provideFeedback: "Dar Feedback",
+    hideFeedback: "Ocultar Feedback",
+    showFeedback: "Mostrar Feedback",
+
+    // Feedback translations
+    dailyReflection: "Reflexión Diaria",
+    howTasksAlign: "¿Cómo se alinean las tareas de hoy con tu meta?",
+    howFeelProgress: "¿Cómo te sientes con el progreso de hoy?",
+    thoughtsOnTasks: "¿Qué opinas sobre las tareas de hoy?",
+    shareExperience: "Comparte tu experiencia o sugerencias...",
+    submit: "Enviar",
+
+    // Footer translations
+    privacyPolicy: "Política de Privacidad",
+    termsOfService: "Términos de Servicio",
+    allRightsReserved: "Todos los derechos reservados.",
+    footerDescription: "FocusAI te ayuda a descubrir tu propósito y alcanzar tus metas a través de orientación impulsada por IA y gestión diaria de tareas.",
+    privacyIntro: "Introducción",
+    privacyIntroText: "En FocusAI, nos tomamos tu privacidad en serio. Esta política explica cómo recopilamos, usamos y protegemos tu información personal.",
+    dataCollection: "Recopilación de Datos",
+    dataCollectionText: "Recopilamos la información necesaria para proporcionar nuestros servicios, incluyendo correo electrónico, nombre y datos de uso.",
+    dataSecurity: "Seguridad de Datos",
+    dataSecurityText: "Implementamos medidas de seguridad para proteger tus datos y mantener su confidencialidad.",
+    contactInfo: "Información de Contacto",
+    contactInfoText: "Para preguntas relacionadas con la privacidad, contáctanos a través de nuestras redes sociales.",
+    termsIntro: "Introducción",
+    termsIntroText: "Estos términos rigen tu uso de los servicios de FocusAI.",
+    userObligations: "Obligaciones del Usuario",
+    userObligationsText: "Los usuarios deben cumplir con estos términos y usar el servicio de manera responsable.",
+    intellectualProperty: "Propiedad Intelectual",
+    intellectualPropertyText: "Todo el contenido y funciones están protegidos por derechos de propiedad intelectual.",
+    limitations: "Limitaciones",
+    limitationsText: "Proporcionamos el servicio 'tal cual' y no hacemos garantías sobre su disponibilidad o rendimiento.",
   }
 }
