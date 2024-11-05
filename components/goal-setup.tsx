@@ -7,17 +7,17 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import { CalendarIcon } from 'lucide-react'
 import { useLanguage } from '@/lib/language-context'
-import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context'
+import { useRouter } from 'next/navigation'
 
 interface GoalSetupProps {
   onAddGoal: (title: string, deadline: string) => void;
-  router: AppRouterInstance;
 }
 
-export function GoalSetup({ onAddGoal, router }: GoalSetupProps) {
+export function GoalSetup({ onAddGoal }: GoalSetupProps) {
   const [goal, setGoal] = useState('')
   const [deadline, setDeadline] = useState('')
   const { t } = useLanguage()
+  const router = useRouter()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
