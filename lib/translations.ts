@@ -84,6 +84,11 @@ export interface TranslationKeys {
   underConstruction: string;
   stayTuned: string;
   comingSoon: string;
+
+  // Personal Brand
+  personalBrandTitle: string;
+  personalBrandDescription: string;
+  personalBrandContent: string;
 }
 
 export const translations = {
@@ -172,7 +177,35 @@ export const translations = {
     featureComingSoon: "Feature Coming Soon",
     underConstruction: "Under Construction",
     stayTuned: "Stay tuned!",
-    comingSoon: "Coming Soon"
+    comingSoon: "Coming Soon",
+
+    // Personal Brand
+    personalBrandTitle: "Build Your Personal Brand",
+    personalBrandDescription: "Create and grow your professional presence",
+    personalBrandContent: "Develop your unique personal brand and stand out in your field",
+
+    // Ikigai translations
+    ikigaiTitle: "Discover Your Ikigai",
+    ikigaiDescription: "Find your purpose and path in life",
+    ikigaiContent: "Answer four simple questions to discover your life's purpose and ideal career path",
+    ikigaiStepDescription: "Step",
+    ikigaiAnswerPlaceholder: "Write your answer here...",
+    ikigaiWhatYouLoveToDo: "What do you love to do?",
+    ikigaiGoodQuestion: "What are you good at?",
+    ikigaiWorldQuestion: "What does the world need?",
+    ikigaiPaidQuestion: "What can you be paid for?",
+    ikigaiResult: "Your Ikigai Analysis",
+    ikigaiResultDescription: "Based on your answers, here's your personalized Ikigai analysis",
+    ikigaiSuggestedProfession: "Suggested Profession",
+    ikigaiConnections: "Your Ikigai Connections",
+    ikigaiPassion: "Your Passion",
+    ikigaiMission: "Your Mission",
+    ikigaiVocation: "Your Vocation",
+    ikigaiProfession: "Your Profession",
+    ikigaiSuggestedPath: "Suggested Path",
+    ikigaiError: "Oops! Something went wrong",
+    ikigaiErrorDescription: "We couldn't generate your Ikigai analysis. Please try again.",
+    ikigaiAnalyzing: "Analyzing your answers...",
   },
   es: {
     // App description
@@ -259,6 +292,34 @@ export const translations = {
     featureComingSoon: "Función Próximamente",
     underConstruction: "En Construcción",
     stayTuned: "¡Mantente atento!",
-    comingSoon: "Próximamente"
+    comingSoon: "Próximamente",
+
+    // Personal Brand
+    personalBrandTitle: "Construye Tu Marca Personal",
+    personalBrandDescription: "Crea y haz crecer tu presencia profesional",
+    personalBrandContent: "Desarrolla tu marca personal única y destaca en tu campo",
+
+    // Ikigai translations
+    ikigaiTitle: "Descubre Tu Ikigai",
+    ikigaiDescription: "Encuentra tu propósito y camino en la vida",
+    ikigaiContent: "Responde cuatro simples preguntas para descubrir tu propósito de vida y carrera ideal",
+    ikigaiStepDescription: "Paso",
+    ikigaiAnswerPlaceholder: "Escribe tu respuesta aquí...",
+    ikigaiWhatYouLoveToDo: "¿Qué te encanta hacer?",
+    ikigaiGoodQuestion: "¿En qué eres bueno?",
+    ikigaiWorldQuestion: "¿Qué necesita el mundo?",
+    ikigaiPaidQuestion: "¿Por qué te pueden pagar?",
+    ikigaiResult: "Tu Análisis Ikigai",
+    ikigaiResultDescription: "Basado en tus respuestas, aquí está tu análisis Ikigai personalizado",
+    ikigaiSuggestedProfession: "Profesión Sugerida",
+    ikigaiConnections: "Tus Conexiones Ikigai",
+    ikigaiPassion: "Tu Pasión",
+    ikigaiMission: "Tu Misión",
+    ikigaiVocation: "Tu Vocación",
+    ikigaiProfession: "Tu Profesión",
+    ikigaiSuggestedPath: "Camino Sugerido",
+    ikigaiError: "¡Ups! Algo salió mal",
+    ikigaiErrorDescription: "No pudimos generar tu análisis Ikigai. Por favor, inténtalo de nuevo.",
+    ikigaiAnalyzing: "Analizando tus respuestas...",
   }
 }
