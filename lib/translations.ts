@@ -29,6 +29,7 @@ export interface TranslationKeys {
   // Ikigai translations
   ikigaiTitle: string;
   ikigaiDescription: string;
+  ikigaiContent: string;
   ikigaiStepDescription: string;
   ikigaiAnswerPlaceholder: string;
   ikigaiWhatYouLoveToDo: string;
@@ -111,6 +112,7 @@ export const translations = {
     // Ikigai translations
     ikigaiTitle: "Discover Your Ikigai",
     ikigaiDescription: "Find your purpose and path in life",
+    ikigaiContent: "Answer four simple questions to discover your life's purpose and ideal career path",
     ikigaiStepDescription: "Step",
     ikigaiAnswerPlaceholder: "Write your answer here...",
     ikigaiWhatYouLoveToDo: "What do you love to do?",
@@ -191,6 +193,7 @@ export const translations = {
     // Ikigai translations
     ikigaiTitle: "Descubre Tu Ikigai",
     ikigaiDescription: "Encuentra tu propósito y camino en la vida",
+    ikigaiContent: "Responde cuatro simples preguntas para descubrir tu propósito de vida y carrera ideal",
     ikigaiStepDescription: "Paso",
     ikigaiAnswerPlaceholder: "Escribe tu respuesta aquí...",
     ikigaiWhatYouLoveToDo: "¿Qué te encanta hacer?",
