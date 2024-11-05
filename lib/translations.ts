@@ -1,35 +1,55 @@
 export interface TranslationKeys {
-  // App description
-  appName: string;
-  appDescription: string;
-  
   // Auth translations
-  name: string;
-  signInDescription: string;
-  signUpDescription: string;
-  createAccount: string;
-  invalidCredentials: string;
-  signInError: string;
-  signUpError: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-  passwordsDontMatch: string;
   signIn: string;
   signUp: string;
-  signingIn: string;
-  signingUp: string;
+  email: string;
+  password: string;
+  name: string;
+  createAccount: string;
   signInWithGoogle: string;
   signUpWithGoogle: string;
-  orContinueWith: string;
-  noAccount: string;
-  haveAccount: string;
   alreadyHaveAccount: string;
-  
-  // Ikigai translations
+  noAccount: string;
+  invalidCredentials: string;
+  authError: string;
+  signInError: string;
+  signUpError: string;
+  emailTaken: string;
+  orContinueWith: string;
+  signingIn: string;
+
+  // Main page translations
+  welcome: string;
   ikigaiTitle: string;
   ikigaiDescription: string;
   ikigaiContent: string;
+  goalsTitle: string;
+  goalsDescription: string;
+  goalsContent: string;
+
+  // App translations
+  appDescription: string;
+  signInDescription: string;
+  progressDescription: string;
+  tasksComplete: string;
+  daysStreak: string;
+  efficiency: string;
+  suggestion: string;
+  lowEfficiencySuggestion: string;
+  mediumEfficiencySuggestion: string;
+  highEfficiencySuggestion: string;
+  backToTasks: string;
+  addReflection: string;
+  previousDays: string;
+  day: string;
+  moodGreat: string;
+  moodOkay: string;
+  moodChallenging: string;
+  noFeedback: string;
+  taskCompleted: string;
+  taskIncomplete: string;
+  
+  // Ikigai translations
   ikigaiStepDescription: string;
   ikigaiAnswerPlaceholder: string;
   ikigaiWhatYouLoveToDo: string;
@@ -56,9 +76,21 @@ export interface TranslationKeys {
   goalPlaceholder: string;
   whenAchieve: string;
   addNewGoal: string;
-  deleteGoal: string;
-  confirmDeleteGoal: string;
-  goalDeleted: string;
+  yourGoals: string;
+  deleteConfirm: string;
+  due: string;
+  todaysProgress: string;
+  completed: string;
+  noGoals: string;
+
+  // Tasks translations
+  generatingTasks: string;
+  completeTasksMessage: string;
+  tasksCompleted: string;
+  viewProgress: string;
+  provideFeedback: string;
+  hideFeedback: string;
+  showFeedback: string;
   
   // Loading states
   loading: string;
@@ -90,40 +122,6 @@ export interface TranslationKeys {
   personalBrandDescription: string;
   personalBrandContent: string;
 
-  // Goals
-  goalsTitle: string;
-  goalsDescription: string;
-  goalsContent: string;
-
-  // App translations
-  welcome: string;
-  progressDescription: string;
-  tasksComplete: string;
-  daysStreak: string;
-  efficiency: string;
-  suggestion: string;
-  lowEfficiencySuggestion: string;
-  mediumEfficiencySuggestion: string;
-  highEfficiencySuggestion: string;
-  backToTasks: string;
-  addReflection: string;
-  previousDays: string;
-  day: string;
-  moodGreat: string;
-  moodOkay: string;
-  moodChallenging: string;
-  noFeedback: string;
-  taskCompleted: string;
-  taskIncomplete: string;
-
-  // Tasks translations
-  generatingTasks: string;
-  completeTasksMessage: string;
-  tasksCompleted: string;
-  viewProgress: string;
-  provideFeedback: string;
-  hideFeedback: string;
-  showFeedback: string;
 
   // Feedback translations
   dailyReflection: string;
@@ -163,32 +161,55 @@ export const translations = {
     appDescription: "Your AI-powered goal achievement companion",
     
     // Auth translations
-    name: "Name",
-    signInDescription: "Welcome back! Please sign in to continue.",
-    signUpDescription: "Create an account to get started.",
-    createAccount: "Create Account",
-    invalidCredentials: "Invalid email or password",
-    signInError: "An error occurred during sign in",
-    signUpError: "An error occurred during sign up",
-    email: "Email",
-    password: "Password",
-    confirmPassword: "Confirm Password",
-    passwordsDontMatch: "Passwords don't match",
     signIn: "Sign In",
     signUp: "Sign Up",
-    signingIn: "Signing In...",
-    signingUp: "Signing Up...",
+    email: "Email",
+    password: "Password",
+    name: "Name",
+    createAccount: "Create your account",
     signInWithGoogle: "Sign in with Google",
     signUpWithGoogle: "Sign up with Google",
-    orContinueWith: "Or continue with",
-    noAccount: "Don't have an account?",
-    haveAccount: "Already have an account?",
     alreadyHaveAccount: "Already have an account?",
+    noAccount: "Don't have an account?",
+    invalidCredentials: "Invalid email or password",
+    authError: "Authentication error",
+    signInError: "Error signing in",
+    signUpError: "Error signing up",
+    emailTaken: "Email already registered",
+    orContinueWith: "or continue with",
+    signingIn: "Signing in...",
+  
+    // Main page translations
+    welcome: "Welcome",
+    ikigaiTitle: "Find Your Ikigai",
+    ikigaiDescription: "Discover your life's purpose",
+    ikigaiContent: "Explore the intersection of what you love, what you're good at, what the world needs, and what you can be paid for.",
+    goalsTitle: "Set Your Goals",
+    goalsDescription: "Track your progress and achieve more",
+    goalsContent: "Create specific, measurable goals and let AI help you break them down into achievable daily tasks.",
+  
+      // App translations
+    signInDescription: "Welcome back! Sign in to continue",
+    progressDescription: "You're making great strides towards your goal!",
+    tasksComplete: "Tasks Completed",
+    daysStreak: "Days Streak",
+    efficiency: "Efficiency",
+    suggestion: "Suggestion",
+    lowEfficiencySuggestion: "Consider breaking down your tasks into smaller, more manageable pieces.",
+    mediumEfficiencySuggestion: "You're doing well! Try to maintain consistency in completing your daily tasks.",
+    highEfficiencySuggestion: "Excellent progress! Consider increasing the challenge of your tasks.",
+    backToTasks: "Back to Tasks",
+    addReflection: "Add Reflection",
+    previousDays: "Previous Days",
+    day: "Day",
+    moodGreat: "Great day",
+    moodOkay: "Okay day",
+    moodChallenging: "Challenging day",
+    noFeedback: "No feedback provided",
+    taskCompleted: "Completed",
+    taskIncomplete: "Not completed",
     
     // Ikigai translations
-    ikigaiTitle: "Discover Your Ikigai",
-    ikigaiDescription: "Find your purpose and path in life",
-    ikigaiContent: "Answer four simple questions to discover your life's purpose and ideal career path",
     ikigaiStepDescription: "Step",
     ikigaiAnswerPlaceholder: "Write your answer here...",
     ikigaiWhatYouLoveToDo: "What do you love to do?",
@@ -210,71 +231,18 @@ export const translations = {
     
     // Goals translations
     setNewGoal: "Set New Goal",
-    defineGoalDescription: "Define your goal and when you want to achieve it",
+    defineGoalDescription: "Define your path to success with a clear, achievable goal.",
     whatsYourGoal: "What's your goal?",
-    goalPlaceholder: "Enter your goal here...",
+    goalPlaceholder: "e.g., Launch my online course",
     whenAchieve: "When do you want to achieve it?",
     addNewGoal: "Add New Goal",
-    deleteGoal: "Delete Goal",
-    confirmDeleteGoal: "Are you sure you want to delete this goal?",
-    goalDeleted: "Goal deleted successfully",
+    yourGoals: "Your Goals",
+    deleteConfirm: "Are you sure you want to delete this goal?",
+    due: "Due",
+    todaysProgress: "Today's Progress",
+    completed: "completed",
+    noGoals: "No goals yet. Add your first goal above!",
     
-    // Loading states
-    loading: "Loading...",
-    generatingIkigai: "We're analyzing your answers and generating your Ikigai. This might take a minute...",
-    
-    // Navigation and common
-    createNewIkigai: "Create New Ikigai",
-    maxAttemptsReached: "Maximum attempts reached",
-    viewPreviousResults: "View Previous Results",
-    back: "Back",
-    backToHome: "Back to Home",
-    tryAgain: "Try Again",
-    next: "Next",
-    finish: "Finish",
-    viewPreviousIkigais: "View Previous Ikigais",
-    cancel: "Cancel",
-    confirm: "Confirm",
-    delete: "Delete",
-    language: "Language",
-
-    // Status messages
-    featureComingSoon: "Feature Coming Soon",
-    underConstruction: "Under Construction",
-    stayTuned: "Stay tuned!",
-    comingSoon: "Coming Soon",
-
-    // Personal Brand
-    personalBrandTitle: "Build Your Personal Brand",
-    personalBrandDescription: "Create and grow your professional presence",
-    personalBrandContent: "Develop your unique personal brand and stand out in your field",
-
-    // Goals
-    goalsTitle: "Set and Track Goals",
-    goalsDescription: "Define and achieve your objectives",
-    goalsContent: "Create, track, and accomplish your personal and professional goals",
-
-    // App translations
-    welcome: "Welcome",
-    progressDescription: "You're making great strides towards your goal!",
-    tasksComplete: "Tasks Completed",
-    daysStreak: "Days Streak",
-    efficiency: "Efficiency",
-    suggestion: "Suggestion",
-    lowEfficiencySuggestion: "Consider breaking down your tasks into smaller, more manageable pieces.",
-    mediumEfficiencySuggestion: "You're doing well! Try to maintain consistency in completing your daily tasks.",
-    highEfficiencySuggestion: "Excellent progress! Consider increasing the challenge of your tasks.",
-    backToTasks: "Back to Tasks",
-    addReflection: "Add Reflection",
-    previousDays: "Previous Days",
-    day: "Day",
-    moodGreat: "Great day",
-    moodOkay: "Okay day",
-    moodChallenging: "Challenging day",
-    noFeedback: "No feedback provided",
-    taskCompleted: "Completed",
-    taskIncomplete: "Not completed",
-
     // Tasks translations
     generatingTasks: "Generating your daily tasks...",
     completeTasksMessage: "Complete these tasks to move closer to your goal",
@@ -290,13 +258,31 @@ export const translations = {
     howFeelProgress: "How do you feel about today's progress?",
     thoughtsOnTasks: "Any thoughts on today's tasks?",
     shareExperience: "Share your experience or suggestions...",
+    cancel: "Cancel",
     submit: "Submit",
+
+    // Dev controls
+    currentDay: "Current Day",
+    nextDay: "Next Day",
+    resetDays: "Reset Days",
+
+    // Personal Brand translations
+    personalBrandTitle: "Personal Brand",
+    personalBrandDescription: "Build and manage your professional image",
+    personalBrandContent: "Create a strong personal brand that reflects your values and helps you stand out in your professional field.",
+
+    // Coming soon translations
+    comingSoon: "Coming Soon",
+    featureComingSoon: "This feature is coming soon! Stay tuned for updates.",
+    loading: "Loading...",
 
     // Footer translations
     privacyPolicy: "Privacy Policy",
     termsOfService: "Terms of Service",
     allRightsReserved: "All rights reserved.",
     footerDescription: "FocusAI helps you discover your purpose and achieve your goals through AI-powered guidance and daily task management.",
+
+    // Add to English translations
     privacyIntro: "Introduction",
     privacyIntroText: "At FocusAI, we take your privacy seriously. This policy explains how we collect, use, and protect your personal information.",
     dataCollection: "Data Collection",
@@ -313,6 +299,28 @@ export const translations = {
     intellectualPropertyText: "All content and features are protected by intellectual property rights.",
     limitations: "Limitations",
     limitationsText: "We provide the service 'as is' and make no warranties about its availability or performance.",
+    
+    // Loading states
+    generatingIkigai: "We're analyzing your answers and generating your Ikigai. This might take a minute...",
+    
+    // Navigation and common
+    createNewIkigai: "Create New Ikigai",
+    maxAttemptsReached: "Maximum attempts reached",
+    viewPreviousResults: "View Previous Results",
+    back: "Back",
+    backToHome: "Back to Home",
+    tryAgain: "Try Again",
+    next: "Next",
+    finish: "Finish",
+    viewPreviousIkigais: "View Previous Ikigais",
+    confirm: "Confirm",
+    delete: "Delete",
+    language: "Language",
+    underConstruction: "Under Construction",
+    stayTuned: "Stay tuned!",
+    
+    
+
   },
   es: {
     // App description
@@ -320,99 +328,39 @@ export const translations = {
     appDescription: "Tu compañero de logros impulsado por IA",
     
     // Auth translations
-    name: "Nombre",
-    signInDescription: "¡Bienvenido de nuevo! Por favor, inicia sesión para continuar.",
-    signUpDescription: "Crea una cuenta para comenzar.",
-    createAccount: "Crear Cuenta",
-    invalidCredentials: "Email o contraseña inválidos",
-    signInError: "Ocurrió un error durante el inicio de sesión",
-    signUpError: "Ocurrió un error durante el registro",
-    email: "Email",
-    password: "Contraseña",
+
     confirmPassword: "Confirmar Contraseña",
     passwordsDontMatch: "Las contraseñas no coinciden",
+    signingUp: "Registrando...",
+    haveAccount: "¿Ya tienes una cuenta?",
     signIn: "Iniciar Sesión",
     signUp: "Registrarse",
-    signingIn: "Iniciando Sesión...",
-    signingUp: "Registrando...",
+    email: "Correo",
+    password: "Contraseña",
+    name: "Nombre",
+    createAccount: "Crea tu cuenta",
     signInWithGoogle: "Iniciar sesión con Google",
     signUpWithGoogle: "Registrarse con Google",
-    orContinueWith: "O continuar con",
-    noAccount: "¿No tienes una cuenta?",
-    haveAccount: "¿Ya tienes una cuenta?",
     alreadyHaveAccount: "¿Ya tienes una cuenta?",
-    
-    // Ikigai translations
-    ikigaiTitle: "Descubre Tu Ikigai",
-    ikigaiDescription: "Encuentra tu propósito y camino en la vida",
-    ikigaiContent: "Responde cuatro simples preguntas para descubrir tu propósito de vida y carrera ideal",
-    ikigaiStepDescription: "Paso",
-    ikigaiAnswerPlaceholder: "Escribe tu respuesta aquí...",
-    ikigaiWhatYouLoveToDo: "¿Qué te encanta hacer?",
-    ikigaiGoodQuestion: "¿En qué eres bueno?",
-    ikigaiWorldQuestion: "¿Qué necesita el mundo?",
-    ikigaiPaidQuestion: "¿Por qué te pueden pagar?",
-    ikigaiResult: "Tu Análisis Ikigai",
-    ikigaiResultDescription: "Basado en tus respuestas, aquí está tu análisis Ikigai personalizado",
-    ikigaiSuggestedProfession: "Profesión Sugerida",
-    ikigaiConnections: "Tus Conexiones Ikigai",
-    ikigaiPassion: "Tu Pasión",
-    ikigaiMission: "Tu Misión",
-    ikigaiVocation: "Tu Vocación",
-    ikigaiProfession: "Tu Profesión",
-    ikigaiSuggestedPath: "Camino Sugerido",
-    ikigaiError: "¡Ups! Algo salió mal",
-    ikigaiErrorDescription: "No pudimos generar tu análisis Ikigai. Por favor, inténtalo de nuevo.",
-    ikigaiAnalyzing: "Analizando tus respuestas...",
-    
-    // Goals translations
-    setNewGoal: "Establecer Nueva Meta",
-    defineGoalDescription: "Define tu meta y cuándo quieres alcanzarla",
-    whatsYourGoal: "¿Cuál es tu meta?",
-    goalPlaceholder: "Escribe tu meta aquí...",
-    whenAchieve: "¿Cuándo quieres alcanzarla?",
-    addNewGoal: "Añadir Nueva Meta",
-    deleteGoal: "Eliminar Meta",
-    confirmDeleteGoal: "¿Estás seguro de que quieres eliminar esta meta?",
-    goalDeleted: "Meta eliminada con éxito",
-    
-    // Loading states
-    loading: "Cargando...",
-    generatingIkigai: "Estamos analizando tus respuestas y generando tu Ikigai. Esto puede tardar un minuto...",
-    
-    // Navigation and common
-    createNewIkigai: "Crear Nuevo Ikigai",
-    maxAttemptsReached: "Máximo de intentos alcanzado",
-    viewPreviousResults: "Ver Resultados Anteriores",
-    back: "Atrás",
-    backToHome: "Volver al Inicio",
-    tryAgain: "Intentar de Nuevo",
-    next: "Siguiente",
-    finish: "Finalizar",
-    viewPreviousIkigais: "Ver Ikigais Anteriores",
-    cancel: "Cancelar",
-    confirm: "Confirmar",
-    delete: "Eliminar",
-    language: "Idioma",
-
-    // Status messages
-    featureComingSoon: "Función Próximamente",
-    underConstruction: "En Construcción",
-    stayTuned: "¡Mantente atento!",
-    comingSoon: "Próximamente",
-
-    // Personal Brand
-    personalBrandTitle: "Construye Tu Marca Personal",
-    personalBrandDescription: "Crea y haz crecer tu presencia profesional",
-    personalBrandContent: "Desarrolla tu marca personal única y destaca en tu campo",
-
-    // Goals
-    goalsTitle: "Establece y Sigue Metas",
-    goalsDescription: "Define y alcanza tus objetivos",
-    goalsContent: "Crea, sigue y logra tus metas personales y profesionales",
-
-    // App translations
+    noAccount: "¿No tienes una cuenta?",
+    invalidCredentials: "Correo o contraseña inválidos",
+    authError: "Error de autenticación",
+    signInError: "Error al iniciar sesión",
+    signUpError: "Error al registrarse",
+    emailTaken: "El correo ya está registrado",
+    orContinueWith: "o continuar con",
+    signingIn: "Iniciando sesión...",
+  
     welcome: "Bienvenido",
+    ikigaiTitle: "Encuentra Tu Ikigai",
+    ikigaiDescription: "Descubre tu propósito de vida",
+    ikigaiContent: "Explora la intersección entre lo que amas, lo que haces bien, lo que el mundo necesita y por lo que te pueden pagar.",
+    goalsTitle: "Establece Tus Metas",
+    goalsDescription: "Sigue tu progreso y logra más",
+    goalsContent: "Crea metas específicas y medibles y deja que la IA te ayude a dividirlas en tareas diarias alcanzables.",
+  
+    
+    signInDescription: "¡Bienvenido de nuevo! Inicia sesión para continuar",
     progressDescription: "¡Estás avanzando muy bien hacia tu meta!",
     tasksComplete: "Tareas Completadas",
     daysStreak: "Días Consecutivos",
@@ -431,7 +379,48 @@ export const translations = {
     noFeedback: "Sin feedback",
     taskCompleted: "Completada",
     taskIncomplete: "No completada",
-
+  
+    // Ikigai translations
+    ikigaiLoveQuestion: "¿Qué amas?",
+    ikigaiGoodQuestion: "¿En qué eres bueno?",
+    ikigaiWorldQuestion: "¿Qué necesita el mundo?",
+    ikigaiPaidQuestion: "¿Por qué te pueden pagar?",
+    ikigaiAnalyzing: "Analizando tu ikigai...",
+    ikigaiResult: "Tu Análisis de Ikigai",
+    ikigaiResultDescription: "Basado en tus respuestas, aquí hay un camino sugerido",
+    ikigaiSuggestedProfession: "Actividad Profesional Sugerida",
+    ikigaiConnections: "Cómo Todo Se Conecta",
+    ikigaiPassion: "Tu Pasión (Amor + Habilidad)",
+    ikigaiMission: "Tu Misión (Amor + Necesidad)",
+    ikigaiVocation: "Tu Vocación (Habilidad + Pago)",
+    ikigaiProfession: "Tu Profesión (Necesidad + Pago)",
+    ikigaiSuggestedPath: "Cómo Empezar",
+    ikigaiStepDescription: "Paso",
+    ikigaiAnswerPlaceholder: "Tómate tu tiempo para reflexionar y escribir tus pensamientos...",
+    createNewIkigai: "Crear Nuevo Ikigai",
+    maxAttemptsReached: "Máximo de intentos (3) alcanzado",
+    viewPreviousResults: "Ver Resultados Anteriores",  
+    ikigaiWhatYouLoveToDo: "¿Qué te encanta hacer?",
+    ikigaiError: "¡Ups! Algo salió mal",
+    ikigaiErrorDescription: "No pudimos generar tu análisis Ikigai. Por favor, inténtalo de nuevo.",
+    back: "Atrás",
+    next: "Siguiente",
+    finish: "Finalizar",
+  
+    // Goals translations
+    setNewGoal: "Nueva Meta",
+    defineGoalDescription: "Define tu camino hacia el éxito con una meta clara y alcanzable.",
+    whatsYourGoal: "¿Cuál es tu meta?",
+    goalPlaceholder: "ej., Lanzar mi curso en línea",
+    whenAchieve: "¿Para cuándo quieres lograrla?",
+    addNewGoal: "Crear Meta",
+    yourGoals: "Tus Metas",
+    deleteConfirm: "¿Estás seguro de que quieres eliminar esta meta?",
+    due: "Fecha límite",
+    todaysProgress: "Progreso de Hoy",
+    completed: "completado",
+    noGoals: "Aún no tienes metas. ¡Crea tu primera meta arriba!",
+  
     // Tasks translations
     generatingTasks: "Generando tus tareas diarias...",
     completeTasksMessage: "Completa estas tareas para acercarte a tu meta",
@@ -440,20 +429,38 @@ export const translations = {
     provideFeedback: "Dar Feedback",
     hideFeedback: "Ocultar Feedback",
     showFeedback: "Mostrar Feedback",
-
+  
     // Feedback translations
     dailyReflection: "Reflexión Diaria",
     howTasksAlign: "¿Cómo se alinean las tareas de hoy con tu meta?",
     howFeelProgress: "¿Cómo te sientes con el progreso de hoy?",
     thoughtsOnTasks: "¿Qué opinas sobre las tareas de hoy?",
     shareExperience: "Comparte tu experiencia o sugerencias...",
+    cancel: "Cancelar",
     submit: "Enviar",
-
+  
+    // Dev controls
+    currentDay: "Día Actual",
+    nextDay: "Siguiente Día",
+    resetDays: "Reiniciar Días",
+  
+    // Personal Brand translations
+    personalBrandTitle: "Marca Personal",
+    personalBrandDescription: "Construye y gestiona tu imagen profesional",
+    personalBrandContent: "Crea una marca personal sólida que refleje tus valores y te ayude a destacar en tu campo profesional.",
+  
+    // Coming soon translations
+    comingSoon: "Próximamente",
+    featureComingSoon: "¡Esta función estará disponible pronto! Mantente atento a las actualizaciones.",
+    loading: "Cargando...",
+  
     // Footer translations
     privacyPolicy: "Política de Privacidad",
     termsOfService: "Términos de Servicio",
     allRightsReserved: "Todos los derechos reservados.",
     footerDescription: "FocusAI te ayuda a descubrir tu propósito y alcanzar tus metas a través de orientación impulsada por IA y gestión diaria de tareas.",
+  
+    // Add to Spanish translations
     privacyIntro: "Introducción",
     privacyIntroText: "En FocusAI, nos tomamos tu privacidad en serio. Esta política explica cómo recopilamos, usamos y protegemos tu información personal.",
     dataCollection: "Recopilación de Datos",
@@ -470,5 +477,40 @@ export const translations = {
     intellectualPropertyText: "Todo el contenido y funciones están protegidos por derechos de propiedad intelectual.",
     limitations: "Limitaciones",
     limitationsText: "Proporcionamos el servicio 'tal cual' y no hacemos garantías sobre su disponibilidad o rendimiento.",
+    
+
+    
+    
+    
+    
+    
+    // Goals translations
+    
+    deleteGoal: "Eliminar Meta",
+    confirmDeleteGoal: "¿Estás seguro de que quieres eliminar esta meta?",
+    goalDeleted: "Meta eliminada con éxito",
+    
+    // Loading states
+    
+    generatingIkigai: "Estamos analizando tus respuestas y generando tu Ikigai. Esto puede tardar un minuto...",
+    
+    // Navigation and common
+   
+    backToHome: "Volver al Inicio",
+    tryAgain: "Intentar de Nuevo",
+    
+    viewPreviousIkigais: "Ver Ikigais Anteriores",
+   
+    confirm: "Confirmar",
+    delete: "Eliminar",
+    language: "Idioma",
+
+    // Status messages
+    
+    underConstruction: "En Construcción",
+    stayTuned: "¡Mantente atento!",
+    
+    
+
   }
 }
