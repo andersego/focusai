@@ -93,6 +93,7 @@ export interface TranslationKeys {
   // Goals
   goalsTitle: string;
   goalsDescription: string;
+  goalsContent: string;
 }
 
 export const translations = {
@@ -191,6 +192,7 @@ export const translations = {
     // Goals
     goalsTitle: "Set and Track Goals",
     goalsDescription: "Define and achieve your objectives",
+    goalsContent: "Create, track, and accomplish your personal and professional goals",
   },
   es: {
     // App description
@@ -284,31 +286,9 @@ export const translations = {
     personalBrandDescription: "Crea y haz crecer tu presencia profesional",
     personalBrandContent: "Desarrolla tu marca personal única y destaca en tu campo",
 
-    // Ikigai translations
-    ikigaiTitle: "Descubre Tu Ikigai",
-    ikigaiDescription: "Encuentra tu propósito y camino en la vida",
-    ikigaiContent: "Responde cuatro simples preguntas para descubrir tu propósito de vida y carrera ideal",
-    ikigaiStepDescription: "Paso",
-    ikigaiAnswerPlaceholder: "Escribe tu respuesta aquí...",
-    ikigaiWhatYouLoveToDo: "¿Qué te encanta hacer?",
-    ikigaiGoodQuestion: "¿En qué eres bueno?",
-    ikigaiWorldQuestion: "¿Qué necesita el mundo?",
-    ikigaiPaidQuestion: "¿Por qué te pueden pagar?",
-    ikigaiResult: "Tu Análisis Ikigai",
-    ikigaiResultDescription: "Basado en tus respuestas, aquí está tu análisis Ikigai personalizado",
-    ikigaiSuggestedProfession: "Profesión Sugerida",
-    ikigaiConnections: "Tus Conexiones Ikigai",
-    ikigaiPassion: "Tu Pasión",
-    ikigaiMission: "Tu Misión",
-    ikigaiVocation: "Tu Vocación",
-    ikigaiProfession: "Tu Profesión",
-    ikigaiSuggestedPath: "Camino Sugerido",
-    ikigaiError: "¡Ups! Algo salió mal",
-    ikigaiErrorDescription: "No pudimos generar tu análisis Ikigai. Por favor, inténtalo de nuevo.",
-    ikigaiAnalyzing: "Analizando tus respuestas...",
-
     // Goals
     goalsTitle: "Establece y Sigue Metas",
     goalsDescription: "Define y alcanza tus objetivos",
+    goalsContent: "Crea, sigue y logra tus metas personales y profesionales",
   }
 }
