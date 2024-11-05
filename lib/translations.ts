@@ -146,6 +146,17 @@ type TranslationKeys = {
 
   // Ikigai translations
   ikigaiWhatYouLoveToDo: string;
+
+  // Añadir a TranslationKeys
+  generatingIkigai: string;
+  backToHome: string;
+  ikigaiError: string;
+  ikigaiErrorDescription: string;
+  tryAgain: string;
+
+  // Añadir a TranslationKeys
+  createNewIkigai: string;
+  viewPreviousIkigais: string;
 }
 
 const en: TranslationKeys = {
@@ -293,6 +304,17 @@ const en: TranslationKeys = {
 
   // Ikigai translations
   ikigaiWhatYouLoveToDo: "What do you love to do?",
+
+  // Añadir a English translations
+  generatingIkigai: "We're analyzing your answers and generating your Ikigai. This might take a minute...",
+  backToHome: "Back to Home",
+  ikigaiError: "Oops! Something went wrong",
+  ikigaiErrorDescription: "We had trouble analyzing your answers. Please try again or come back later.",
+  tryAgain: "Try Again",
+
+  // Añadir a English translations
+  createNewIkigai: "Create New Ikigai",
+  viewPreviousIkigais: "View Previous Ikigais",
 }
 
 const es: TranslationKeys = {
@@ -440,6 +462,17 @@ const es: TranslationKeys = {
 
   // Ikigai translations
   ikigaiWhatYouLoveToDo: "¿Qué te encanta hacer?",
+
+  // Añadir a Spanish translations
+  generatingIkigai: "Estamos analizando tus respuestas y generando tu Ikigai. Esto puede tardar un minuto...",
+  backToHome: "Volver al Inicio",
+  ikigaiError: "¡Ups! Algo salió mal",
+  ikigaiErrorDescription: "Tuvimos problemas al analizar tus respuestas. Por favor, inténtalo de nuevo o vuelve más tarde.",
+  tryAgain: "Intentar de Nuevo",
+
+  // Añadir a Spanish translations
+  createNewIkigai: "Crear Nuevo Ikigai",
+  viewPreviousIkigais: "Ver Ikigais Anteriores",
 }
 
 export const translations = { en, es }

@@ -1,11 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { useLanguage } from '@/lib/language-context'
-import { LoadingSpinner } from '@/components/loading-spinner'
+import { IkigaiLoadingSpinner } from '@/components/loading-spinner'
 import { ArrowLeft, Heart, Star, Globe, DollarSign } from 'lucide-react'
 
 interface IkigaiResult {
@@ -22,6 +23,7 @@ interface IkigaiResult {
 type Step = 'love' | 'good' | 'world' | 'paid' | 'result';
 
 export default function IkigaiPage() {
+  const { data: session, status } = useSession()
   const router = useRouter()
   const { t, language } = useLanguage()
   const [currentStep, setCurrentStep] = useState<Step>('love')
@@ -29,6 +31,8 @@ export default function IkigaiPage() {
   const [answers, setAnswers] = useState<Record<string, string>>({})
   const [result, setResult] = useState<IkigaiResult | null>(null)
   const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<boolean>(false)
+  const [analysisId, setAnalysisId] = useState<string | null>(null)
 
   const getStepIcon = (step: Step) => {
     switch (step) {
@@ -57,6 +61,29 @@ export default function IkigaiPage() {
     }
   }
 
+  // Efecto para cargar Ikigai existente
+  useEffect(() => {
+    const loadExistingIkigai = async () => {
+      try {
+        const response = await fetch('/api/ikigai/user')
+        const data = await response.json()
+        if (data.ikigais?.[0]) {
+          setResult(data.ikigais[0].result)
+          setAnswers(data.ikigais[0].answers)
+          if (data.ikigais[0].result) {
+            setCurrentStep('result')
+          }
+        }
+      } catch (error) {
+        console.error('Error loading ikigai:', error)
+      }
+    }
+
+    if (session?.user) {
+      loadExistingIkigai()
+    }
+  }, [session])
+
   const handleNext = async () => {
     if (currentAnswer.trim() === '') return;
 
@@ -69,37 +96,67 @@ export default function IkigaiPage() {
 
     if (currentStep === 'paid') {
       setIsLoading(true)
-      try {
-        const response = await fetch('/api/generate-ikigai', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            love: updatedAnswers.love,
-            good: updatedAnswers.good,
-            world: updatedAnswers.world,
-            paid: updatedAnswers.paid
-          }),
-        })
+      setError(false)
 
-        const data = await response.json()
-        
-        if (!response.ok) {
-          throw new Error(data.details || 'Failed to generate analysis')
+      // Crear un ID único para este análisis
+      const currentAnalysisId = Date.now().toString()
+      setAnalysisId(currentAnalysisId)
+
+      // Función para generar el análisis
+      const generateAnalysis = async () => {
+        try {
+          const response = await fetch('/api/generate-ikigai', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              love: updatedAnswers.love,
+              good: updatedAnswers.good,
+              world: updatedAnswers.world,
+              paid: updatedAnswers.paid,
+              analysisId: currentAnalysisId
+            })
+          })
+
+          const data = await response.json()
+          
+          if (!response.ok) {
+            throw new Error(data.details || 'Failed to generate analysis')
+          }
+
+          // Guardar el resultado inmediatamente
+          await fetch('/api/ikigai/user', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ 
+              result: data.result,
+              answers: updatedAnswers,
+              analysisId: currentAnalysisId
+            })
+          })
+
+          // Solo actualizar la UI si el usuario sigue en la página
+          if (document.visibilityState === 'visible') {
+            setResult(data.result)
+            setCurrentStep('result')
+          }
+        } catch (error) {
+          console.error('Error:', error)
+          if (document.visibilityState === 'visible') {
+            setError(true)
+          }
+        } finally {
+          if (document.visibilityState === 'visible') {
+            setIsLoading(false)
+          }
         }
-
-        if (!data.result?.connections?.passion) {
-          throw new Error('Invalid response format')
-        }
-
-        setResult(data.result)
-        setCurrentStep('result')
-      } catch (error) {
-        console.error('Error:', error)
-      } finally {
-        setIsLoading(false)
       }
+
+      // Iniciar el análisis
+      generateAnalysis()
     } else {
       const nextSteps: Record<Step, Step> = {
         love: 'good',
@@ -112,8 +169,35 @@ export default function IkigaiPage() {
     }
   }
 
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4">
+        <div className="text-center max-w-md space-y-4">
+          <h2 className="text-xl font-semibold text-gray-800">{t('ikigaiError')}</h2>
+          <p className="text-gray-600">{t('ikigaiErrorDescription')}</p>
+          <div className="flex gap-4 justify-center mt-8">
+            <Button
+              variant="outline"
+              onClick={() => router.push('/')}
+            >
+              {t('backToHome')}
+            </Button>
+            <Button
+              onClick={() => {
+                setError(false)
+                handleNext()
+              }}
+            >
+              {t('tryAgain')}
+            </Button>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   if (isLoading) {
-    return <LoadingSpinner />
+    return <IkigaiLoadingSpinner />
   }
 
   return (
@@ -199,6 +283,20 @@ export default function IkigaiPage() {
                   </div>
                 ))}
               </div>
+            </div>
+
+            <div className="flex justify-center mt-8">
+              <Button
+                variant="outline"
+                onClick={() => {
+                  setCurrentStep('love')
+                  setAnswers({})
+                  setResult(null)
+                  setCurrentAnswer('')
+                }}
+              >
+                {t('createNewIkigai')}
+              </Button>
             </div>
           </div>
         )}
