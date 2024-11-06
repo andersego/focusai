@@ -14,6 +14,11 @@ export const authOptions: NextAuthOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+      authorization: {
+        params: {
+          prompt: "select_account"
+        }
+      }
     }),
     CredentialsProvider({
       credentials: {
@@ -54,6 +59,12 @@ export const authOptions: NextAuthOptions = {
     })
   ],
   callbacks: {
+    async signIn({ account, profile }) {
+      if (account?.provider === "google") {
+        return true // Permitir siempre el inicio de sesión con Google
+      }
+      return true
+    },
     session: ({ session, token }) => {
       return {
         ...session,
@@ -73,6 +84,7 @@ export const authOptions: NextAuthOptions = {
       return token
     },
   },
+  debug: process.env.NODE_ENV === 'development',
   pages: {
     signIn: '/auth/signin',
     error: '/auth/error',
