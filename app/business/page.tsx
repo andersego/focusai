@@ -7,18 +7,12 @@ import { Building2, Users, BarChart, Settings, ArrowRight, CheckCircle } from 'l
 import { MainNav } from '@/components/main-nav'
 
 export default function BusinessPage() {
-  console.log('BusinessPage: Component rendering')
   const router = useRouter()
   const { t } = useLanguage()
 
-  console.log('BusinessPage: Router and language loaded')
-  console.log('BusinessPage: MainNav import status:', !!MainNav)
-
   return (
     <div className="min-h-screen bg-white">
-      {console.log('BusinessPage: Before MainNav render')}
       <MainNav />
-      {console.log('BusinessPage: After MainNav render')}
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white">
