@@ -247,6 +247,10 @@ export const translations = {
     appDescription: "Your AI-powered goal achievement companion",
     
     // Auth translations
+    confirmPassword: "Confirm Password",
+    passwordsDontMatch: "Passwords don't match",
+    signingUp: "Signing up...",
+    haveAccount: "Already have an account?",
     signIn: "Sign In",
     signUp: "Sign Up",
     email: "Email",
@@ -264,6 +268,8 @@ export const translations = {
     emailTaken: "Email already registered",
     orContinueWith: "or continue with",
     signingIn: "Signing in...",
+    
+
   
     // Main page translations
     welcome: "Welcome",
