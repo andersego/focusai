@@ -80,7 +80,7 @@ export function GoalSetup({ onAddGoal }: GoalSetupProps) {
       <CardFooter className="flex justify-start">
         <Button
           variant="outline"
-          onClick={() => router.push('/')}
+          onClick={() => router.push('/dashboard')}
           className="text-sm"
         >
           {t('back')}

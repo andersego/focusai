@@ -1,109 +1,107 @@
 'use client'
 
-import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 import { useLanguage } from '@/lib/language-context'
-import { Target, Compass, Users } from 'lucide-react'
-import { LoadingSpinner } from '@/components/loading-spinner'
-import Link from 'next/link'
+import { Building2, Users, BarChart, Settings, ArrowRight } from 'lucide-react'
+import { LanguageSwitcher } from '@/components/language-switcher'
 
-export default function Home() {
-  const { data: session, status } = useSession()
+export default function LandingPage() {
   const router = useRouter()
   const { t } = useLanguage()
-  const [showComingSoon, setShowComingSoon] = useState(false)
-
-  useEffect(() => {
-    if (status === 'unauthenticated') {
-      router.push('/auth/signin')
-    }
-  }, [status, session, router])
-
-  const handlePersonalBrandClick = () => {
-    setShowComingSoon(true)
-    setTimeout(() => setShowComingSoon(false), 3000)
-  }
-
-  if (status === 'loading') {
-    return <LoadingSpinner />
-  }
-
-  if (!session) {
-    return null
-  }
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <div className="flex-grow bg-gray-50 p-4 pt-20 md:pt-4">
-        <div className="max-w-2xl mx-auto space-y-8">
-          <div className="text-center space-y-2">
-            <h1 className="text-3xl md:text-4xl font-bold text-blue-600">FocusAI</h1>
-            <p className="text-base md:text-lg text-gray-500">{t('appDescription')}</p>
-            <p className="text-sm text-gray-500">
-              by{' '}
-              <Link 
-                href="https://www.instagram.com/ander.focus.ia/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hover:text-blue-600 transition-colors"
+    <div className="min-h-screen bg-white">
+      {/* Navigation */}
+      <nav className="fixed w-full bg-white/80 backdrop-blur-sm z-50 border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16 items-center">
+            <div className="text-2xl font-bold text-blue-600">{t('appName')}</div>
+            <div className="flex items-center gap-4">
+              <LanguageSwitcher />
+              <Button 
+                variant="ghost" 
+                className="font-medium"
+                onClick={() => router.push('/business')}
               >
-                Ander Focus
-              </Link>
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => router.push('/ikigai')}>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-lg md:text-xl">
-                  <Compass className="h-5 w-5 text-blue-500 flex-shrink-0" />
-                  <span className="break-words">{t('ikigaiTitle')}</span>
-                </CardTitle>
-                <CardDescription className="text-sm md:text-base">{t('ikigaiDescription')}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-xs md:text-sm text-gray-600">{t('ikigaiContent')}</p>
-              </CardContent>
-            </Card>
-
-            <Card 
-              className="hover:shadow-lg transition-shadow cursor-pointer relative" 
-              onClick={handlePersonalBrandClick}
-            >
-              {showComingSoon && (
-                <div className="absolute inset-0 bg-blue-500 bg-opacity-90 rounded-lg flex items-center justify-center text-white text-lg font-medium z-10 transition-all duration-300">
-                  {t('featureComingSoon')}
-                </div>
-              )}
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-lg md:text-xl">
-                  <Users className="h-5 w-5 text-blue-500 flex-shrink-0" />
-                  <span className="break-words">{t('personalBrandTitle')}</span>
-                </CardTitle>
-                <CardDescription className="text-sm md:text-base">{t('personalBrandDescription')}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-xs md:text-sm text-gray-600">{t('personalBrandContent')}</p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => router.push('/goals')}>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-lg md:text-xl">
-                  <Target className="h-5 w-5 text-blue-500 flex-shrink-0" />
-                  <span className="break-words">{t('goalsTitle')}</span>
-                </CardTitle>
-                <CardDescription className="text-sm md:text-base">{t('goalsDescription')}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-xs md:text-sm text-gray-600">{t('goalsContent')}</p>
-              </CardContent>
-            </Card>
+                {t('forBusinesses')}
+              </Button>
+              <Button 
+                variant="default"
+                onClick={() => router.push('/auth/signin')}
+              >
+                {t('forIndividuals')}
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-16 px-4 bg-gradient-to-r from-blue-600 to-blue-400 text-white">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            {t('leanCreatorTitle')}
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+            {t('leanCreatorSubtitle')}
+          </p>
+          <div className="flex gap-4 justify-center">
+            <Button size="lg" onClick={() => router.push('/business')}>
+              {t('discoverHow')}
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+            <Button size="lg" variant="outline" onClick={() => router.push('/contact')}>
+              {t('contactUs')}
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* About Lean Creator Section */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4">{t('whatIsLeanCreator')}</h2>
+          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            {t('whatIsLeanCreatorText')}
+          </p>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-16 bg-gray-50 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">{t('howLeanCreatorHelps')}</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <Building2 className="h-12 w-12 text-blue-500 mb-4" />
+              <h3 className="text-xl font-semibold mb-2">{t('brandIdentity')}</h3>
+              <p className="text-gray-600">{t('brandIdentityText')}</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <Users className="h-12 w-12 text-blue-500 mb-4" />
+              <h3 className="text-xl font-semibold mb-2">{t('productsServices')}</h3>
+              <p className="text-gray-600">{t('productsServicesText')}</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <BarChart className="h-12 w-12 text-blue-500 mb-4" />
+              <h3 className="text-xl font-semibold mb-2">{t('strategicComm')}</h3>
+              <p className="text-gray-600">{t('strategicCommText')}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4">{t('readyToStart')}</h2>
+          <p className="text-xl text-gray-600 mb-8">{t('readyToStartText')}</p>
+          <Button size="lg" onClick={() => router.push('/contact')}>
+            {t('scheduleCall')}
+          </Button>
+        </div>
+      </section>
     </div>
   )
 }

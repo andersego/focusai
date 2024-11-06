@@ -226,7 +226,7 @@ export default function IkigaiPage() {
               <div className="flex justify-between gap-4">
                 <Button
                   variant="outline"
-                  onClick={handleBack}
+                  onClick={() => router.push('/dashboard')}
                   className="flex-1"
                 >
                   {t('back')}

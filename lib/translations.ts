@@ -152,6 +152,92 @@ export interface TranslationKeys {
   intellectualPropertyText: string;
   limitations: string;
   limitationsText: string;
+
+  // Landing page translations
+  forBusinesses: string;
+  forIndividuals: string;
+  landingTitle: string;
+  landingSubtitle: string;
+  landingDescription: string;
+  businessSolutions: string;
+  businessBenefits: string;
+  businessFeatures: string;
+  getStarted: string;
+  learnMore: string;
+  contactUs: string;
+  
+  // Business features
+  feature1Title: string;
+  feature1Description: string;
+  feature2Title: string;
+  feature2Description: string;
+  feature3Title: string;
+  feature3Description: string;
+  
+  // Call to action
+  ctaTitle: string;
+  ctaDescription: string;
+  ctaButton: string;
+
+  // Lean Creator translations
+  leanCreatorTitle: string;
+  leanCreatorSubtitle: string;
+  leanCreatorDescription: string;
+  discoverHow: string;
+  whatIsLeanCreator: string;
+  whatIsLeanCreatorText: string;
+  howLeanCreatorHelps: string;
+  
+  // Business features
+  brandIdentity: string;
+  brandIdentityText: string;
+  productsServices: string;
+  productsServicesText: string;
+  strategicComm: string;
+  strategicCommText: string;
+  salesAutomation: string;
+  salesAutomationText: string;
+  customerExperience: string;
+  customerExperienceText: string;
+  
+  // Case studies
+  caseStudies: string;
+  caseStudiesSubtitle: string;
+  companyA: string;
+  companyAText: string;
+  companyB: string;
+  companyBText: string;
+  companyC: string;
+  companyCText: string;
+  
+  // Call to action
+  readyToStart: string;
+  readyToStartText: string;
+  scheduleCall: string;
+
+  // Contact form translations
+  contactFormDescription: string;
+  namePlaceholder: string;
+  emailPlaceholder: string;
+  company: string;
+  companyPlaceholder: string;
+  message: string;
+  messagePlaceholder: string;
+  send: string;
+  sending: string;
+  messageSent: string;
+
+  // Company name
+  companyName: string;
+
+  // Landing and Business pages
+ 
+  officeLocation: string;
+  phoneNumber: string;
+
+  // Contact form
+  contactFormTitle: string;
+
 }
 
 export const translations = {
@@ -319,7 +405,85 @@ export const translations = {
     underConstruction: "Under Construction",
     stayTuned: "Stay tuned!",
     
+    // Landing page translations
+    landingTitle: "AI-Powered Talent Development",
+    landingSubtitle: "Transform Your Organization's Potential",
+    landingDescription: "Empower your workforce with personalized development paths and data-driven insights",
+    businessSolutions: "Business Solutions",
+    businessBenefits: "Benefits for Your Organization",
+    businessFeatures: "Key Features",
+    getStarted: "Get Started",
+    learnMore: "Learn More",
+    contactUs: "Contact Us",
     
+    // Business features
+    feature1Title: "Team Development",
+    feature1Description: "Identify and nurture talent with AI-driven career path recommendations",
+    feature2Title: "Performance Analytics",
+    feature2Description: "Track progress and measure impact with comprehensive analytics",
+    feature3Title: "Custom Solutions",
+    feature3Description: "Tailored solutions to meet your organization's unique needs",
+    
+    // Call to action
+    ctaTitle: "Ready to Transform Your Organization?",
+    ctaDescription: "Join leading companies using FocusAI to develop their talent",
+    ctaButton: "Schedule a Demo",
+
+    // Lean Creator translations
+    leanCreatorTitle: "Power Your Business with AI",
+    leanCreatorSubtitle: "Transform your business with AI-powered automation and growth strategies",
+    leanCreatorDescription: "We help businesses leverage artificial intelligence to automate processes and drive growth",
+    discoverHow: "Discover How",
+    howLeanCreatorHelps: "How We Help Your Business",
+    brandIdentity: "Brand Identity",
+    brandIdentityText: "Build a strong, memorable brand that resonates with your target audience",
+    productsServices: "Products & Services",
+    productsServicesText: "Optimize your offerings with data-driven insights and market analysis",
+    strategicComm: "Strategic Communication",
+    strategicCommText: "Develop effective communication strategies that engage your audience",
+    salesAutomation: "Sales Automation",
+    salesAutomationText: "Implement automated sales systems that efficiently capture and convert leads",
+
+    // Case studies
+    caseStudies: "Success Stories",
+    caseStudiesSubtitle: "Companies that have transformed their business with Lean Creator",
+    companyA: "Company A",
+    companyAText: "300% sales increase in 6 months through sales automation and strategic communication.",
+    companyB: "Company B",
+    companyBText: "40% reduction in customer service time, generating constant recommendations.",
+    companyC: "Company C",
+    companyCText: "Reaching new markets and increasing visibility with our communication strategy.",
+    readyToStart: "Ready to Take Your Business to the Next Level?",
+    readyToStartText: "Schedule a meeting with us to discover how Lean Creator can transform your business.",
+    scheduleCall: "Schedule a Call",
+
+    // Navigation translations
+    forBusinesses: "For Businesses",
+    forIndividuals: "For Individuals",
+
+    // Contact form translations
+    contactFormDescription: "Fill out the form below and we'll get back to you shortly",
+    namePlaceholder: "Your full name",
+    emailPlaceholder: "your@email.com",
+    company: "Company",
+    companyPlaceholder: "Your company name",
+    message: "Message",
+    messagePlaceholder: "Tell us about your business needs...",
+    send: "Send Message",
+    sending: "Sending...",
+    messageSent: "Message Sent",
+
+    // Company name
+    companyName: "FocusAI Agency",
+
+    // Landing and Business pages
+    whatIsLeanCreator: "What is Lean Creator?",
+    whatIsLeanCreatorText: "Lean Creator is our comprehensive approach to growing your digital business in 5 key areas: identity, product, communication, sales, and customer service.",
+    officeLocation: "Madrid, Spain",
+    phoneNumber: "+34 XXX XXX XXX",
+
+    // Contact form
+    contactFormTitle: "Contact Us",
 
   },
   es: {
@@ -478,11 +642,6 @@ export const translations = {
     limitations: "Limitaciones",
     limitationsText: "Proporcionamos el servicio 'tal cual' y no hacemos garantías sobre su disponibilidad o rendimiento.",
     
-
-    
-    
-    
-    
     
     // Goals translations
     
@@ -509,8 +668,91 @@ export const translations = {
     
     underConstruction: "En Construcción",
     stayTuned: "¡Mantente atento!",
+
+    // Landing page translations
+
+    landingTitle: "Desarrollo de Talento Impulsado por IA",
+    landingSubtitle: "Transforma el Potencial de tu Organización",
+    landingDescription: "Potencia tu equipo con rutas de desarrollo personalizadas y análisis basados en datos",
+    businessSolutions: "Soluciones Empresariales",
+    businessBenefits: "Beneficios para tu Organización",
+    businessFeatures: "Características Principales",
+    getStarted: "Comenzar",
+    learnMore: "Saber Más",
+    contactUs: "Contáctanos",
     
+    // Business features
+    feature1Title: "Desarrollo de Equipos",
+    feature1Description: "Identifica y desarrolla talento con recomendaciones de carrera basadas en IA",
+    feature2Title: "Análisis de Rendimiento",
+    feature2Description: "Sigue el progreso y mide el impacto con análisis completos",
+    feature3Title: "Soluciones Personalizadas",
+    feature3Description: "Soluciones adaptadas a las necesidades únicas de tu organización",
+    
+    // Call to action
+    ctaTitle: "¿Listo para Transformar tu Organización?",
+    ctaDescription: "Únete a las empresas líderes que usan FocusAI para desarrollar su talento",
+    ctaButton: "Programa una Demo",
+    
+
+    // Lean Creator translations
+    leanCreatorTitle: "Potencia tu Negocio con IA",
+    leanCreatorSubtitle: "Transforma tu negocio con estrategias de automatización y crecimiento impulsadas por IA",
+    leanCreatorDescription: "Ayudamos a las empresas a aprovechar la inteligencia artificial para automatizar procesos e impulsar el crecimiento",
+    discoverHow: "Descubre Cómo",
+    howLeanCreatorHelps: "Cómo Ayudamos a tu Negocio",
+    brandIdentity: "Identidad de Marca",
+    brandIdentityText: "Construye una marca sólida y memorable que conecte con tu audiencia objetivo",
+    productsServices: "Productos y Servicios",
+    productsServicesText: "Optimiza tus ofertas con insights basados en datos y análisis de mercado",
+    strategicComm: "Comunicación Estratégica",
+    strategicCommText: "Desarrolla estrategias de comunicación efectivas que enganchen a tu audiencia",
+    salesAutomation: "Automatización de Ventas",
+    salesAutomationText: "Implementa sistemas de ventas automáticos que capten y conviertan leads de manera eficiente",
+
+    // Case studies
+    caseStudies: "Casos de Éxito",
+    caseStudiesSubtitle: "Empresas que han transformado su negocio con Lean Creator",
+    companyA: "Empresa A",
+    companyAText: "Incremento de ventas en un 300% en 6 meses mediante automatización de ventas y comunicación estratégica",
+    companyB: "Empresa B",
+    companyBText: "Reducción de un 40% en el tiempo de atención al cliente, generando recomendaciones constantes",
+    companyC: "Empresa C",
+    companyCText: "Alcance de nuevos mercados y aumento de visibilidad con nuestra estrategia de comunicación",
+    readyToStart: "¿Listo para Llevar tu Negocio al Siguiente Nivel?",
+    readyToStartText: "Agenda una reunión con nosotros para descubrir cómo Lean Creator puede transformar tu negocio",
+    scheduleCall: "Agendar una Llamada",
+
+    // Navigation translations
+    forBusinesses: "Para Empresas",
+    forIndividuals: "Para Particulares",
+
+    // Contact form translations
+    contactFormDescription: "Rellena el formulario y nos pondremos en contacto contigo pronto",
+    namePlaceholder: "Tu nombre completo",
+    emailPlaceholder: "tu@email.com",
+    company: "Empresa",
+    companyPlaceholder: "Nombre de tu empresa",
+    message: "Mensaje",
+    messagePlaceholder: "Cuéntanos sobre las necesidades de tu negocio...",
+    send: "Enviar Mensaje",
+    sending: "Enviando...",
+    messageSent: "Mensaje Enviado",
+
+    // Company name
+    companyName: "FocusAI Agency",
+
+    // Landing and Business pages
+    whatIsLeanCreator: "¿Qué es Lean Creator?",
+    whatIsLeanCreatorText: "Lean Creator es nuestro enfoque integral para hacer crecer tu negocio digital en 5 áreas clave: identidad, producto, comunicación, ventas y atención al cliente",
+    officeLocation: "Madrid, España",
+    phoneNumber: "+34 XXX XXX XXX",
+
+    // Contact form
+    contactFormTitle: "Contáctanos"
     
 
   }
 }
+
+export type Language = keyof typeof translations
