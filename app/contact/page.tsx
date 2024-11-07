@@ -77,8 +77,11 @@ export default function ContactPage() {
                     <Textarea required placeholder={t('messagePlaceholder')} />
                   </div>
                   
-                  <Button type="submit" className="w-full">
-                    {t('send')}
+                  <Button
+                    className="w-full"
+                    onClick={() => window.open('https://calendly.com/anderfocus/llamada-15-minutos', '_blank')}
+                  >
+                    {t('scheduleCall')}
                   </Button>
                 </form>
               </CardContent>
