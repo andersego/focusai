@@ -14,11 +14,6 @@ export const authOptions: NextAuthOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-      authorization: {
-        params: {
-          prompt: "select_account"
-        }
-      }
     }),
     CredentialsProvider({
       credentials: {
@@ -59,13 +54,22 @@ export const authOptions: NextAuthOptions = {
     })
   ],
   callbacks: {
-    async signIn({ account, profile }) {
-      if (account?.provider === "google") {
-        return true // Permitir siempre el inicio de sesión con Google
-      }
+    async signIn({ user, account, profile, email, credentials }) {
+      console.log('SignIn Callback:', { 
+        user, 
+        accountType: account?.type,
+        provider: account?.provider,
+        hasProfile: !!profile,
+        hasCredentials: !!credentials 
+      })
       return true
     },
+    async redirect({ url, baseUrl }) {
+      console.log('Redirect Callback:', { url, baseUrl })
+      return url.startsWith(baseUrl) ? url : baseUrl
+    },
     session: ({ session, token }) => {
+      console.log('Session Callback:', { session, token })
       return {
         ...session,
         user: {
@@ -75,6 +79,7 @@ export const authOptions: NextAuthOptions = {
       }
     },
     jwt: ({ token, user }) => {
+      console.log('JWT Callback:', { token, hasUser: !!user })
       if (user) {
         return {
           ...token,
@@ -84,7 +89,18 @@ export const authOptions: NextAuthOptions = {
       return token
     },
   },
-  debug: process.env.NODE_ENV === 'development',
+  events: {
+    async signIn(message) {
+      console.log('SignIn Event:', message)
+    },
+    async signOut(message) {
+      console.log('SignOut Event:', message)
+    },
+    async error(message) {
+      console.error('Auth Error Event:', message)
+    }
+  },
+  debug: true,
   pages: {
     signIn: '/auth/signin',
     error: '/auth/error',
