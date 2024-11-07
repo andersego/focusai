@@ -485,8 +485,8 @@ export const translations = {
     // Landing and Business pages
     whatIsLeanCreator: "What is Lean Creator?",
     whatIsLeanCreatorText: "Lean Creator is our comprehensive approach to growing your digital business in 5 key areas: identity, product, communication, sales, and customer service.",
-    officeLocation: "Madrid, Spain",
-    phoneNumber: "+34 XXX XXX XXX",
+    officeLocation: "Barcelona, Spain",
+    phoneNumber: "+34 674 881 804",
 
     // Contact form
     contactFormTitle: "Contact Us",
@@ -751,8 +751,8 @@ export const translations = {
     // Landing and Business pages
     whatIsLeanCreator: "¿Qué es Lean Creator?",
     whatIsLeanCreatorText: "Lean Creator es nuestro enfoque integral para hacer crecer tu negocio digital en 5 áreas clave: identidad, producto, comunicación, ventas y atención al cliente",
-    officeLocation: "Madrid, España",
-    phoneNumber: "+34 XXX XXX XXX",
+    officeLocation: "Barcelona, España",
+    phoneNumber: "+34 674 881 804",
 
     // Contact form
     contactFormTitle: "Contáctanos"

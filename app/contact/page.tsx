@@ -13,6 +13,12 @@ export default function ContactPage() {
   const router = useRouter()
   const { t } = useLanguage()
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    // Abrir Calendly en una nueva pestaña
+    window.open('https://calendly.com/anderfocus/llamada-15-minutos', '_blank')
+  }
+
   return (
     <div className="min-h-screen bg-white">
       <MainNav />
@@ -56,7 +62,7 @@ export default function ContactPage() {
                 <CardDescription>{t('contactFormDescription')}</CardDescription>
               </CardHeader>
               <CardContent>
-                <form className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-2">
                     <label className="text-sm font-medium">{t('name')}</label>
                     <Input required placeholder={t('namePlaceholder')} />
@@ -77,8 +83,11 @@ export default function ContactPage() {
                     <Textarea required placeholder={t('messagePlaceholder')} />
                   </div>
                   
-                  <Button type="submit" className="w-full">
-                    {t('send')}
+                  <Button 
+                    type="submit" 
+                    className="w-full"
+                  >
+                    {t('scheduleCall')}
                   </Button>
                 </form>
               </CardContent>
