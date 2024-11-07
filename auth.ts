@@ -66,7 +66,13 @@ export const authOptions: NextAuthOptions = {
     },
     async redirect({ url, baseUrl }) {
       console.log('Redirect Callback:', { url, baseUrl })
-      return url.startsWith(baseUrl) ? url : baseUrl
+      if (url.includes('/auth/signin')) {
+        return `${baseUrl}/dashboard`
+      }
+      if (url.startsWith(baseUrl)) {
+        return url
+      }
+      return `${baseUrl}/dashboard`
     },
     session: ({ session, token }) => {
       console.log('Session Callback:', { session, token })
