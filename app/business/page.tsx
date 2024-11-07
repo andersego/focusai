@@ -28,7 +28,7 @@ export default function BusinessPage() {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="text-white border-white hover:bg-white hover:text-blue-900"
+                className="bg-transparent border-white text-white hover:bg-white hover:text-blue-900 transition-colors"
                 onClick={() => router.push('/contact')}
               >
                 {t('scheduleCall')}

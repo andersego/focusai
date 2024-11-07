@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 import { Button } from "@/components/ui/button"
 import { useLanguage } from '@/lib/language-context'
 import { Building2, Users, BarChart, Settings, ArrowRight } from 'lucide-react'
-import { LanguageSwitcher } from '@/components/language-switcher'
+import { MainNav } from '@/components/main-nav'
 
 export default function LandingPage() {
   const router = useRouter()
@@ -12,31 +12,8 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="fixed w-full bg-white/80 backdrop-blur-sm z-50 border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16 items-center">
-            <div className="text-2xl font-bold text-blue-600">{t('appName')}</div>
-            <div className="flex items-center gap-4">
-              <LanguageSwitcher />
-              <Button 
-                variant="ghost" 
-                className="font-medium"
-                onClick={() => router.push('/business')}
-              >
-                {t('forBusinesses')}
-              </Button>
-              <Button 
-                variant="default"
-                onClick={() => router.push('/auth/signin')}
-              >
-                {t('forIndividuals')}
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
-
+      <MainNav />
+      
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4 bg-gradient-to-r from-blue-600 to-blue-400 text-white">
         <div className="max-w-7xl mx-auto text-center">
@@ -51,7 +28,12 @@ export default function LandingPage() {
               {t('discoverHow')}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button size="lg" variant="outline" onClick={() => router.push('/contact')}>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              onClick={() => router.push('/contact')}
+              className="bg-transparent border-white text-white hover:bg-white hover:text-blue-600 transition-colors"
+            >
               {t('contactUs')}
             </Button>
           </div>
