@@ -90,14 +90,11 @@ export const authOptions: NextAuthOptions = {
     },
   },
   events: {
-    async signIn(message) {
-      console.log('SignIn Event:', message)
+    async signIn({ user, account, profile, isNewUser }) {
+      console.log('SignIn Event:', { user, account, hasProfile: !!profile, isNewUser })
     },
-    async signOut(message) {
-      console.log('SignOut Event:', message)
-    },
-    async error(message) {
-      console.error('Auth Error Event:', message)
+    async signOut({ session, token }) {
+      console.log('SignOut Event:', { session, token })
     }
   },
   debug: true,
