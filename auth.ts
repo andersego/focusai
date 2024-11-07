@@ -66,12 +66,24 @@ export const authOptions: NextAuthOptions = {
     },
     async redirect({ url, baseUrl }) {
       console.log('Redirect Callback:', { url, baseUrl })
-      if (url.includes('/auth/signin')) {
+      
+      // Si la URL es la página de inicio de sesión o error, redirigir al dashboard
+      if (url.includes('/auth/signin') || url.includes('/auth/error')) {
         return `${baseUrl}/dashboard`
       }
+      
+      // Si la URL incluye callbackUrl, extraer y validar
+      const callbackUrl = new URL(url).searchParams.get('callbackUrl')
+      if (callbackUrl && callbackUrl.startsWith(baseUrl)) {
+        return callbackUrl
+      }
+      
+      // Si la URL es relativa al baseUrl, mantenerla
       if (url.startsWith(baseUrl)) {
         return url
       }
+      
+      // Por defecto, redirigir al dashboard
       return `${baseUrl}/dashboard`
     },
     session: ({ session, token }) => {
