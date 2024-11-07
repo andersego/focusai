@@ -1,12 +1,12 @@
-import { PrismaAdapter } from "@next-auth/prisma-adapter"
+import { CustomPrismaAdapter } from "./lib/auth-adapter"
 import { NextAuthOptions } from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 import CredentialsProvider from "next-auth/providers/credentials"
-import prisma from "@/lib/prisma"
 import { compare } from "bcryptjs"
+import prisma from "./lib/prisma"
 
 export const authOptions: NextAuthOptions = {
-  adapter: PrismaAdapter(prisma),
+  adapter: CustomPrismaAdapter(),
   session: {
     strategy: "jwt"
   },
@@ -55,20 +55,12 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
-      console.log('SignIn Callback:', { 
-        user, 
-        accountType: account?.type,
-        provider: account?.provider,
-        hasProfile: !!profile,
-        hasCredentials: !!credentials 
-      })
       return true
     },
-    async redirect() {
+    async redirect({ url, baseUrl }) {
       return '/dashboard'
     },
     session: ({ session, token }) => {
-      console.log('Session Callback:', { session, token })
       return {
         ...session,
         user: {
@@ -78,7 +70,6 @@ export const authOptions: NextAuthOptions = {
       }
     },
     jwt: ({ token, user }) => {
-      console.log('JWT Callback:', { token, hasUser: !!user })
       if (user) {
         return {
           ...token,
