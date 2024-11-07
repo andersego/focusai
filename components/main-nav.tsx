@@ -1,11 +1,11 @@
- 'use client'
+'use client'
 
 import { useRouter } from 'next/navigation'
 import { Button } from "@/components/ui/button"
 import { useLanguage } from '@/lib/language-context'
 import { LanguageSwitcher } from '@/components/language-switcher'
 
-export const MainNav = () => {  // Cambiado a arrow function con export const
+export const MainNav = () => {
   const router = useRouter()
   const { t } = useLanguage()
 
@@ -20,7 +20,6 @@ export const MainNav = () => {  // Cambiado a arrow function con export const
             {t('appName')}
           </div>
           <div className="flex items-center gap-4">
-            <LanguageSwitcher />
             <Button 
               variant="ghost" 
               className="font-medium"
@@ -34,9 +33,12 @@ export const MainNav = () => {  // Cambiado a arrow function con export const
             >
               {t('forIndividuals')}
             </Button>
+            <LanguageSwitcher />
           </div>
         </div>
       </div>
     </nav>
   )
 }
+
+

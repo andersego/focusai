@@ -244,7 +244,7 @@ export const translations = {
   en: {
     // App description
     appName: "FocusAI",
-    appDescription: "Your AI-powered goal achievement companion",
+    appDescription: "Your AI-powered Personal Brand Companion",
     
     // Auth translations
     confirmPassword: "Confirm Password",
@@ -464,8 +464,8 @@ export const translations = {
     scheduleCall: "Schedule a Call",
 
     // Navigation translations
-    forBusinesses: "For Businesses",
-    forIndividuals: "For Individuals",
+    forBusinesses: "Businesses",
+    forIndividuals: "Individuals",
 
     // Contact form translations
     contactFormDescription: "Fill out the form below and we'll get back to you shortly",
@@ -495,7 +495,7 @@ export const translations = {
   es: {
     // App description
     appName: "FocusAI",
-    appDescription: "Tu compañero de logros impulsado por IA",
+    appDescription: "Tu Compañero de Marca Personal Impulsado por IA",
     
     // Auth translations
 
@@ -730,8 +730,8 @@ export const translations = {
     scheduleCall: "Agendar una Llamada",
 
     // Navigation translations
-    forBusinesses: "Para Empresas",
-    forIndividuals: "Para Particulares",
+    forBusinesses: "Empresas",
+    forIndividuals: "Particulares",
 
     // Contact form translations
     contactFormDescription: "Rellena el formulario y nos pondremos en contacto contigo pronto",
