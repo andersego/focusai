@@ -5,18 +5,7 @@ declare global {
 }
 
 const prisma = global.prisma || new PrismaClient({
-  log: ['query', 'error', 'warn'],
-  datasources: {
-    db: {
-      url: process.env.DATABASE_URL
-    }
-  },
-  __internal: {
-    engine: {
-      connectionLimit: 1,
-      binaryTargets: ['native', 'rhel-openssl-1.0.x']
-    }
-  }
+  log: ['query', 'error', 'warn']
 })
 
 if (process.env.NODE_ENV !== 'production') {
