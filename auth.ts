@@ -64,27 +64,8 @@ export const authOptions: NextAuthOptions = {
       })
       return true
     },
-    async redirect({ url, baseUrl }) {
-      console.log('Redirect Callback:', { url, baseUrl })
-      
-      // Si la URL es la página de inicio de sesión o error, redirigir al dashboard
-      if (url.includes('/auth/signin') || url.includes('/auth/error')) {
-        return `${baseUrl}/dashboard`
-      }
-      
-      // Si la URL incluye callbackUrl, extraer y validar
-      const callbackUrl = new URL(url).searchParams.get('callbackUrl')
-      if (callbackUrl && callbackUrl.startsWith(baseUrl)) {
-        return callbackUrl
-      }
-      
-      // Si la URL es relativa al baseUrl, mantenerla
-      if (url.startsWith(baseUrl)) {
-        return url
-      }
-      
-      // Por defecto, redirigir al dashboard
-      return `${baseUrl}/dashboard`
+    async redirect() {
+      return '/dashboard'
     },
     session: ({ session, token }) => {
       console.log('Session Callback:', { session, token })
@@ -107,17 +88,9 @@ export const authOptions: NextAuthOptions = {
       return token
     },
   },
-  events: {
-    async signIn({ user, account, profile, isNewUser }) {
-      console.log('SignIn Event:', { user, account, hasProfile: !!profile, isNewUser })
-    },
-    async signOut({ session, token }) {
-      console.log('SignOut Event:', { session, token })
-    }
-  },
-  debug: true,
   pages: {
     signIn: '/auth/signin',
     error: '/auth/error',
-  }
+  },
+  debug: true
 } 
