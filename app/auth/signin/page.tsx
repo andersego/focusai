@@ -18,7 +18,7 @@ export default function SignInPage() {
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const userAgent = navigator.userAgent;
 
     // Verificar si el usuario está en un WebView
     const isWebView = /wv|webview/i.test(userAgent);
