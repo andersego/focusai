@@ -24,7 +24,7 @@ export default function SignInPage() {
     const isWebView = /wv|webview/i.test(userAgent);
 
     if (isWebView) {
-      alert('Para iniciar sesión, por favor, abre el enlace en tu navegador.');
+      alert('Para iniciar sesión, por favor, copia y pega el enlace en tu navegador normal.');
     }
   }, []);
 
