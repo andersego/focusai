@@ -28,7 +28,7 @@ export function IkigaiLoadingSpinner() {
       </p>
       <Button
         variant="outline"
-        onClick={() => router.push('/')}
+        onClick={() => router.push('/dashboard')}
         className="mt-8"
       >
         {t('backToHome')}
