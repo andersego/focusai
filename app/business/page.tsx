@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button"
 import { useLanguage } from '@/lib/language-context'
 import { Building2, Users, BarChart, Settings, ArrowRight, CheckCircle } from 'lucide-react'
 import { MainNav } from '@/components/main-nav'
+import { Footer } from '@/components/footer'; // Changed to named import
+
 
 export default function BusinessPage() {
   const router = useRouter()
@@ -102,6 +104,7 @@ export default function BusinessPage() {
           </Button>
         </div>
       </section>
+      <Footer />
     </div>
   )
 } 
