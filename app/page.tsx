@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button"
 import { useLanguage } from '@/lib/language-context'
 import { Building2, Users, BarChart, Settings, ArrowRight } from 'lucide-react'
 import { MainNav } from '@/components/main-nav'
+import { Footer } from '@/components/footer'; // Changed to named import
+
 
 export default function LandingPage() {
   const router = useRouter()
@@ -84,6 +86,8 @@ export default function LandingPage() {
           </Button>
         </div>
       </section>
+      <Footer />
+
     </div>
   )
 }

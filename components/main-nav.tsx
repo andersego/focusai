@@ -29,7 +29,7 @@ export const MainNav = () => {
             </Button>
             <Button 
               variant="default"
-              onClick={() => router.push('/auth/signin')}
+              onClick={() => router.push('/individuals')}
             >
               {t('forIndividuals')}
             </Button>

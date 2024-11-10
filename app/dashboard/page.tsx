@@ -7,6 +7,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useLanguage } from '@/lib/language-context'
 import { Target, Compass, Users } from 'lucide-react'
 import { LoadingSpinner } from '@/components/loading-spinner'
+import { Footer } from '@/components/footer'; // Changed to named import
+
+
 import Link from 'next/link'
 
 export default function DashboardPage() {
@@ -104,6 +107,7 @@ export default function DashboardPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 } 

@@ -8,6 +8,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { useLanguage } from '@/lib/language-context'
 import { MainNav } from '@/components/main-nav'
+import { Footer } from '@/components/footer'; // Changed to named import
+
 
 export default function SignInPage() {
   const router = useRouter()
@@ -117,6 +119,8 @@ export default function SignInPage() {
           </CardContent>
         </Card>
       </div>
+      <Footer />
+
     </div>
   )
 } 

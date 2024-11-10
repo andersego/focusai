@@ -3,9 +3,15 @@ import type { NextRequest } from 'next/server'
 import { getToken } from 'next-auth/jwt'
 
 export async function middleware(request: NextRequest) {
+  const publicPaths = ['/individuals', '/auth/signin', '/auth/signup','/mi-imagen.png', '/robots.txt', '/api']; // Rutas públicas
+
+  if (publicPaths.includes(request.nextUrl.pathname)) {
+    return NextResponse.next(); // Permitir acceso a rutas públicas
+  }
+
   const token = await getToken({ req: request })
   const isAuthPage = request.nextUrl.pathname.startsWith('/auth')
-  const isPublicPage = ['/', '/business', '/contact'].includes(request.nextUrl.pathname)
+  const isPublicPage = ['/', '/business', '/contact', '/individuals', '/auth/signin', '/auth/signup','/mi-imagen.jpg', '/robots.txt', '/api'].includes(request.nextUrl.pathname)
 
   console.log('Middleware:', {
     path: request.nextUrl.pathname,
