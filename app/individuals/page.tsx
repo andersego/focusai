@@ -14,7 +14,7 @@ const IndividualsPage = () => {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: secondaryColor }}>
+    <div className="min-h-screen bg-gradient-to-t from-blue-700 to-white" style={{ backgroundColor: secondaryColor }}>
       <MainNav />
       <div className="flex flex-col items-center justify-center p-6 pt-24 mb-8">
         <img

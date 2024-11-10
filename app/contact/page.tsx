@@ -8,6 +8,8 @@ import { Textarea } from "@/components/ui/textarea"
 import { useLanguage } from '@/lib/language-context'
 import { Building2, Mail } from 'lucide-react'
 import { MainNav } from '@/components/main-nav'
+import { Footer } from '@/components/footer'; // Changed to named import
+
 
 export default function ContactPage() {
   const router = useRouter()
@@ -89,6 +91,7 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   )
 } 
