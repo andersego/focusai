@@ -238,6 +238,16 @@ export interface TranslationKeys {
   // Contact form
   contactFormTitle: string;
 
+  // Individuals
+  automateBusinesses: string; // "Automatiza Negocios con Inteligencia"
+  freeApp: string; // "App Gratis Crea tu Marca Personal con IA"
+  freeMicroCourse: string; // "Gratis Micro Curso de Creador con IA"
+  mentoring: string; // "60 min Mentoria con Ander"
+  trainingSupport: string; // "Formación Acompañamiento FOCUSIA"
+  collaborations: string; // "Colaboraciones y Videos con Ander"
+  automateYourBusiness: string; // "Automatiza tu Negocio"
+
+
 }
 
 export const translations = {
@@ -490,6 +500,16 @@ export const translations = {
 
     // Contact form
     contactFormTitle: "Contact Us",
+
+    // Individuals
+    automateBusinesses: "Automate Businesses with Intelligence",
+    freeApp: "Free App Create Your Personal Brand with AI",
+    freeMicroCourse: "Free Micro Course for Creators with AI",
+    mentoring: "60 min Mentoring with Ander",
+    trainingSupport: "Training Support FOCUSIA",
+    collaborations: "Collaborations and Videos with Ander",
+    automateYourBusiness: "Automate Your Business",
+
 
   },
   es: {
@@ -755,7 +775,16 @@ export const translations = {
     phoneNumber: "+34 XXX XXX XXX",
 
     // Contact form
-    contactFormTitle: "Contáctanos"
+    contactFormTitle: "Contáctanos",
+
+    // Particulares
+    automateBusinesses: "Automatiza Negocios con Inteligencia",
+    freeApp: "App Gratis Crea tu Marca Personal con IA",
+    freeMicroCourse: "Gratis Micro Curso de Creador con IA",
+    mentoring: "60 min Mentoria con Ander",
+    trainingSupport: "Formación Acompañamiento FOCUSIA",
+    collaborations: "Colaboraciones y Videos con Ander",
+    automateYourBusiness: "Automatiza tu Negocio",
     
 
   }
