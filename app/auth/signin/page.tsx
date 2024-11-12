@@ -27,7 +27,7 @@ export default function SignInPage() {
 
     if (isWebView) {
       alert('Para iniciar sesión, por favor, copia y pega el enlace en tu navegador normal.');
-      window.open('https://focusai-git-staging-andersegos-projects.vercel.app/auth/signin', '_system'); // '_system' abre en el navegador externo
+      window.open('https://focusai-git-staging-andersegos-projects.vercel.app/auth/signin', '_blank'); // '_system' abre en el navegador externo
     }
   }, []);
 
