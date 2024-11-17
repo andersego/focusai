@@ -62,6 +62,7 @@ const IndividualsPage = () => {
               {t('trainingSupport')}
             </button>
             <button
+              onClick={() => window.open('https://calendly.com/anderfocus/llamada-15-minutos', '_blank')}
               className="font-semibold bg-white border border-blue-600 text-blue-600 py-3 px-6 rounded-full hover:bg-blue-600 hover:text-white transition duration-200 text-lg shadow-md hover:shadow-lg"
             >
               {t('collaborations')}
