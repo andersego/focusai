@@ -242,6 +242,7 @@ export interface TranslationKeys {
   automateBusinesses: string; // "Automatiza Negocios con Inteligencia"
   freeApp: string; // "App Gratis Crea tu Marca Personal con IA"
   freeMicroCourse: string; // "Gratis Micro Curso de Creador con IA"
+  freCommunity: string; // "Comunidad Marca Digital con IA"
   mentoring: string; // "60 min Mentoria con Ander"
   trainingSupport: string; // "Formación Acompañamiento FOCUSIA"
   collaborations: string; // "Colaboraciones y Videos con Ander"
@@ -505,6 +506,7 @@ export const translations = {
     automateBusinesses: "Automate Businesses with Intelligence",
     freeApp: "Free App Create Your Personal Brand with AI",
     freeMicroCourse: "Free Micro Course for Creators with AI",
+    freCommunity: "Community Digital Brand with AI",
     mentoring: "60 min Mentoring with Ander",
     trainingSupport: "Training Support FOCUSIA",
     collaborations: "Collaborations and Videos with Ander",
@@ -781,6 +783,7 @@ export const translations = {
     automateBusinesses: "Automatiza Negocios con Inteligencia",
     freeApp: "App Gratis Crea tu Marca Personal con IA",
     freeMicroCourse: "Gratis Micro Curso de Creador con IA",
+    freCommunity: "Comunidad Marca Digital con IA",
     mentoring: "60 min Mentoria con Ander",
     trainingSupport: "Formación Acompañamiento FOCUSIA",
     collaborations: "Colaboraciones y Videos con Ander",
