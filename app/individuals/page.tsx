@@ -54,7 +54,7 @@ const IndividualsPage = () => {
 
               className="font-semibold bg-white border border-blue-600 text-blue-600 py-3 px-6 rounded-full hover:bg-blue-600 hover:text-white transition duration-200 text-lg shadow-md hover:shadow-lg"
             >
-              {t('freeMicroCourse')}
+              {t('freeCommunity')}
             </button>
             <button
               onClick={() => window.open('https://calendar.app.google/ifbPqgPXugjbXRUTA', '_blank')}
