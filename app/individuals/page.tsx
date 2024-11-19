@@ -1,6 +1,8 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link'
+import { Instagram, Linkedin } from 'lucide-react'
 import { useRouter } from 'next/navigation';
 import { MainNav } from '@/components/main-nav';
 import { Footer } from '@/components/footer'; // Changed to named import
@@ -33,7 +35,29 @@ const IndividualsPage = () => {
         <h3 className="text-xl font-bold text-center mt-2" style={{ color: textColor }}>
         {t('automateBusinesses')}
         </h3>
-        <div className="mt-2 w-full max-w-2xl bg-gray-100 rounded-lg shadow-lg p-6">
+        <div className="flex justify-center items-center space-x-4">
+            <Link 
+              href="https://www.linkedin.com/in/ander-sepulveda/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-800 hover:text-blue-600 transition-colors flex items-center gap-1"
+            >
+              <Linkedin className="h-4 w-4" />
+              LinkedIn
+            </Link>
+            <span className="text-gray-300">|</span>
+
+        <Link 
+              href="https://www.instagram.com/ander.focus.ia/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-800 hover:text-blue-600 transition-colors flex items-center gap-1"
+            >
+              <Instagram className="h-4 w-4" />
+              Instagram
+            </Link>
+            </div>
+        <div className="mt-2 w-full max-w-2xl bg-gray-100 rounded-lg shadow-lg p-6 pt-2">
           
           <div className="mt-4 flex flex-col space-y-4">
             <button
