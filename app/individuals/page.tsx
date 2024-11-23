@@ -62,8 +62,8 @@ const IndividualsPage = () => {
         if (closestVideo) {
           // Solo reproducir si no hay otro video en reproducción
           if (currentlyPlayingIndex.current !== closestVideoIndex) {
-            closestVideo.play();
-            currentlyPlayingIndex.current = closestVideoIndex; // Actualizar el índice del video que se está reproduciendo
+            //closestVideo.play();
+            //currentlyPlayingIndex.current = closestVideoIndex; // Actualizar el índice del video que se está reproduciendo
           }
         }
       }
