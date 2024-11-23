@@ -163,7 +163,7 @@ const IndividualsPage = () => {
                 ref={(el) => setVideoRef(el, 1)}
                 className="w-full h-[500px] rounded-lg shadow-lg"
                 controls
-                src="/videos/video2.mp4" // Reemplaza con la URL de tu video
+                src="/videos/video1.mp4" // Reemplaza con la URL de tu video
                 onMouseEnter={(e) => e.currentTarget.play()}
                 onMouseLeave={(e) => e.currentTarget.pause()}
                 onTouchStart={(e) => e.currentTarget.play()} // Para dispositivos táctiles
@@ -174,7 +174,7 @@ const IndividualsPage = () => {
                 ref={(el) => setVideoRef(el, 2)}
                 className="w-full h-[500px] rounded-lg shadow-lg"
                 controls
-                src="/videos/video3.mp4" // Reemplaza con la URL de tu video
+                src="/videos/video1.mp4" // Reemplaza con la URL de tu video
                 onMouseEnter={(e) => e.currentTarget.play()}
                 onMouseLeave={(e) => e.currentTarget.pause()}
                 onTouchStart={(e) => e.currentTarget.play()} // Para dispositivos táctiles
