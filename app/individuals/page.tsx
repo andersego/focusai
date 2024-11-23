@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link'
 import { Instagram, Linkedin, Star } from 'lucide-react'
 import { useRouter } from 'next/navigation';
@@ -20,6 +20,10 @@ const IndividualsPage = () => {
 
   // Referencias para los videos
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
+  const setVideoRef = useCallback((el: HTMLVideoElement | null, index: number) => {
+    videoRefs.current[index] = el;
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -145,7 +149,7 @@ const IndividualsPage = () => {
           <div className="flex flex-col md:flex-row overflow-x-auto space-x-4 p-8">
             <div className="min-w-[75px] transform transition-transform duration-200 hover:scale-105 hover:shadow-lg mb-4 md:mb-0">
               <video
-                ref={(el) => (videoRefs.current[0] = el)}
+                ref={(el) => setVideoRef(el, 0)}
                 className="w-full h-[500px] rounded-lg shadow-lg"
                 controls
                 src="/videos/video1.mp4"
@@ -156,10 +160,10 @@ const IndividualsPage = () => {
             </div>
             <div className="min-w-[75px] transform transition-transform duration-200 hover:scale-105 hover:shadow-lg mb-4 md:mb-0">
               <video
-                ref={(el) => (videoRefs.current[1] = el)}
+                ref={(el) => setVideoRef(el, 1)}
                 className="w-full h-[500px] rounded-lg shadow-lg"
                 controls
-                src="/videos/video1.mp4" // Reemplaza con la URL de tu video
+                src="/videos/video2.mp4" // Reemplaza con la URL de tu video
                 onMouseEnter={(e) => e.currentTarget.play()}
                 onMouseLeave={(e) => e.currentTarget.pause()}
                 onTouchStart={(e) => e.currentTarget.play()} // Para dispositivos táctiles
@@ -167,10 +171,10 @@ const IndividualsPage = () => {
             </div>
             <div className="min-w-[75px] transform transition-transform duration-200 hover:scale-105 hover:shadow-lg mb-4 md:mb-0">
               <video
-                ref={(el) => (videoRefs.current[2] = el)}
+                ref={(el) => setVideoRef(el, 2)}
                 className="w-full h-[500px] rounded-lg shadow-lg"
                 controls
-                src="/videos/video1.mp4" // Reemplaza con la URL de tu video
+                src="/videos/video3.mp4" // Reemplaza con la URL de tu video
                 onMouseEnter={(e) => e.currentTarget.play()}
                 onMouseLeave={(e) => e.currentTarget.pause()}
                 onTouchStart={(e) => e.currentTarget.play()} // Para dispositivos táctiles
