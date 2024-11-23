@@ -12,7 +12,7 @@ export function LanguageSwitcher() {
       onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
       className="text-sm"
     >
-      {language === 'en' ? '🇪🇸 Español' : '🇬🇧 English'}
+      {language === 'en' ? '🇪🇸' : '🇬🇧'}
     </Button>
   )
 } 

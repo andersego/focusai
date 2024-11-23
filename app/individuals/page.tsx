@@ -26,7 +26,7 @@ const IndividualsPage = () => {
     videoRefs.current[index] = el;
   }, []);
 
-  useEffect(() => {
+ /* useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       let closestVideoIndex: number | null = null;
       let closestDistance = Infinity;
@@ -62,7 +62,7 @@ const IndividualsPage = () => {
         if (closestVideo) {
           // Solo reproducir si no hay otro video en reproducción
           if (currentlyPlayingIndex.current !== closestVideoIndex) {
-            closestVideo.play();
+            //closestVideo.play();
             currentlyPlayingIndex.current = closestVideoIndex; // Actualizar el índice del video que se está reproduciendo
           }
         }
@@ -80,7 +80,7 @@ const IndividualsPage = () => {
       // Desconectar el observer al desmontar
       observer.disconnect();
     };
-  }, []);
+  }, []); */
 
   return (
     <div className="min-h-screen bg-gradient-to-t from-blue-700 to-white" style={{ backgroundColor: secondaryColor }}>
