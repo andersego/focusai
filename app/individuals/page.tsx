@@ -115,8 +115,8 @@ const IndividualsPage = () => {
             </span>
             Testimonios
           </h2>
-          <div className="flex overflow-x-auto space-x-4 p-8">
-            <div className="min-w-[75px] transform transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+          <div className="flex flex-col md:flex-row overflow-x-auto space-x-4 p-8">
+            <div className="min-w-[75px] transform transition-transform duration-200 hover:scale-105 hover:shadow-lg mb-4 md:mb-0">
               <video
                 className="w-full h-[500px] rounded-lg shadow-lg"
                 controls
@@ -126,7 +126,7 @@ const IndividualsPage = () => {
                 onTouchStart={(e) => e.currentTarget.play()} // Para dispositivos táctiles
               />
             </div>
-            <div className="min-w-[75px] transform transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+            <div className="min-w-[75px] transform transition-transform duration-200 hover:scale-105 hover:shadow-lg mb-4 md:mb-0">
               <video
                 className="w-full h-[500px] rounded-lg shadow-lg"
                 controls
@@ -136,7 +136,7 @@ const IndividualsPage = () => {
                 onTouchStart={(e) => e.currentTarget.play()} // Para dispositivos táctiles
               />
             </div>
-            <div className="min-w-[75px] transform transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+            <div className="min-w-[75px] transform transition-transform duration-200 hover:scale-105 hover:shadow-lg mb-4 md:mb-0">
               <video
                 className="w-full h-[500px] rounded-lg shadow-lg"
                 controls
