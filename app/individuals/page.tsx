@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link'
-import { Instagram, Linkedin } from 'lucide-react'
+import { Instagram, Linkedin, Star } from 'lucide-react'
 import { useRouter } from 'next/navigation';
 import { MainNav } from '@/components/main-nav';
 import { Footer } from '@/components/footer'; // Changed to named import
@@ -106,7 +106,49 @@ const IndividualsPage = () => {
             </button>
           </div>
         </div>
-
+        <div className="mt-8">
+          <h2 className="text-3xl font-bold text-center mb-4">
+            <span className="flex justify-center mb-2">
+              <Star className="h-6 w-6 text-yellow-500 fill-current" />
+              <Star className="h-6 w-6 text-yellow-500 fill-current" />
+              <Star className="h-6 w-6 text-yellow-500 fill-current" />
+            </span>
+            Testimonios
+          </h2>
+          <div className="flex overflow-x-auto space-x-4 p-8">
+            <div className="min-w-[75px] transform transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+              <video
+                className="w-full h-[500px] rounded-lg shadow-lg"
+                controls
+                src="/videos/video1.mp4"
+                onMouseEnter={(e) => e.currentTarget.play()}
+                onMouseLeave={(e) => e.currentTarget.pause()}
+                onTouchStart={(e) => e.currentTarget.play()} // Para dispositivos táctiles
+              />
+            </div>
+            <div className="min-w-[75px] transform transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+              <video
+                className="w-full h-[500px] rounded-lg shadow-lg"
+                controls
+                src="/videos/video1.mp4" // Reemplaza con la URL de tu video
+                onMouseEnter={(e) => e.currentTarget.play()}
+                onMouseLeave={(e) => e.currentTarget.pause()}
+                onTouchStart={(e) => e.currentTarget.play()} // Para dispositivos táctiles
+              />
+            </div>
+            <div className="min-w-[75px] transform transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+              <video
+                className="w-full h-[500px] rounded-lg shadow-lg"
+                controls
+                src="/videos/video1.mp4" // Reemplaza con la URL de tu video
+                onMouseEnter={(e) => e.currentTarget.play()}
+                onMouseLeave={(e) => e.currentTarget.pause()}
+                onTouchStart={(e) => e.currentTarget.play()} // Para dispositivos táctiles
+              />
+            </div>
+            {/* Agrega más videos según sea necesario */}
+          </div>
+        </div>
       </div>
 
       <Footer />
