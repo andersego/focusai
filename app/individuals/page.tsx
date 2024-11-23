@@ -20,6 +20,7 @@ const IndividualsPage = () => {
 
   // Referencias para los videos
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const currentlyPlayingIndex = useRef<number | null>(null); // Para rastrear el índice del video que se está reproduciendo
 
   const setVideoRef = useCallback((el: HTMLVideoElement | null, index: number) => {
     videoRefs.current[index] = el;
@@ -27,14 +28,45 @@ const IndividualsPage = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
+      let closestVideoIndex: number | null = null;
+      let closestDistance = Infinity;
+
       entries.forEach((entry) => {
         const video = entry.target as HTMLVideoElement;
-        if (entry.isIntersecting && window.innerWidth < 768) {
-          video.play();
-        } else {
-          video.pause();
+        const index = videoRefs.current.indexOf(video);
+
+        if (entry.isIntersecting) {
+          const rect = video.getBoundingClientRect();
+          const videoCenter = rect.top + rect.height / 2;
+          const windowCenter = window.innerHeight / 2;
+          const distance = Math.abs(videoCenter - windowCenter);
+
+          // Verificar si este video es el más cercano al centro
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestVideoIndex = index;
+          }
         }
       });
+
+      // Reproducir el video más cercano al centro
+      if (closestVideoIndex !== null) {
+        const currentlyPlayingVideo = videoRefs.current[currentlyPlayingIndex.current!];
+
+        // Pausar el video que se está reproduciendo si no es el más cercano
+        if (currentlyPlayingVideo && currentlyPlayingIndex.current !== closestVideoIndex) {
+          currentlyPlayingVideo.pause(); // Pausar el video que se está reproduciendo
+        }
+
+        const closestVideo = videoRefs.current[closestVideoIndex];
+        if (closestVideo) {
+          // Solo reproducir si no hay otro video en reproducción
+          if (currentlyPlayingIndex.current !== closestVideoIndex) {
+            closestVideo.play();
+            currentlyPlayingIndex.current = closestVideoIndex; // Actualizar el índice del video que se está reproduciendo
+          }
+        }
+      }
     });
 
     // Observar cada video
@@ -143,41 +175,103 @@ const IndividualsPage = () => {
               <Star className="h-6 w-6 text-yellow-500 fill-current" />
               <Star className="h-6 w-6 text-yellow-500 fill-current" />
               <Star className="h-6 w-6 text-yellow-500 fill-current" />
+              <Star className="h-6 w-6 text-yellow-500 fill-current" />
+              <Star className="h-6 w-6 text-yellow-500 fill-current" />
             </span>
             Testimonios
           </h2>
-          <div className="flex flex-col md:flex-row overflow-x-auto space-x-4 p-8">
-            <div className="min-w-[75px] transform transition-transform duration-200 hover:scale-105 hover:shadow-lg mb-4 md:mb-0">
+          <div className="flex flex-col md:flex-row flex-wrap justify-center overflow-x-auto p-2 md:p-8">
+            <div
+              className="min-w-[75px] transform transition-transform duration-200 hover:scale-105 hover:shadow-lg mb-8 md:mb-0 md:mr-4"
+              onClick={() => {
+                const video = videoRefs.current[0];
+                if (video) {
+                  if (video.paused) {
+                    video.play();
+                  } else {
+                    video.pause();
+                  }
+                }
+              }}
+            >
               <video
                 ref={(el) => setVideoRef(el, 0)}
-                className="w-full h-[500px] rounded-lg shadow-lg"
+                className="w-full h-full max-h-[550px] rounded-lg shadow-lg object-cover"
                 controls
                 src="/videos/video1.mp4"
                 onMouseEnter={(e) => e.currentTarget.play()}
                 onMouseLeave={(e) => e.currentTarget.pause()}
-                onTouchStart={(e) => e.currentTarget.play()} // Para dispositivos táctiles
+                onTouchStart={(e) => {
+                  e.preventDefault(); // Evitar el comportamiento predeterminado
+                  const video = e.currentTarget;
+                  if (video.paused) {
+                    video.play();
+                  } else {
+                    video.pause();
+                  }
+                }} // Alternar play/pause en dispositivos táctiles
               />
             </div>
-            <div className="min-w-[75px] transform transition-transform duration-200 hover:scale-105 hover:shadow-lg mb-4 md:mb-0">
+            <div
+              className="min-w-[75px] transform transition-transform duration-200 hover:scale-105 hover:shadow-lg mb-8 md:mb-0 md:mr-4"
+              onClick={() => {
+                const video = videoRefs.current[1];
+                if (video) {
+                  if (video.paused) {
+                    video.play();
+                  } else {
+                    video.pause();
+                  }
+                }
+              }}
+            >
               <video
                 ref={(el) => setVideoRef(el, 1)}
-                className="w-full h-[500px] rounded-lg shadow-lg"
+                className="w-full h-full max-h-[550px] rounded-lg shadow-lg object-cover"
                 controls
                 src="/videos/video2.mp4" // Reemplaza con la URL de tu video
                 onMouseEnter={(e) => e.currentTarget.play()}
                 onMouseLeave={(e) => e.currentTarget.pause()}
-                onTouchStart={(e) => e.currentTarget.play()} // Para dispositivos táctiles
+                onTouchStart={(e) => {
+                  e.preventDefault(); // Evitar el comportamiento predeterminado
+                  const video = e.currentTarget;
+                  if (video.paused) {
+                    video.play();
+                  } else {
+                    video.pause();
+                  }
+                }} // Alternar play/pause en dispositivos táctiles
               />
             </div>
-            <div className="min-w-[75px] transform transition-transform duration-200 hover:scale-105 hover:shadow-lg mb-4 md:mb-0">
+            <div
+              className="min-w-[75px] transform transition-transform duration-200 hover:scale-105 hover:shadow-lg mb-8 md:mb-0 md:mr-4"
+              onClick={() => {
+                const video = videoRefs.current[2];
+                if (video) {
+                  if (video.paused) {
+                    video.play();
+                  } else {
+                    video.pause();
+                  }
+                }
+              }}
+            >
               <video
                 ref={(el) => setVideoRef(el, 2)}
-                className="w-full h-[500px] rounded-lg shadow-lg"
+                className="w-full h-full max-h-[550px] rounded-lg shadow-lg object-cover"
                 controls
                 src="/videos/video1.mp4" // Reemplaza con la URL de tu video
                 onMouseEnter={(e) => e.currentTarget.play()}
                 onMouseLeave={(e) => e.currentTarget.pause()}
-                onTouchStart={(e) => e.currentTarget.play()} // Para dispositivos táctiles
+                onTouchStart={(e) => {
+                  e.preventDefault(); // Evitar el comportamiento predeterminado
+                  const video = e.currentTarget;
+                  if (video.paused) {
+                    video.play();
+                  } else {
+                    video.pause();
+                  }
+                }} // Alternar play/pause en dispositivos táctiles
               />
             </div>
             {/* Agrega más videos según sea necesario */}
