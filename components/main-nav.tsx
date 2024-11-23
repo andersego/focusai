@@ -1,12 +1,13 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
+import { useRouter, usePathname } from 'next/navigation'
 import { Button } from "@/components/ui/button"
 import { useLanguage } from '@/lib/language-context'
 import { LanguageSwitcher } from '@/components/language-switcher'
 
 export const MainNav = () => {
   const router = useRouter()
+  const pathname = usePathname() // Hook para obtener la ruta actual
   const { t } = useLanguage()
 
   return (
@@ -19,16 +20,16 @@ export const MainNav = () => {
           >
             {t('appName')}
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-0">
             <Button 
-              variant="ghost" 
+              variant={pathname === '/business' ? 'default' : 'ghost'} 
               className="font-medium"
               onClick={() => router.push('/business')}
             >
               {t('forBusinesses')}
             </Button>
             <Button 
-              variant="default"
+              variant={pathname === '/individuals' ? 'default' : 'ghost'}
               onClick={() => router.push('/individuals')}
             >
               {t('forIndividuals')}
@@ -40,5 +41,3 @@ export const MainNav = () => {
     </nav>
   )
 }
-
-
