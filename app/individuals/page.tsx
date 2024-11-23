@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Link from 'next/link'
 import { Instagram, Linkedin, Star } from 'lucide-react'
 import { useRouter } from 'next/navigation';
@@ -18,6 +18,33 @@ const IndividualsPage = () => {
   const router = useRouter();
   const { t } = useLanguage()
 
+  // Referencias para los videos
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const video = entry.target as HTMLVideoElement;
+        if (entry.isIntersecting) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+    });
+
+    // Observar cada video
+    videoRefs.current.forEach((video) => {
+      if (video) {
+        observer.observe(video);
+      }
+    });
+
+    return () => {
+      // Desconectar el observer al desmontar
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-t from-blue-700 to-white" style={{ backgroundColor: secondaryColor }}>
@@ -118,6 +145,7 @@ const IndividualsPage = () => {
           <div className="flex flex-col md:flex-row overflow-x-auto space-x-4 p-8">
             <div className="min-w-[75px] transform transition-transform duration-200 hover:scale-105 hover:shadow-lg mb-4 md:mb-0">
               <video
+                ref={(el) => (videoRefs.current[0] = el)}
                 className="w-full h-[500px] rounded-lg shadow-lg"
                 controls
                 src="/videos/video1.mp4"
@@ -128,6 +156,7 @@ const IndividualsPage = () => {
             </div>
             <div className="min-w-[75px] transform transition-transform duration-200 hover:scale-105 hover:shadow-lg mb-4 md:mb-0">
               <video
+                ref={(el) => (videoRefs.current[1] = el)}
                 className="w-full h-[500px] rounded-lg shadow-lg"
                 controls
                 src="/videos/video1.mp4" // Reemplaza con la URL de tu video
@@ -138,6 +167,7 @@ const IndividualsPage = () => {
             </div>
             <div className="min-w-[75px] transform transition-transform duration-200 hover:scale-105 hover:shadow-lg mb-4 md:mb-0">
               <video
+                ref={(el) => (videoRefs.current[2] = el)}
                 className="w-full h-[500px] rounded-lg shadow-lg"
                 controls
                 src="/videos/video1.mp4" // Reemplaza con la URL de tu video
