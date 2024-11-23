@@ -29,7 +29,7 @@ const IndividualsPage = () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         const video = entry.target as HTMLVideoElement;
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && window.innerWidth < 768) {
           video.play();
         } else {
           video.pause();
@@ -163,7 +163,7 @@ const IndividualsPage = () => {
                 ref={(el) => setVideoRef(el, 1)}
                 className="w-full h-[500px] rounded-lg shadow-lg"
                 controls
-                src="/videos/video1.mp4" // Reemplaza con la URL de tu video
+                src="/videos/video2.mp4" // Reemplaza con la URL de tu video
                 onMouseEnter={(e) => e.currentTarget.play()}
                 onMouseLeave={(e) => e.currentTarget.pause()}
                 onTouchStart={(e) => e.currentTarget.play()} // Para dispositivos táctiles
