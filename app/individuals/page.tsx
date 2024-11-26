@@ -85,17 +85,17 @@ const IndividualsPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-t from-blue-700 to-white" style={{ backgroundColor: secondaryColor }}>
       <MainNav />
-      <div className="flex flex-col items-center justify-center p-6 pt-24 mb-8">
+      <div className="flex flex-col items-center justify-center p-6 pt-24 mb-4">
         <img
           src="/mi-imagen.png"
           alt="Tu Nombre"
           className="w-32 h-32 rounded-full border-4 border-blue-600 mb-4"
         />
         
-        <h2 className="text-xl font-bold text-center mt-2" style={{ color: primaryColor }}>
+        <h2 className="text-xl font-bold text-center mt-0" style={{ color: primaryColor }}>
           Ander Focus IA ✨
         </h2>
-        <h3 className="text-xl font-bold text-center mt-2" style={{ color: textColor }}>
+        <h3 className="text-xl font-bold text-center mt-0" style={{ color: textColor }}>
         {t('automateBusinesses')}
         </h3>
         <div className="flex justify-center items-center space-x-4">
@@ -125,7 +125,7 @@ const IndividualsPage = () => {
           <div className="mt-4 flex flex-col space-y-4">
             <button
               onClick={() => router.push('/auth/signin')}
-              className="font-semibold bg-white border border-blue-600 text-blue-600 py-3 px-6 rounded-full hover:bg-blue-600 hover:text-white transition duration-200 text-lg shadow-md hover:shadow-lg"
+              className="font-semibold bg-green-100 border border-blue-600 text-blue-600 py-3 px-6 rounded-full hover:bg-blue-600 hover:text-white transition duration-200 text-lg shadow-md hover:shadow-lg whitespace-pre-wrap"
             >
               {t('freeApp')}
             </button>
@@ -169,7 +169,7 @@ const IndividualsPage = () => {
             </button>
           </div>
         </div>
-        <div className="mt-8">
+        <div className="mt-4">
           <h2 className="text-3xl font-bold text-center mb-4">
             <span className="flex justify-center mb-2">
               <Star className="h-6 w-6 text-yellow-500 fill-current" />

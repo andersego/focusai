@@ -781,7 +781,7 @@ export const translations = {
 
     // Particulares
     automateBusinesses: "Automatiza Negocios con Inteligencia",
-    freeApp: "App Gratis Crea tu Marca Personal con IA",
+    freeApp: "App FocusIA Gratis \n Crea tu Marca Personal con IA",
     freeMicroCourse: "Gratis Micro Curso de Creador con IA",
     freeCommunity: "Comunidad Marca Digital con IA",
     mentoring: "60 min Mentoria con Ander",
