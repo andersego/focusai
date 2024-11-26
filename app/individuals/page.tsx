@@ -85,7 +85,7 @@ const IndividualsPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-t from-blue-700 to-white" style={{ backgroundColor: secondaryColor }}>
       <MainNav />
-      <div className="flex flex-col items-center justify-center p-6 pt-24 mb-4">
+      <div className="flex flex-col items-center justify-center p-6 pt-20 mb-4">
         <img
           src="/mi-imagen.png"
           alt="Tu Nombre"
