@@ -62,7 +62,7 @@ export default function SignInPage() {
       <div className="flex items-center justify-center min-h-screen p-4">
         <Card className="w-full max-w-md">
           <CardHeader className="space-y-3">
-            <CardTitle className="text-2xl md:text-3xl font-bold text-center text-blue-600">FocusAI</CardTitle>
+            <CardTitle className="text-2xl md:text-3xl font-bold text-center text-blue-600">{t('appName')}</CardTitle>
             <p className="text-gray-500 text-center text-sm md:text-base">{t('appDescription')}</p>
             <CardDescription className="text-center text-sm md:text-base">{t('signInDescription')}</CardDescription>
           </CardHeader>

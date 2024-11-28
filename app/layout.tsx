@@ -8,7 +8,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'FocusAI',
+  title: 'FocusIA',
   description: 'Your AI-powered goal achievement companion',
 }
 

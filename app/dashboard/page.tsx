@@ -42,7 +42,7 @@ export default function DashboardPage() {
       <div className="flex-grow bg-gray-50 p-4 pt-20 md:pt-4">
         <div className="max-w-2xl mx-auto space-y-8">
           <div className="text-center space-y-2">
-            <h1 className="text-3xl md:text-4xl font-bold text-blue-600">FocusAI</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-blue-600">{t('appName')}</h1>
             <p className="text-base md:text-lg text-gray-500">{t('appDescription')}</p>
             <p className="text-sm text-gray-500">
               by{' '}

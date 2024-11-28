@@ -254,7 +254,7 @@ export interface TranslationKeys {
 export const translations = {
   en: {
     // App description
-    appName: "FocusAI",
+    appName: "FocusIA",
     appDescription: "Your AI-powered Personal Brand Companion",
     
     // Auth translations
@@ -383,11 +383,11 @@ export const translations = {
     privacyPolicy: "Privacy Policy",
     termsOfService: "Terms of Service",
     allRightsReserved: "All rights reserved.",
-    footerDescription: "FocusAI helps you discover your purpose and achieve your goals through AI-powered guidance and daily task management.",
+    footerDescription: "FocusIA helps you discover your purpose and achieve your goals through AI-powered guidance and daily task management.",
 
     // Add to English translations
     privacyIntro: "Introduction",
-    privacyIntroText: "At FocusAI, we take your privacy seriously. This policy explains how we collect, use, and protect your personal information.",
+    privacyIntroText: "At FocusIA, we take your privacy seriously. This policy explains how we collect, use, and protect your personal information.",
     dataCollection: "Data Collection",
     dataCollectionText: "We collect information necessary to provide our services, including email, name, and usage data.",
     dataSecurity: "Data Security",
@@ -395,7 +395,7 @@ export const translations = {
     contactInfo: "Contact Information",
     contactInfoText: "For privacy-related questions, please contact us through our social media channels.",
     termsIntro: "Introduction",
-    termsIntroText: "These terms govern your use of FocusAI services.",
+    termsIntroText: "These terms govern your use of FocusIA services.",
     userObligations: "User Obligations",
     userObligationsText: "Users must comply with these terms and use the service responsibly.",
     intellectualProperty: "Intellectual Property",
@@ -443,7 +443,7 @@ export const translations = {
     
     // Call to action
     ctaTitle: "Ready to Transform Your Organization?",
-    ctaDescription: "Join leading companies using FocusAI to develop their talent",
+    ctaDescription: "Join leading companies using FocusIA to develop their talent",
     ctaButton: "Schedule a Demo",
 
     // Lean Creator translations
@@ -491,7 +491,7 @@ export const translations = {
     messageSent: "Message Sent",
 
     // Company name
-    companyName: "FocusAI Agency",
+    companyName: "FocusIA Agency",
 
     // Landing and Business pages
     whatIsLeanCreator: "What is Lean Creator?",
@@ -516,7 +516,7 @@ export const translations = {
   },
   es: {
     // App description
-    appName: "FocusAI",
+    appName: "FocusIA",
     appDescription: "Tu Compañero de Marca Personal Impulsado por IA",
     
     // Auth translations
@@ -650,11 +650,11 @@ export const translations = {
     privacyPolicy: "Política de Privacidad",
     termsOfService: "Términos de Servicio",
     allRightsReserved: "Todos los derechos reservados.",
-    footerDescription: "FocusAI te ayuda a descubrir tu propósito y alcanzar tus metas a través de orientación impulsada por IA y gestión diaria de tareas.",
+    footerDescription: "FocusIA te ayuda a descubrir tu propósito y alcanzar tus metas a través de orientación impulsada por IA y gestión diaria de tareas.",
   
     // Add to Spanish translations
     privacyIntro: "Introducción",
-    privacyIntroText: "En FocusAI, nos tomamos tu privacidad en serio. Esta política explica cómo recopilamos, usamos y protegemos tu información personal.",
+    privacyIntroText: "En FocusIA, nos tomamos tu privacidad en serio. Esta política explica cómo recopilamos, usamos y protegemos tu información personal.",
     dataCollection: "Recopilación de Datos",
     dataCollectionText: "Recopilamos la información necesaria para proporcionar nuestros servicios, incluyendo correo electrónico, nombre y datos de uso.",
     dataSecurity: "Seguridad de Datos",
@@ -662,7 +662,7 @@ export const translations = {
     contactInfo: "Información de Contacto",
     contactInfoText: "Para preguntas relacionadas con la privacidad, contáctanos a través de nuestras redes sociales.",
     termsIntro: "Introducción",
-    termsIntroText: "Estos términos rigen tu uso de los servicios de FocusAI.",
+    termsIntroText: "Estos términos rigen tu uso de los servicios de FocusIA.",
     userObligations: "Obligaciones del Usuario",
     userObligationsText: "Los usuarios deben cumplir con estos términos y usar el servicio de manera responsable.",
     intellectualProperty: "Propiedad Intelectual",
@@ -719,7 +719,7 @@ export const translations = {
     
     // Call to action
     ctaTitle: "¿Listo para Transformar tu Organización?",
-    ctaDescription: "Únete a las empresas líderes que usan FocusAI para desarrollar su talento",
+    ctaDescription: "Únete a las empresas líderes que usan FocusIA para desarrollar su talento",
     ctaButton: "Programa una Demo",
     
 
@@ -768,7 +768,7 @@ export const translations = {
     messageSent: "Mensaje Enviado",
 
     // Company name
-    companyName: "FocusAI Agency",
+    companyName: "FocusIA Agency",
 
     // Landing and Business pages
     whatIsLeanCreator: "¿Qué es Lean Creator?",
