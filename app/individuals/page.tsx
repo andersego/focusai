@@ -260,7 +260,7 @@ const IndividualsPage = () => {
                 ref={(el) => setVideoRef(el, 2)}
                 className="w-full h-full max-h-[550px] rounded-lg shadow-lg object-cover"
                 controls
-                src="/videos/video1.mp4" // Reemplaza con la URL de tu video
+                src="/videos/video3.mp4" // Reemplaza con la URL de tu video
                 onMouseEnter={(e) => e.currentTarget.play()}
                 onMouseLeave={(e) => e.currentTarget.pause()}
                 onTouchStart={(e) => {
