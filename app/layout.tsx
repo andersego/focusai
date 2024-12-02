@@ -3,6 +3,7 @@ import { SessionProvider } from '@/providers/session-provider'
 import { LanguageProvider } from '@/lib/language-context'
 import { DevTimeProvider } from '@/lib/dev-time-context'
 import { ClientLayout } from '@/components/client-layout'
+import { Analytics } from "@vercel/analytics/react"
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -29,6 +30,7 @@ export default function RootLayout({
             </DevTimeProvider>
           </LanguageProvider>
         </SessionProvider>
+        <Analytics />
       </body>
     </html>
   )
