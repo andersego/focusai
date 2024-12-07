@@ -274,6 +274,37 @@ const IndividualsPage = () => {
                 }} // Alternar play/pause en dispositivos táctiles
               />
             </div>
+            <div
+              className="min-w-[75px] transform transition-transform duration-200 hover:scale-105 hover:shadow-lg mb-8 md:mb-0 md:mr-4"
+              onClick={() => {
+                const video = videoRefs.current[2];
+                if (video) {
+                  if (video.paused) {
+                    video.play();
+                  } else {
+                    video.pause();
+                  }
+                }
+              }}
+            >
+              <video
+                ref={(el) => setVideoRef(el, 2)}
+                className="w-full h-full max-h-[550px] rounded-lg shadow-lg object-cover"
+                controls
+                src="/videos/video4.mp4" // Reemplaza con la URL de tu video
+                onMouseEnter={(e) => e.currentTarget.play()}
+                onMouseLeave={(e) => e.currentTarget.pause()}
+                onTouchStart={(e) => {
+                  e.preventDefault(); // Evitar el comportamiento predeterminado
+                  const video = e.currentTarget;
+                  if (video.paused) {
+                    video.play();
+                  } else {
+                    video.pause();
+                  }
+                }} // Alternar play/pause en dispositivos táctiles
+              />
+            </div>
             {/* Agrega más videos según sea necesario */}
           </div>
         </div>
