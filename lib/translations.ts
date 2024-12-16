@@ -240,9 +240,11 @@ export interface TranslationKeys {
 
   // Individuals
   automateBusinesses: string; // "Automatiza Negocios con Inteligencia"
+  book: string; // "Libro: Como Crear mi Marca Digital \n y Monetizar mi Pasión "
   freeApp: string; // "App Gratis Crea tu Marca Personal con IA"
   freeMicroCourse: string; // "Gratis Micro Curso de Creador con IA"
   freeCommunity: string; // "Comunidad Marca Digital con IA"
+  affiliate: string; // "Afiliate"
   mentoring: string; // "60 min Mentoria con Ander"
   trainingSupport: string; // "Formación Acompañamiento FOCUSIA"
   collaborations: string; // "Colaboraciones y Videos con Ander"
@@ -504,9 +506,11 @@ export const translations = {
 
     // Individuals
     automateBusinesses: "Automate Businesses with Intelligence",
+    book: "Libro: Como Crear mi Marca Digital \n y Monetizar mi Pasión con IA ",
     freeApp: "Free App Create Your Personal Brand with AI",
-    freeMicroCourse: "Free Micro Course for Creators with AI",
+    freeMicroCourse: "Seminar for Creators with AI",
     freeCommunity: "Community Digital Brand with AI",
+    affiliate: "Affiliate yourself",
     mentoring: "60 min Mentoring with Ander",
     trainingSupport: "Training Support FOCUSIA",
     collaborations: "Collaborations and Videos with Ander",
@@ -781,8 +785,10 @@ export const translations = {
 
     // Particulares
     automateBusinesses: "Automatiza Negocios con Inteligencia",
-    freeApp: "App FocusIA Gratis \n Crea tu Marca Personal con IA",
-    freeMicroCourse: "Gratis Micro Curso de Creador con IA",
+    book: "Libro: Como Crear mi Marca Digital \n y Monetizar mi Pasión con IA",
+    freeApp: "App FocusIA \n Crea tu Marca Personal con IA",
+    freeMicroCourse: "Seminario de Creador con IA",    
+    affiliate: "Afíliate y crezcamos juntos!",
     freeCommunity: "Comunidad Marca Digital con IA",
     mentoring: "60 min Mentoria con Ander",
     trainingSupport: "Formación Acompañamiento FOCUSIA",

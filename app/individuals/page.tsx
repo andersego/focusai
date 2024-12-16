@@ -123,18 +123,17 @@ const IndividualsPage = () => {
         <div className="mt-2 w-full max-w-2xl bg-gray-100 rounded-lg shadow-lg p-6 pt-2">
           
           <div className="mt-4 flex flex-col space-y-4">
-            <button
+          <button
               onClick={() => router.push('/auth/signin')}
               className="font-semibold bg-green-100 border border-blue-600 text-blue-600 py-3 px-6 rounded-full hover:bg-blue-600 hover:text-white transition duration-200 text-lg shadow-md hover:shadow-lg whitespace-pre-wrap"
             >
-              {t('freeApp')}
+              {t('book')}
             </button>
             <button
-              onClick={() => window.open('https://www.youtube.com/watch?v=ZjSZQa7CpDc', '_blank')}
-
-              className="font-semibold bg-white border border-blue-600 text-blue-600 py-3 px-6 rounded-full hover:bg-blue-600 hover:text-white transition duration-200 text-lg shadow-md hover:shadow-lg"
+              onClick={() => router.push('/auth/signin')}
+              className="font-semibold bg-white border border-blue-600 text-blue-600 py-3 px-6 rounded-full hover:bg-blue-600 hover:text-white transition duration-200 text-lg shadow-md hover:shadow-lg whitespace-pre-wrap"
             >
-              {t('freeMicroCourse')}
+              {t('freeApp')}
             </button>
             <button
               onClick={() => window.open('https://chat.whatsapp.com/IYalF4NMR4wDOmLoUMX4ZU', '_blank')}
@@ -144,16 +143,16 @@ const IndividualsPage = () => {
               {t('freeCommunity')}
             </button>
             <button
-              onClick={() => window.open('https://calendar.app.google/ifbPqgPXugjbXRUTA', '_blank')}
-              className="font-semibold bg-white border border-blue-600 text-blue-600 py-3 px-6 rounded-full hover:bg-blue-600 hover:text-white transition duration-200 text-lg shadow-md hover:shadow-lg"
-            >
-              {t('mentoring')}
-            </button>
-            <button
               onClick={() => window.open('https://ander-sepulveda1.hotmart.host/formacion-trabaja-con-ia', '_blank')}
               className="font-semibold bg-white border border-blue-600 text-blue-600 py-3 px-6 rounded-full hover:bg-blue-600 hover:text-white transition duration-200 text-lg shadow-md hover:shadow-lg"
             >
               {t('trainingSupport')}
+            </button>
+            <button
+              onClick={() => window.open('https://app.hotmart.com/market/details?producerUcode=67664551-4caf-415d-802f-26d424868604&productUcode=82ca4411-c3a7-4891-aa38-dc442f4a54bf&bookmarked=false&searchId=5d35560d-9b2f-4374-910e-77de50e4afc7', '_blank')}
+              className="font-semibold bg-white border border-blue-600 text-blue-600 py-3 px-6 rounded-full hover:bg-blue-600 hover:text-white transition duration-200 text-lg shadow-md hover:shadow-lg"
+            >
+              {t('affiliate')}
             </button>
             <button
               onClick={() => window.open('https://calendly.com/anderfocus/llamada-15-minutos', '_blank')}
