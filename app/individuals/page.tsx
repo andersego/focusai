@@ -120,7 +120,7 @@ const IndividualsPage = () => {
               Instagram
             </Link>
             </div>
-        <div className="mt-2 w-full max-w-2xl bg-gray-100 rounded-lg shadow-lg p-6 pt-2">
+        <div className="mt-2 w-full max-w-2xl bg-gray-100 rounded-3xl shadow-2xl p-6 pt-2">
           
           <div className="mt-4 flex flex-col space-y-4">
           <button
