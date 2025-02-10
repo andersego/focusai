@@ -785,16 +785,15 @@ export const translations = {
 
     // Particulares
     automateBusinesses: "Automatiza Negocios con Inteligencia",
-    book: "El Método Lean Creator: Como Crear mi Marca Digital \n y Monetizar mi Pasión con IA",
+    book: "LIBRO: El Método Lean CREATOR IA",
     freeApp: "App FocusIA \n Crea tu Marca Personal con IA",
     freeMicroCourse: "Seminario de Creador con IA",    
     affiliate: "Afíliate y crezcamos juntos!",
-    freeCommunity: "Comunidad Marca Digital con IA",
+    freeCommunity: "COMUNIDAD GRATIS CREATOR IA",
     mentoring: "60 min Mentoria con Ander",
-    trainingSupport: "Formación Acompañamiento FOCUSIA",
+    trainingSupport: "FORMACIÓN Acompañamiento CREATOR IA",
     collaborations: "Colaboraciones y Videos con Ander",
-    automateYourBusiness: "Automatiza tu Negocio",
-    
+    automateYourBusiness: "AUTOMATIZA TU NEGOCIO"
 
   }
 }
