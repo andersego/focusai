@@ -505,7 +505,7 @@ export const translations = {
     contactFormTitle: "Contact Us",
 
     // Individuals
-    automateBusinesses: "Automate Businesses with Intelligence",
+    automateBusinesses: "Create your Brand and Sell with AI",
     book: "Libro: Como Crear mi Marca Digital \n y Monetizar mi Pasión con IA ",
     freeApp: "Free App Create Your Personal Brand with AI",
     freeMicroCourse: "Seminar for Creators with AI",
@@ -784,7 +784,7 @@ export const translations = {
     contactFormTitle: "Contáctanos",
 
     // Particulares
-    automateBusinesses: "Automatiza Negocios con Inteligencia",
+    automateBusinesses: "Crea tu Marca y Vende con IA",
     book: "LIBRO: El Método Lean CREATOR IA",
     freeApp: "App FocusIA \n Crea tu Marca Personal con IA",
     freeMicroCourse: "Seminario de Creador con IA",    
