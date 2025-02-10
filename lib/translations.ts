@@ -514,7 +514,7 @@ export const translations = {
     mentoring: "60 min Mentoring with Ander",
     trainingSupport: "Training Support FOCUSIA",
     collaborations: "Collaborations and Videos with Ander",
-    automateYourBusiness: "Automate Your Business",
+    automateYourBusiness: "MORE INFO",
 
 
   },
@@ -793,7 +793,7 @@ export const translations = {
     mentoring: "60 min Mentoria con Ander",
     trainingSupport: "FORMACIÓN Acompañamiento CREATOR IA",
     collaborations: "Colaboraciones y Videos con Ander",
-    automateYourBusiness: "AUTOMATIZA TU NEGOCIO"
+    automateYourBusiness: "MÁS INFO"
 
   }
 }
