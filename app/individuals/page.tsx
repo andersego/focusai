@@ -125,7 +125,7 @@ const IndividualsPage = () => {
           <div className="mt-4 flex flex-col space-y-4">
           <button
               onClick={() => window.open('https://www.amazon.es/dp/B0DQJK5NK9?ref_=pe_93986420_774957520', '_blank')}
-              className="font-semibold bg-green-100 border border-blue-600 text-blue-600 py-3 px-6 rounded-full hover:bg-blue-600 hover:text-white transition duration-200 text-lg shadow-md hover:shadow-lg whitespace-pre-wrap"
+              className="font-semibold bg-white border border-blue-600 text-blue-600 py-3 px-6 rounded-full hover:bg-blue-600 hover:text-white transition duration-200 text-lg shadow-md hover:shadow-lg whitespace-pre-wrap"
             >
               {t('book')}
             </button>
@@ -138,7 +138,7 @@ const IndividualsPage = () => {
             <button
               onClick={() => window.open('https://chat.whatsapp.com/IYalF4NMR4wDOmLoUMX4ZU', '_blank')}
 
-              className="font-semibold bg-white border border-blue-600 text-blue-600 py-3 px-6 rounded-full hover:bg-blue-600 hover:text-white transition duration-200 text-lg shadow-md hover:shadow-lg"
+              className="font-semibold bg-green-100 border border-blue-600 text-blue-600 py-3 px-6 rounded-full hover:bg-blue-600 hover:text-white transition duration-200 text-lg shadow-md hover:shadow-lg"
             >
               {t('freeCommunity')}
             </button>

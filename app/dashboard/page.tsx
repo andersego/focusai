@@ -71,6 +71,19 @@ export default function DashboardPage() {
               </CardContent>
             </Card>
 
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => router.push('/goals')}>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-lg md:text-xl">
+                  <Target className="h-5 w-5 text-blue-500 flex-shrink-0" />
+                  <span className="break-words">{t('goalsTitle')}</span>
+                </CardTitle>
+                <CardDescription className="text-sm md:text-base">{t('goalsDescription')}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-xs md:text-sm text-gray-600">{t('goalsContent')}</p>
+              </CardContent>
+            </Card>
+
             <Card 
               className="hover:shadow-lg transition-shadow cursor-pointer relative" 
               onClick={handlePersonalBrandClick}
@@ -89,19 +102,6 @@ export default function DashboardPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-xs md:text-sm text-gray-600">{t('personalBrandContent')}</p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => router.push('/goals')}>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-lg md:text-xl">
-                  <Target className="h-5 w-5 text-blue-500 flex-shrink-0" />
-                  <span className="break-words">{t('goalsTitle')}</span>
-                </CardTitle>
-                <CardDescription className="text-sm md:text-base">{t('goalsDescription')}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-xs md:text-sm text-gray-600">{t('goalsContent')}</p>
               </CardContent>
             </Card>
           </div>

@@ -548,11 +548,11 @@ export const translations = {
     signingIn: "Iniciando sesión...",
   
     welcome: "Bienvenido",
-    ikigaiTitle: "Encuentra Tu Ikigai",
-    ikigaiDescription: "Descubre tu propósito de vida",
-    ikigaiContent: "Explora la intersección entre lo que amas, lo que haces bien, lo que el mundo necesita y por lo que te pueden pagar.",
-    goalsTitle: "Establece Tus Metas",
-    goalsDescription: "Sigue tu progreso y logra más",
+    ikigaiTitle: "Tu Visión",
+    ikigaiDescription: "Descubre y Visualiza tu Propósito",
+    ikigaiContent: "Explora la intersección tus habilidades, intereses y metas.",
+    goalsTitle: "Tu Misión",
+    goalsDescription: "Sigue tu progreso y logra más cada día",
     goalsContent: "Crea metas específicas y medibles y deja que la IA te ayude a dividirlas en tareas diarias alcanzables.",
   
     
@@ -604,22 +604,22 @@ export const translations = {
     finish: "Finalizar",
   
     // Goals translations
-    setNewGoal: "Nueva Meta",
-    defineGoalDescription: "Define tu camino hacia el éxito con una meta clara y alcanzable.",
-    whatsYourGoal: "¿Cuál es tu meta?",
+    setNewGoal: "Nueva Misión",
+    defineGoalDescription: "Define tu camino hacia el éxito con una misión clara y alcanzable.",
+    whatsYourGoal: "¿Cuál es tu misión?",
     goalPlaceholder: "ej., Lanzar mi curso en línea",
     whenAchieve: "¿Para cuándo quieres lograrla?",
-    addNewGoal: "Crear Meta",
-    yourGoals: "Tus Metas",
-    deleteConfirm: "¿Estás seguro de que quieres eliminar esta meta?",
+    addNewGoal: "Crear Misión",
+    yourGoals: "Tus Misiones",
+    deleteConfirm: "¿Estás seguro de que quieres eliminar esta misión?",
     due: "Fecha límite",
     todaysProgress: "Progreso de Hoy",
     completed: "completado",
-    noGoals: "Aún no tienes metas. ¡Crea tu primera meta arriba!",
+    noGoals: "Aún no tienes misiones. ¡Crea tu primera misión arriba!",
   
     // Tasks translations
     generatingTasks: "Generando tus tareas diarias...",
-    completeTasksMessage: "Completa estas tareas para acercarte a tu meta",
+    completeTasksMessage: "Completa estas tareas para acercarte a tu misión",
     tasksCompleted: "tareas completadas",
     viewProgress: "Ver Progreso",
     provideFeedback: "Dar Feedback",
@@ -628,7 +628,7 @@ export const translations = {
   
     // Feedback translations
     dailyReflection: "Reflexión Diaria",
-    howTasksAlign: "¿Cómo se alinean las tareas de hoy con tu meta?",
+    howTasksAlign: "¿Cómo se alinean las tareas de hoy con tu misión?",
     howFeelProgress: "¿Cómo te sientes con el progreso de hoy?",
     thoughtsOnTasks: "¿Qué opinas sobre las tareas de hoy?",
     shareExperience: "Comparte tu experiencia o sugerencias...",
@@ -641,9 +641,9 @@ export const translations = {
     resetDays: "Reiniciar Días",
   
     // Personal Brand translations
-    personalBrandTitle: "Marca Personal",
-    personalBrandDescription: "Construye y gestiona tu imagen profesional",
-    personalBrandContent: "Crea una marca personal sólida que refleje tus valores y te ayude a destacar en tu campo profesional.",
+    personalBrandTitle: "Tus Ganancias",
+    personalBrandDescription: "Construye y gestiona tu Negocio Digital",
+    personalBrandContent: "Crea una marca sólida que refleje tus valores y te ayude a destacar en tu campo profesional.",
   
     // Coming soon translations
     comingSoon: "Próximamente",
