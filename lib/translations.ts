@@ -785,6 +785,7 @@ export const translations = {
 
     // Particulares
     automateBusinesses: "Crea tu Marca y Vende con IA",
+    leadmagnet: "REGALO GUÍA PASO A PASO: Método Lean CREATOR IA",
     book: "LIBRO: El Método Lean CREATOR IA",
     freeApp: "App FocusIA \n Crea tu Marca Personal con IA",
     freeMicroCourse: "Seminario de Creador con IA",    
