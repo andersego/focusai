@@ -246,7 +246,7 @@ export interface TranslationKeys {
   freeCommunity: string; // "Comunidad Marca Digital con IA"
   affiliate: string; // "Afiliate"
   mentoring: string; // "60 min Mentoria con Ander"
-  trainingSupport: string; // "Formación Acompañamiento FOCUSIA"
+  trainingSupport: string; // "Formación Acompañamiento CreatorsAi"
   collaborations: string; // "Colaboraciones y Videos con Ander"
   automateYourBusiness: string; // "Automatiza tu Negocio"
 
@@ -256,7 +256,7 @@ export interface TranslationKeys {
 export const translations = {
   en: {
     // App description
-    appName: "FocusIA",
+    appName: "CreatorsAi",
     appDescription: "Your AI-powered Personal Brand Companion",
     
     // Auth translations
@@ -385,11 +385,11 @@ export const translations = {
     privacyPolicy: "Privacy Policy",
     termsOfService: "Terms of Service",
     allRightsReserved: "All rights reserved.",
-    footerDescription: "FocusIA helps you discover your purpose and achieve your goals through AI-powered guidance and daily task management.",
+    footerDescription: "CreatorsAi helps you discover your purpose and achieve your goals through AI-powered guidance and daily task management.",
 
     // Add to English translations
     privacyIntro: "Introduction",
-    privacyIntroText: "At FocusIA, we take your privacy seriously. This policy explains how we collect, use, and protect your personal information.",
+    privacyIntroText: "At CreatorsAi, we take your privacy seriously. This policy explains how we collect, use, and protect your personal information.",
     dataCollection: "Data Collection",
     dataCollectionText: "We collect information necessary to provide our services, including email, name, and usage data.",
     dataSecurity: "Data Security",
@@ -397,7 +397,7 @@ export const translations = {
     contactInfo: "Contact Information",
     contactInfoText: "For privacy-related questions, please contact us through our social media channels.",
     termsIntro: "Introduction",
-    termsIntroText: "These terms govern your use of FocusIA services.",
+    termsIntroText: "These terms govern your use of CreatorsAi services.",
     userObligations: "User Obligations",
     userObligationsText: "Users must comply with these terms and use the service responsibly.",
     intellectualProperty: "Intellectual Property",
@@ -445,7 +445,7 @@ export const translations = {
     
     // Call to action
     ctaTitle: "Ready to Transform Your Organization?",
-    ctaDescription: "Join leading companies using FocusIA to develop their talent",
+    ctaDescription: "Join leading companies using CreatorsAi to develop their talent",
     ctaButton: "Schedule a Demo",
 
     // Lean Creator translations
@@ -473,7 +473,7 @@ export const translations = {
     companyC: "Company C",
     companyCText: "Reaching new markets and increasing visibility with our communication strategy.",
     readyToStart: "Ready to Take Your Business to the Next Level?",
-    readyToStartText: "Schedule a meeting with us to discover how Lean Creator can transform your business.",
+    readyToStartText: "Schedule a meeting with us to discover how Lean Creators can transform your business.",
     scheduleCall: "Schedule a Call",
 
     // Navigation translations
@@ -493,11 +493,11 @@ export const translations = {
     messageSent: "Message Sent",
 
     // Company name
-    companyName: "FocusIA Agency",
+    companyName: "CreatorsAi Agency",
 
     // Landing and Business pages
     whatIsLeanCreator: "What is Lean Creator?",
-    whatIsLeanCreatorText: "Lean Creator is our comprehensive approach to growing your digital business in 5 key areas: identity, product, communication, sales, and customer service.",
+    whatIsLeanCreatorText: "Lean Creators is our comprehensive approach to growing your digital business in 5 key areas: identity, product, communication, sales, and customer service.",
     officeLocation: "Madrid, Spain",
     phoneNumber: "+34 XXX XXX XXX",
 
@@ -512,7 +512,7 @@ export const translations = {
     freeCommunity: "Community Digital Brand with AI",
     affiliate: "Affiliate yourself",
     mentoring: "60 min Mentoring with Ander",
-    trainingSupport: "Training Support FOCUSIA",
+    trainingSupport: "Training Support CreatorsAi",
     collaborations: "Collaborations and Videos with Ander",
     automateYourBusiness: "MORE INFO",
 
@@ -520,7 +520,7 @@ export const translations = {
   },
   es: {
     // App description
-    appName: "FocusIA",
+    appName: "CreatorsAi",
     appDescription: "Tu Compañero de Marca Personal Impulsado por IA",
     
     // Auth translations
@@ -654,11 +654,11 @@ export const translations = {
     privacyPolicy: "Política de Privacidad",
     termsOfService: "Términos de Servicio",
     allRightsReserved: "Todos los derechos reservados.",
-    footerDescription: "FocusIA te ayuda a descubrir tu propósito y alcanzar tus metas a través de orientación impulsada por IA y gestión diaria de tareas.",
+    footerDescription: "CreatorsAi te ayuda a descubrir tu propósito y alcanzar tus metas a través de orientación impulsada por IA y gestión diaria de tareas.",
   
     // Add to Spanish translations
     privacyIntro: "Introducción",
-    privacyIntroText: "En FocusIA, nos tomamos tu privacidad en serio. Esta política explica cómo recopilamos, usamos y protegemos tu información personal.",
+    privacyIntroText: "En CreatorsAi, nos tomamos tu privacidad en serio. Esta política explica cómo recopilamos, usamos y protegemos tu información personal.",
     dataCollection: "Recopilación de Datos",
     dataCollectionText: "Recopilamos la información necesaria para proporcionar nuestros servicios, incluyendo correo electrónico, nombre y datos de uso.",
     dataSecurity: "Seguridad de Datos",
@@ -666,7 +666,7 @@ export const translations = {
     contactInfo: "Información de Contacto",
     contactInfoText: "Para preguntas relacionadas con la privacidad, contáctanos a través de nuestras redes sociales.",
     termsIntro: "Introducción",
-    termsIntroText: "Estos términos rigen tu uso de los servicios de FocusIA.",
+    termsIntroText: "Estos términos rigen tu uso de los servicios de CreatorsAi.",
     userObligations: "Obligaciones del Usuario",
     userObligationsText: "Los usuarios deben cumplir con estos términos y usar el servicio de manera responsable.",
     intellectualProperty: "Propiedad Intelectual",
@@ -723,7 +723,7 @@ export const translations = {
     
     // Call to action
     ctaTitle: "¿Listo para Transformar tu Organización?",
-    ctaDescription: "Únete a las empresas líderes que usan FocusIA para desarrollar su talento",
+    ctaDescription: "Únete a las empresas líderes que usan CreatorsAi para desarrollar su talento",
     ctaButton: "Programa una Demo",
     
 
@@ -752,7 +752,7 @@ export const translations = {
     companyC: "Empresa C",
     companyCText: "Alcance de nuevos mercados y aumento de visibilidad con nuestra estrategia de comunicación",
     readyToStart: "¿Listo para Llevar tu Negocio al Siguiente Nivel?",
-    readyToStartText: "Agenda una reunión con nosotros para descubrir cómo Lean Creator puede transformar tu negocio",
+    readyToStartText: "Agenda una reunión con nosotros para descubrir cómo Lean Creators puede transformar tu negocio",
     scheduleCall: "Agendar una Llamada",
 
     // Navigation translations
@@ -772,11 +772,11 @@ export const translations = {
     messageSent: "Mensaje Enviado",
 
     // Company name
-    companyName: "FocusIA Agency",
+    companyName: "CreatorsAi Agency",
 
     // Landing and Business pages
     whatIsLeanCreator: "¿Qué es Lean Creator?",
-    whatIsLeanCreatorText: "Lean Creator es nuestro enfoque integral para hacer crecer tu negocio digital en 5 áreas clave: identidad, producto, comunicación, ventas y atención al cliente",
+    whatIsLeanCreatorText: "Lean Creators es nuestro enfoque integral para hacer crecer tu negocio digital en 5 áreas clave: identidad, producto, comunicación, ventas y atención al cliente",
     officeLocation: "Madrid, España",
     phoneNumber: "+34 XXX XXX XXX",
 
@@ -785,14 +785,14 @@ export const translations = {
 
     // Particulares
     automateBusinesses: "Crea tu Marca y Vende con IA",
-    leadmagnet: "REGALO GUÍA PASO A PASO: Método Lean CREATOR IA",
-    book: "LIBRO: El Método Lean CREATOR IA",
-    freeApp: "App FocusIA \n Crea tu Marca Personal con IA",
+    leadmagnet: "REGALO GUÍA PASO A PASO: Método Lean CREATORS IA",
+    book: "LIBRO: El Método Lean CREATORS IA",
+    freeApp: "App CreatorsAi \n Crea tu Marca Personal con IA",
     freeMicroCourse: "Seminario de Creador con IA",    
     affiliate: "Afíliate y crezcamos juntos!",
-    freeCommunity: "COMUNIDAD GRATIS CREATOR IA",
+    freeCommunity: "COMUNIDAD GRATIS CREATORS IA",
     mentoring: "60 min Mentoria con Ander",
-    trainingSupport: "FORMACIÓN Acompañamiento CREATOR IA",
+    trainingSupport: "FORMACIÓN Acompañamiento CREATORS IA",
     collaborations: "Colaboraciones y Videos con Ander",
     automateYourBusiness: "MÁS INFO"
 
