@@ -124,12 +124,19 @@ const IndividualsPage = () => {
           
           <div className="mt-4 flex flex-col space-y-4">
           <button
+              onClick={() => window.open('https://forms.gle/M4LG9vjPComq2tRm8', '_blank')}
+              className="font-semibold bg-white border border-blue-600 text-blue-600 py-3 px-6 rounded-full hover:bg-blue-600 hover:text-white transition duration-200 text-lg shadow-md hover:shadow-lg whitespace-pre-wrap"
+            >
+              {t('book')}
+            </button>
+           {/* 
+                     <button
               onClick={() => window.open('https://www.amazon.es/dp/B0DQJK5NK9?ref_=pe_93986420_774957520', '_blank')}
               className="font-semibold bg-white border border-blue-600 text-blue-600 py-3 px-6 rounded-full hover:bg-blue-600 hover:text-white transition duration-200 text-lg shadow-md hover:shadow-lg whitespace-pre-wrap"
             >
               {t('book')}
             </button>
-           {/* <button
+           <button
               onClick={() => router.push('/auth/signin')}
               className="font-semibold bg-white border border-blue-600 text-blue-600 py-3 px-6 rounded-full hover:bg-blue-600 hover:text-white transition duration-200 text-lg shadow-md hover:shadow-lg whitespace-pre-wrap"
             >

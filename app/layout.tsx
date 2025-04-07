@@ -9,7 +9,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'FocusIA',
+  title: 'CreatorsAi',
   description: 'Your AI-powered goal achievement companion',
 }
 
